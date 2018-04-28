@@ -12,6 +12,7 @@ public interface Formula {
     int sdf();
 
     default int test() {
+        System.out.println("111");
         return 1;
     }
 

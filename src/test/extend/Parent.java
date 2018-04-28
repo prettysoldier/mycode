@@ -7,20 +7,24 @@ package test.extend;
 /**
  * @author Shuaijun He
  */
-public class Parent extends Child {
+public class Parent {
 
-    /*
-     * (non-Javadoc)
-     * @see test.extend.Child#name()
-     */
-    @Override
+    static int m = 1;
+
+    static {
+        System.out.println("Parent init");
+    }
+
     public void name() {
         System.out.println("parent");
     }
 
-    public static void main(String[] args) {
-        Parent p = new Parent();
+    public void f() {
+        this.name();
+        System.out.println("parent haha");
+    }
 
-        p.f();
+    public static void g() {
+
     }
 }

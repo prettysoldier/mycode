@@ -9,7 +9,7 @@ package test;
  */
 public class D {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
 //        try (BufferedReader br = new BufferedReader(new InputStreamReader(
 //            new FileInputStream(new File("sdf"))))) {
 //            br.readLine();
@@ -21,6 +21,10 @@ public class D {
 //            e.printStackTrace();
 //        }
 
+        Integer c = 321;
+        Integer b = 321;
+        System.out.println(c == b);
+
         try {
             int a = 0;
             System.out.println(10 / a);
@@ -28,6 +32,10 @@ public class D {
             System.out.println(e);
             e.printStackTrace();
         }
+        String str = "a,b,c,,";
+        String[] ary = str.split(",");
+        //预期大于3，结果是3
+        System.out.println(ary.length);
 
     }
 }
