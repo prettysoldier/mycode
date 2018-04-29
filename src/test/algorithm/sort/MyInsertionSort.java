@@ -27,15 +27,4 @@ public class MyInsertionSort extends MySortBase {
             a[j] = tmp;
         }
     }
-
-    /*
-     * (non-Javadoc)
-     * @see test.algorithm.sort.MySort#sort(java.util.List)
-     */
-    @Override
-    protected <T extends Comparable<? super T>> void sort(List<T> a) {
-        // TODO Auto-generated method stub
-
-    }
-
 }

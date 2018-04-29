@@ -13,7 +13,6 @@ import java.util.Random;
  */
 public class MyQuickSort extends MySortBase {
 
-    private static final int CUTOFF = 10;
     
     /**
      * 用数组实现
@@ -22,6 +21,8 @@ public class MyQuickSort extends MySortBase {
     protected <T extends Comparable<? super T>> void sort(T[] a) {
         quicksort(a,0,a.length-1);
     }
+    
+    private static final int CUTOFF = 10;
     
     private static <T extends Comparable<? super T>> void quicksort(T[] a, int left, int right) {
         if(left+CUTOFF<=right) {

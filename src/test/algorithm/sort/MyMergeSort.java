@@ -4,7 +4,6 @@
  */
 package test.algorithm.sort;
 
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -70,24 +69,6 @@ public class MyMergeSort extends MySortBase {
         for (int i = 0; i < Client.SIZE; i++) {
             arr[i] = r.nextInt(Client.SIZE);
         }
-        long start = System.currentTimeMillis();
-        MyMergeSort.mergeSort(arr);
-        long spent = System.currentTimeMillis() - start;
-        System.out.println("花费：" + spent + "ms");
-
-//        for (Integer i : arr) {
-//            System.out.print(i + ", ");
-//        }
-
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see test.algorithm.sort.MySort#sort(java.util.List)
-     */
-    @Override
-    protected <T extends Comparable<? super T>> void sort(List<T> a) {
-        // TODO Auto-generated method stub
-
+        new MyMergeSort().sortWithLog(arr);
     }
 }

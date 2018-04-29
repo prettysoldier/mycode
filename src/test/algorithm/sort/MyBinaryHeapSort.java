@@ -13,11 +13,6 @@ import test.algorithm.priorityqueue.MyBinaryHeap;
  * @author Shuaijun He
  */
 public class MyBinaryHeapSort extends MySortBase {
-
-    /*
-     * (non-Javadoc)
-     * @see test.algorithm.sort.MySort#sort(java.lang.Comparable[])
-     */
     @Override
     protected <T extends Comparable<? super T>> void sort(T[] a) {
         T[] tmp = Arrays.copyOf(a, a.length);
@@ -26,13 +21,4 @@ public class MyBinaryHeapSort extends MySortBase {
             a[i] = heap.deleteMin();
         }
     }
-
-    /*
-     * (non-Javadoc)
-     * @see test.algorithm.sort.MySort#sort(java.util.List)
-     */
-    @Override
-    protected <T extends Comparable<? super T>> void sort(List<T> a) {
-    }
-
 }

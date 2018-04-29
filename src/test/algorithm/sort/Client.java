@@ -14,7 +14,7 @@ import java.util.Random;
 public class Client {
 
     /**
-     * 最大[-21.47亿,+21.47]
+     * int最大[-21.47亿,+21.47]
      */
     static final int SIZE = 1000_0000;
 
