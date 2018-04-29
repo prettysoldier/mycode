@@ -17,6 +17,7 @@ import java.util.Random;
 public class MyMergeSort extends MySort {
 
     public static <T extends Comparable<? super T>> void mergeSort(T[] t) {
+        @SuppressWarnings("unchecked")
         T[] tmpArray = (T[]) new Comparable[t.length];
         MyMergeSort.mergeSort(t, tmpArray, 0, t.length - 1);
     }

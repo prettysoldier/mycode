@@ -35,7 +35,7 @@ public class Client {
             System.out.println();
         }
 
-        for (int round = Client.SIZE / 10; round <= Client.SIZE; round += Client.SIZE / 10) {
+        for (int round = Client.SIZE/10 ; round <= Client.SIZE; round += Client.SIZE / 10) {
             System.out.println("round:" + round);
             List<Integer> quickList = new ArrayList<>();
             for (int i = 0; i < round; i++) {
@@ -50,12 +50,15 @@ public class Client {
             quickList.toArray(shellArr);
             Integer[] heapArr = new Integer[quickList.size()];
             quickList.toArray(heapArr);
+            Integer[] quickArr = new Integer[quickList.size()];
+            quickList.toArray(quickArr);
 
 //            new MyInsertionSort().sortWithLog(insertSort);
             new MyShellSort().sortWithLog(shellArr);
             new MyQuickSort().sortWithLog(quickList);
             new MyBinaryHeapSort().sortWithLog(heapArr);
             new MyMergeSort().sortWithLog(mergeArr);
+            new MyQuickSort().sortWithLog(quickArr);
 
             System.out.println("-----------------------------");
         }

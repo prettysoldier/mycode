@@ -10,6 +10,7 @@ package test.algorithm.priorityqueue;
  */
 public class MyBinaryHeap<T extends Comparable<? super T>> {
 
+    @SuppressWarnings("unused")
     private static final int DEFAULT_CAPACITY = 10;
     private T[] array;
     private int currentSize;
@@ -22,6 +23,7 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
         // TODO
     }
 
+    @SuppressWarnings("unchecked")
     public MyBinaryHeap(T[] items) {
         this.currentSize = items.length;
         this.array = (T[]) new Comparable[(this.currentSize + 2) * 11 / 10];
