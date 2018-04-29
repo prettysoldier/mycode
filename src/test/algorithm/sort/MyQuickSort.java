@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
+/**快速排序   最坏：O(N^2) 平均：O(NlogN) 取决于枢纽元的选取（三数中值分割法）
  * @author Shuaijun He
  */
 public class MyQuickSort extends MySortBase {

@@ -7,7 +7,7 @@ package test.algorithm.selection.problem;
 import test.algorithm.sort.MyInsertionSort;
 import test.algorithm.sort.MyQuickSort;
 
-/**
+/**快速选择
  * @author Administrator
  *
  */

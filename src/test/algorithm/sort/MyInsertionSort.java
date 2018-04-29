@@ -7,6 +7,7 @@ package test.algorithm.sort;
 import java.util.List;
 
 /**
+ * 插入排序：O(n^2) 
  * @author Shuaijun He
  */
 public class MyInsertionSort extends MySortBase {

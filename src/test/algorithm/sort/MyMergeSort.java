@@ -8,9 +8,11 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * 归并排序
- * 算法与（LegacyMergeSort）相同
+ * 归并排序 O(NlogN)
+ * 算法与{@link LegacyMergeSort}遗产归并排序相同
  * 据说TimSort的性能更高
+ * 
+ * 
  *
  * @author Shuaijun He
  */

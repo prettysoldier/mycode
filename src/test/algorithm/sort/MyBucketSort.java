@@ -7,7 +7,9 @@ package test.algorithm.sort;
 import java.util.Random;
 
 
-/**
+/**桶排序：时间复杂度O(M+N)。 N:待排序的数组大小；M:待排序数组中的最大值+1。
+ * 速度达到线性时间，但是耗费内存。
+ * 
  * @author Administrator
  *
  */

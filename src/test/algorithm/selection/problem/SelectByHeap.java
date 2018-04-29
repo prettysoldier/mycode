@@ -9,7 +9,7 @@ import java.util.Random;
 import test.algorithm.priorityqueue.MyBinaryHeap;
 
 /**
- * 
+ * 堆
  * @author Administrator
  *
  */

@@ -7,12 +7,15 @@ package test.algorithm.sort;
 import java.util.List;
 
 /**
- * 希尔排序
- *
+ * 希尔排序Shellsort（缩减增量排序diminishing increment sort）
+ * TODO 使用Hibbard增量的希尔排序
  * @author Shuaijun He
  */
 public class MyShellSort extends MySortBase {
 
+    /**
+     * O(n^2)
+     */
     @Override
     public <T extends Comparable<? super T>> void sort(T[] a) {
         int j;
