@@ -13,9 +13,14 @@ import java.util.Random;
  */
 public class Client {
 
-    static final int SIZE = 100_0000;
+    /**
+     * 最大[-21.47亿,+21.47]
+     */
+    static final int SIZE = 1000_0000;
 
     static boolean log = false;
+    
+    private static boolean isBucketSort = true;
 
     static {
 //        Client.log = true;
@@ -34,9 +39,9 @@ public class Client {
             }
             System.out.println();
         }
-
-        for (int round = Client.SIZE/10 ; round <= Client.SIZE; round += Client.SIZE / 10) {
-            System.out.println("round:" + round);
+        int round = isBucketSort? Client.SIZE : Client.SIZE/10;
+        for (; round <= Client.SIZE; round += Client.SIZE / 10) {
+            System.out.println("round:" + round+ " go~~");
             List<Integer> quickList = new ArrayList<>();
             for (int i = 0; i < round; i++) {
                 quickList.add(ranArr.get(i));
@@ -52,15 +57,18 @@ public class Client {
             quickList.toArray(heapArr);
             Integer[] quickArr = new Integer[quickList.size()];
             quickList.toArray(quickArr);
+            Integer[] bucketArr = new Integer[quickList.size()];
+            quickList.toArray(bucketArr);
 
 //            new MyInsertionSort().sortWithLog(insertSort);
-            new MyShellSort().sortWithLog(shellArr);
-            new MyQuickSort().sortWithLog(quickList);
-            new MyBinaryHeapSort().sortWithLog(heapArr);
-            new MyMergeSort().sortWithLog(mergeArr);
+//            new MyShellSort().sortWithLog(shellArr);
+//            new MyQuickSort().sortWithLog(quickList);
+//            new MyBinaryHeapSort().sortWithLog(heapArr);
+//            new MyMergeSort().sortWithLog(mergeArr);
             new MyQuickSort().sortWithLog(quickArr);
+            new MyBucketSort().sortWithLog4Integer(bucketArr);
 
-            System.out.println("-----------------------------");
+            System.out.println("===============");
         }
     }
 }

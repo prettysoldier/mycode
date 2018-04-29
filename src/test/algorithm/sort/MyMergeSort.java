@@ -14,7 +14,7 @@ import java.util.Random;
  *
  * @author Shuaijun He
  */
-public class MyMergeSort extends MySort {
+public class MyMergeSort extends MySortBase {
 
     public static <T extends Comparable<? super T>> void mergeSort(T[] t) {
         @SuppressWarnings("unchecked")

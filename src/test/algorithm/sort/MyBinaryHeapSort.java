@@ -12,7 +12,7 @@ import test.algorithm.priorityqueue.MyBinaryHeap;
 /**
  * @author Shuaijun He
  */
-public class MyBinaryHeapSort extends MySort {
+public class MyBinaryHeapSort extends MySortBase {
 
     /*
      * (non-Javadoc)

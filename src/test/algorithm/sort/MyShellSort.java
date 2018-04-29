@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Shuaijun He
  */
-public class MyShellSort extends MySort {
+public class MyShellSort extends MySortBase {
 
     @Override
     public <T extends Comparable<? super T>> void sort(T[] a) {

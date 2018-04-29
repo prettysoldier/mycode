@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Shuaijun He
  */
-public class MyInsertionSort extends MySort {
+public class MyInsertionSort extends MySortBase {
 
     @Override
     public <T extends Comparable<? super T>> void sort(T[] a) {

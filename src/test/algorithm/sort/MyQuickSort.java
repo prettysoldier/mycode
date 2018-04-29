@@ -6,11 +6,12 @@ package test.algorithm.sort;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Shuaijun He
  */
-public class MyQuickSort extends MySort {
+public class MyQuickSort extends MySortBase {
 
     private static final int CUTOFF = 10;
     
@@ -106,5 +107,17 @@ public class MyQuickSort extends MySort {
             items.addAll(same);
             items.addAll(larger);
         }
+    }
+    
+    
+    private static final int M = 1_000_0000;
+    
+    public static void main(String[] args) {
+        Random r = new Random();
+        Integer[] a =  new Integer[M];
+        for(int i = 0; i<M; i++ ){
+            a[i]=r.nextInt(M);
+        }
+        new MyQuickSort().sortWithLog(a);
     }
 }
