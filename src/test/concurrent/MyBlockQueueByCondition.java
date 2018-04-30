@@ -6,6 +6,9 @@ package test.concurrent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 如果对象调用了wait方法就会使持有该对象的线程把该对象的控制权交出去，然后处于等待状态。
@@ -14,25 +17,36 @@ import java.util.List;
  * 
  * @author Shuaijun He
  */
-public class BlockQueue {
+public class MyBlockQueueByCondition {
 
     private List<Object> list = new ArrayList<>();
+    private Lock lock = new ReentrantLock();
+    private Condition conditon = lock.newCondition();
 
-    public synchronized Object pop() throws InterruptedException {
-
-        while (this.list.size() == 0) {
-            this.wait();
+    public Object pop(){
+        try {
+            lock.lock();
+            while (this.list.size() == 0) {
+                conditon.await();
+            }
+            if (this.list.size() > 0) {
+                return this.list.remove(0);
+            } 
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            lock.unlock();
         }
-        if (this.list.size() > 0) {
-            return this.list.remove(0);
-        } else {
-            return null;
-        }
+        return null;
     }
 
-    public synchronized void put(Object obj) {
-        this.list.add(obj);
-        this.notify();
+    public void put(Object obj) {
+        try{lock.lock();
+            this.list.add(obj);
+            conditon.signal();
+        }finally {
+            lock.unlock();
+        }
     }
 
     public int size() {
@@ -40,7 +54,7 @@ public class BlockQueue {
     }
 
     public static void main(String[] args) {
-        BlockQueue bq = new BlockQueue();
+        MyBlockQueueByCondition bq = new MyBlockQueueByCondition();
         Thread th1 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -49,7 +63,7 @@ public class BlockQueue {
                     try {
                         System.out.println("th1, bq size is " + bq.size());
                         System.out.println(bq.pop());
-                        Thread.sleep(2000);
+                        Thread.sleep(4000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -66,7 +80,6 @@ public class BlockQueue {
                 while (true) {
                     System.out.println("th2, bq size is " + bq.size());
                     bq.put(new Item(i++ + ""));
-                    Thread.currentThread();
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
@@ -76,27 +89,6 @@ public class BlockQueue {
             }
         });
         th2.start();
-
-    }
-
-}
-
-class Item {
-    private String name;
-
-    /**
-     * @param name
-     */
-    public Item(String name) {
-        this.name = name;
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return this.name;
     }
 }
+
