@@ -4,11 +4,10 @@
  */
 package test.algorithm.sort;
 
-import java.util.List;
-
 /**
  * 希尔排序Shellsort（缩减增量排序diminishing increment sort）
  * TODO 使用Hibbard增量的希尔排序
+ * 
  * @author Shuaijun He
  */
 public class MyShellSort extends MySortBase {
