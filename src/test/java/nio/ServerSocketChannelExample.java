@@ -2,7 +2,7 @@
  * Copyright(c) 2011-2017 by YouCredit Inc.
  * All Rights Reserved
  */
-package test.nio;
+package test.java.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
