@@ -1,12 +1,8 @@
-/**
- * Copyright(c) 2011-2018 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.algorithm.sort;
 
 /**
  * 插入排序：O(n^2)
- * 
+ *
  * @author Shuaijun He
  */
 public class MyInsertionSort extends MySortBase {

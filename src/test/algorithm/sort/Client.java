@@ -1,7 +1,3 @@
-/**
- * Copyright(c) 2011-2018 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.algorithm.sort;
 
 import java.util.ArrayList;
@@ -19,7 +15,7 @@ public class Client {
     static final int SIZE = 1000_0000;
 
     static boolean log = false;
-    
+
     private static boolean isBucketSort = true;
 
     static {
@@ -39,9 +35,9 @@ public class Client {
             }
             System.out.println();
         }
-        int round = isBucketSort? Client.SIZE : Client.SIZE/10;
+        int round = Client.isBucketSort ? Client.SIZE : Client.SIZE / 10;
         for (; round <= Client.SIZE; round += Client.SIZE / 10) {
-            System.out.println("round:" + round+ " go~~");
+            System.out.println("round:" + round + " go~~");
             List<Integer> quickList = new ArrayList<>();
             for (int i = 0; i < round; i++) {
                 quickList.add(ranArr.get(i));

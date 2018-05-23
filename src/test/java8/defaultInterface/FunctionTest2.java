@@ -1,7 +1,4 @@
-/**
- * Copyright(c) 2011-2016 by YouCredit Inc.
- * All Rights Reserved
- */
+
 package test.java8.defaultInterface;
 
 import java.time.Clock;

@@ -1,7 +1,3 @@
-/**
- * Copyright(c) 2011-2018 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.algorithm.sort;
 
 import java.util.List;
@@ -14,7 +10,7 @@ public abstract class MySort {
     protected abstract <T extends Comparable<? super T>> void sort(T[] a);
 
     protected abstract <T extends Comparable<? super T>> void sort(List<T> a);
-    
+
     protected abstract void sort4Integer(Integer[] a);
 
     public <T extends Comparable<? super T>> void sortWithLog(T[] a) {
@@ -62,7 +58,7 @@ public abstract class MySort {
             System.out.println("------------");
         }
     }
-    
+
     public void sortWithLog4Integer(Integer[] a) {
 
         if (Client.log) {

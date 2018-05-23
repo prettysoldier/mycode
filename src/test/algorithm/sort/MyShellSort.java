@@ -1,13 +1,9 @@
-/**
- * Copyright(c) 2011-2018 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.algorithm.sort;
 
 /**
  * 希尔排序Shellsort（缩减增量排序diminishing increment sort）
  * TODO 使用Hibbard增量的希尔排序
- * 
+ *
  * @author Shuaijun He
  */
 public class MyShellSort extends MySortBase {

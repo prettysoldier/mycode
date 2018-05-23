@@ -1,7 +1,3 @@
-/**
- * Copyright(c) 2011-2017 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.crc;
 
 import java.util.zip.CRC32;

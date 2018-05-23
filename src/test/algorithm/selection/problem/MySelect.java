@@ -1,7 +1,3 @@
-/**
- * Copyright(c) 2011-2018 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.algorithm.selection.problem;
 
 /**
@@ -10,7 +6,6 @@ package test.algorithm.selection.problem;
 public abstract class MySelect {
 
     protected abstract <T extends Comparable<? super T>> T select(T[] a, int k);
-
 
     public <T extends Comparable<? super T>> void selectWithLog(T[] a, int k) {
 
@@ -22,9 +17,9 @@ public abstract class MySelect {
         }
 
         long start = System.currentTimeMillis();
-        T t = this.select(a,k);
+        T t = this.select(a, k);
         if (Client.log) {
-            System.out.println("第"+k+"小元素是："+t);
+            System.out.println("第" + k + "小元素是：" + t);
         }
         long spent = System.currentTimeMillis() - start;
         System.out.println(this.getClass() + "花费：" + spent + "ms");

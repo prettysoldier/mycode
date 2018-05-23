@@ -1,7 +1,3 @@
-/**
- * Copyright(c) 2011-2016 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.concurrent;
 
 import java.util.Vector;
@@ -20,22 +16,16 @@ public class VectorTest {
                 VectorTest.vector.add(i);
             }
 
-            Thread removeThread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < VectorTest.vector.size(); i++) {
-                        VectorTest.vector.remove(i);
-                    }
+            Thread removeThread = new Thread(() -> {
+                for (int i = 0; i < VectorTest.vector.size(); i++) {
+                    VectorTest.vector.remove(i);
                 }
             });
 
-            Thread getThread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < VectorTest.vector.size(); i++) {
-                        System.out.println(VectorTest.vector.get(i));
-                        System.out.println("size:" + VectorTest.vector.size());
-                    }
+            Thread getThread = new Thread(() -> {
+                for (int i = 0; i < VectorTest.vector.size(); i++) {
+                    System.out.println(VectorTest.vector.get(i));
+                    System.out.println("size:" + VectorTest.vector.size());
                 }
             });
 

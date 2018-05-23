@@ -1,14 +1,9 @@
-/**
- * Copyright(c) 2011-2017 by YouCredit Inc.
- * All Rights Reserved
- */
+
 package test.time;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.TimeZone;
-
-import org.junit.Test;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +24,6 @@ public class Time {
         System.out.println(date);
     }
 
-    @Test
     public void testTimeZone01() throws Exception {
         TimeZoneDto dto = new TimeZoneDto();
         Date date = new Date();

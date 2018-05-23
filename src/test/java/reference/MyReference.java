@@ -1,7 +1,4 @@
-/**
- * Copyright(c) 2011-2018 by YouCredit Inc.
- * All Rights Reserved
- */
+
 package test.java.reference;
 
 import java.lang.ref.PhantomReference;

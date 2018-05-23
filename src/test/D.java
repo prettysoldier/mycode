@@ -1,15 +1,13 @@
-/**
- * Copyright(c) 2011-2016 by YouCredit Inc.
- * All Rights Reserved
- */
+
 package test;
+
 
 /**
  * @author Shuaijun He
  */
 public class D {
 
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public static void main(String[] args) {
 //        try (BufferedReader br = new BufferedReader(new InputStreamReader(
 //            new FileInputStream(new File("sdf"))))) {
 //            br.readLine();
@@ -36,6 +34,5 @@ public class D {
         String[] ary = str.split(",");
         //预期大于3，结果是3
         System.out.println(ary.length);
-
     }
 }

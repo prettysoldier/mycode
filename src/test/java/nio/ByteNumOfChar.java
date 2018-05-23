@@ -1,8 +1,5 @@
-/**
- * Copyright(c) 2011-2017 by YouCredit Inc.
- * All Rights Reserved
- */
-package test.java.nio;
+
+package test.nio;
 
 import java.io.UnsupportedEncodingException;
 

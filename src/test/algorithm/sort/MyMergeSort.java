@@ -1,7 +1,3 @@
-/**
- * Copyright(c) 2011-2018 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.algorithm.sort;
 
 import java.util.Random;

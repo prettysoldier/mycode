@@ -1,7 +1,4 @@
-/**
- * Copyright(c) 2011-2017 by YouCredit Inc.
- * All Rights Reserved
- */
+
 package test.interface_;
 
 import test.interface_.InterfaceTest.IHello;

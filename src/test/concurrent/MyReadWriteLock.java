@@ -1,7 +1,3 @@
-/**
- * Copyright(c) 2011-2016 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.concurrent;
 
 import java.util.concurrent.locks.Lock;

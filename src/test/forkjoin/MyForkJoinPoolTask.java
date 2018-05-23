@@ -1,7 +1,4 @@
-/**
- * Copyright(c) 2011-2018 by YouCredit Inc.
- * All Rights Reserved
- */
+
 package test.forkjoin;
 
 import java.util.concurrent.ForkJoinPool;

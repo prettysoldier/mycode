@@ -1,7 +1,4 @@
-/**
- * Copyright(c) 2011-2017 by YouCredit Inc.
- * All Rights Reserved
- */
+
 package test.try_catch_finally;
 
 /**

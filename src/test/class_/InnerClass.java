@@ -1,7 +1,3 @@
-/**
- * Copyright(c) 2011-2017 by YouCredit Inc.
- * All Rights Reserved
- */
 package test.class_;
 
 /**
@@ -10,13 +6,9 @@ package test.class_;
 public class InnerClass {
 
     public void f() {
-        new Thread(new Runnable() {
+        new Thread(() -> {
+            // TODO Auto-generated method stub
 
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-
-            }
         }).start();
     }
 
