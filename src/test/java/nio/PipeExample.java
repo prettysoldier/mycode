@@ -1,5 +1,4 @@
-
-package test.nio;
+package test.java.nio;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -28,8 +27,7 @@ public class PipeExample {
         Pipe.SourceChannel sourceChannel = pipe.source();
 
         ByteBuffer readBuf = ByteBuffer.allocate(48);
-        int bytesRead = sourceChannel.read(readBuf);
-        
+        sourceChannel.read(readBuf);
 
         readBuf.flip();
 

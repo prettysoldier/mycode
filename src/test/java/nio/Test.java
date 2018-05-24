@@ -1,5 +1,4 @@
-
-package test.nio;
+package test.java.nio;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
