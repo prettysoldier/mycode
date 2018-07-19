@@ -8,10 +8,11 @@ import java.nio.channels.FileChannel;
 /**
  * @author Shuaijun He
  */
-public class Test {
+public class ByteBufferDemo {
 
     public static void main(String[] args) throws IOException {
-        try (RandomAccessFile aFile = new RandomAccessFile("D:/qqkey", "rw");
+        try (RandomAccessFile aFile = new RandomAccessFile("D:/qqkey.txt",
+            "r");
                 FileChannel inChannel = aFile.getChannel();) {
 
             ByteBuffer buf = ByteBuffer.allocate(48);
