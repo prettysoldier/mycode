@@ -6,7 +6,7 @@ package test;
  */
 public class PassValueTest {
     public static void changeInt(int i) {// 改变int型变量的函数
-        i = 100;
+        i = 1000;
     }
 
     public static void changeString(String s) {// 改变String型变量的函数
