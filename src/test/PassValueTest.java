@@ -5,7 +5,9 @@ package test;
  * @author Shuaijun He
  */
 public class PassValueTest {
+
     public static void changeInt(int i) {// 改变int型变量的函数
+
         i = 100;
     }
 
