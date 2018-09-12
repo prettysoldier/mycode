@@ -12,11 +12,11 @@ public class Parent {
         System.out.println("Parent init");
     }
 
-    public void name() {
+    public void name() throws ArithmeticException {
         System.out.println("parent");
     }
 
-    public void f() {
+    public void f() throws Exception {
         this.name();
         System.out.println("parent haha");
     }

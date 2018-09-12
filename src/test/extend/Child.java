@@ -13,13 +13,20 @@ public class Child extends Parent {
     // 说明属性是可以重载的，但不建议使用
 //    static int m = 2;
 
+
     /*
      * (non-Javadoc)
-     * @see test.extend.Child#name()
+     * @see test.extend.Parent#f()
      */
     @Override
-    public void name() {
-        System.out.println("child");
+    public void f() {
+        try {
+            name();
+        } catch (ArithmeticException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        throw new RuntimeException();
     }
 
     public static void g() {
