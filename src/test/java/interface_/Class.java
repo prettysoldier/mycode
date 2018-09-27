@@ -1,7 +1,7 @@
 
-package test.interface_;
+package test.java.interface_;
 
-import test.interface_.InterfaceTest.IHello;
+import test.java.interface_.InterfaceTest.IHello;
 
 /**
  * @author Shuaijun He
