@@ -1,4 +1,4 @@
-package test.concurrent;
+package test.java.concurrent;
 
 import java.util.Vector;
 

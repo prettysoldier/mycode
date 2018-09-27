@@ -1,4 +1,4 @@
-package test.dispatch;
+package test.java.overload;
 
 /**
  * 这道题 考验对重载的理解程度
@@ -35,6 +35,11 @@ public class StaticDispatch {
         StaticDispatch sd = new StaticDispatch();
         sd.sayHello(man);
         sd.sayHello(woman);
+
+        Man man1 = new Man();
+        Woman woman1 = new Woman();
+        sd.sayHello(man1);
+        sd.sayHello(woman1);
     }
 
 }

@@ -1,4 +1,4 @@
-package test.dispatch;
+package test.java.overload;
 
 /**
  * 重写：多态，动态单分配
@@ -15,11 +15,11 @@ public class DynamicDispatch {
 
     static class Man extends Human {
 
-//        @Override
-//        public void sayHello() {
-//            // TODO Auto-generated method stub
-//            System.out.println("man say hello");
-//        }
+        @Override
+        public void sayHello() {
+            // TODO Auto-generated method stub
+            System.out.println("man say hello");
+        }
     }
 
     static class Woman extends Human {

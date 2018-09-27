@@ -1,7 +1,10 @@
-package test.concurrent;
+package test.java.concurrent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 如果对象调用了wait方法就会使持有该对象的线程把该对象的控制权交出去，然后处于等待状态。
@@ -10,25 +13,37 @@ import java.util.List;
  *
  * @author Shuaijun He
  */
-public class MyBlockQueue {
+public class MyBlockQueueByCondition {
 
     private List<Object> list = new ArrayList<>();
+    private Lock lock = new ReentrantLock();
+    private Condition conditon = this.lock.newCondition();
 
-    public synchronized Object pop() throws InterruptedException {
-
-        while (this.list.size() == 0) {
-            this.wait();
+    public Object pop() {
+        try {
+            this.lock.lock();
+            while (this.list.size() == 0) {
+                this.conditon.await();
+            }
+            if (this.list.size() > 0) {
+                return this.list.remove(0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.lock.unlock();
         }
-        if (this.list.size() > 0) {
-            return this.list.remove(0);
-        } else {
-            return null;
-        }
+        return null;
     }
 
-    public synchronized void put(Object obj) {
-        this.list.add(obj);
-        this.notify();
+    public void put(Object obj) {
+        try {
+            this.lock.lock();
+            this.list.add(obj);
+            this.conditon.signal();
+        } finally {
+            this.lock.unlock();
+        }
     }
 
     public int size() {
@@ -36,7 +51,7 @@ public class MyBlockQueue {
     }
 
     public static void main(String[] args) {
-        MyBlockQueue bq = new MyBlockQueue();
+        MyBlockQueueByCondition bq = new MyBlockQueueByCondition();
         Thread th1 = new Thread(() -> {
             while (true) {
 
@@ -65,27 +80,5 @@ public class MyBlockQueue {
             }
         });
         th2.start();
-
-    }
-
-}
-
-class Item {
-    private String name;
-
-    /**
-     * @param name
-     */
-    public Item(String name) {
-        this.name = name;
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return this.name;
     }
 }

@@ -1,17 +1,16 @@
-package test.dispatch;
+package test.java.overload;
 
 /**
  * 重载优先级：自动转型和自动装箱的顺序
  * 顺序：char->int-> long ->float-> double-> 自动装箱-> 接口或父类-> Object -> char...
- * 如果有两个接口（或父类）的重载，会导致编译不通过
  *
  * @author Shuaijun He
  */
 public class Overload {
 
-    public static void sayHello(char arg) {
-        System.out.println("hello char : " + arg);
-    }
+//    public static void sayHello(char arg) {
+//        System.out.println("hello char : " + arg);
+//    }
 
     public static void sayHello(int arg) {
         System.out.println("hello int : " + arg);
@@ -67,7 +66,7 @@ public class Overload {
 
     public static void main(String[] args) {
 
-//        Overload.sayHello('a');
+        Overload.sayHello('a');
 //        Overload.sayHello(null);
     }
 

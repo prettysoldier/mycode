@@ -1,5 +1,5 @@
 
-package test.interface_;
+package test.java8.interface_;
 
 import test.interface_.InterfaceTest.IHello;
 

@@ -1,5 +1,5 @@
 
-package test.extend;
+package test.java.extend;
 
 /**
  * @author Shuaijun He
@@ -26,7 +26,6 @@ public class Child extends Parent {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        throw new RuntimeException();
     }
 
     public static void g() {
