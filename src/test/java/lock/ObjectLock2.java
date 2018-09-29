@@ -1,5 +1,5 @@
 
-package test.lock;
+package test.java.lock;
 
 /**
  * 方法所属实例不是同一个对象；对象锁是同一个对象

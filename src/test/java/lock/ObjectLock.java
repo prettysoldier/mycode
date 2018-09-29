@@ -1,5 +1,5 @@
 
-package test.lock;
+package test.java.lock;
 
 /**
  * @author Shuaijun He

@@ -12,11 +12,14 @@ public class A extends B {
 
     int a1, b1, c1;
 
+    A a;
+
     public A() {
 //        System.out.println("A before");
         this(1, 2); // 必须是第一行
 //        super(1); // 必须是第一行
         System.out.println("A after");
+        a = this;
     }
 
 
