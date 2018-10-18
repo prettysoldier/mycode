@@ -67,18 +67,13 @@ public class XmlParseByDomTest {
                     continue;
                 }
                 Class<?> c = null;
-                boolean found = true;
                 try {
                     objectName = upperCaseFirstChar(
                         underlineToHump(objectName));
                     c = Class.forName(PACKAGE_PREFIX + objectName);
                 } catch (Exception e1) {
-                    found = false;
-                }
-                if (!found) {
                     continue;
                 }
-
                 Object o = c.newInstance();
                 if ("object".equals(objectEle.getNodeName())) {
                     for (int i = 0; i < objectEle.getElementsByTagName("field")
