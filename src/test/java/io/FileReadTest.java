@@ -49,7 +49,7 @@ public class FileReadTest {
             e.printStackTrace();
 
         }
-        this.countTime(start);
+        countTime(start);
     }
 
     public void randomFileRead(String fileName) {
@@ -74,7 +74,7 @@ public class FileReadTest {
             e.printStackTrace();
 
         }
-        this.countTime(start);
+        countTime(start);
     }
 
     public void bufferedReader4FileReader(String fileName) {
@@ -86,10 +86,9 @@ public class FileReadTest {
             FileReader fr = new FileReader(fileName);
 
             BufferedReader bf = new BufferedReader(fr);
+            String str;
+            while ((str = bf.readLine()) != null) {
 
-            while (bf.readLine() != null) {
-
-                bf.readLine();
 
             }
 
@@ -104,7 +103,7 @@ public class FileReadTest {
             e.printStackTrace();
 
         }
-        this.countTime(start);
+        countTime(start);
     }
 
     public void bufferedReader4InputStream(String fileName) {
@@ -116,9 +115,9 @@ public class FileReadTest {
             BufferedReader bf = new BufferedReader(
                 new InputStreamReader(new FileInputStream(fileName)));
 
-            while (bf.readLine() != null) {
+            String str;
+            while ((str = bf.readLine()) != null) {
 
-                bf.readLine();
 
             }
             bf.close();
@@ -132,7 +131,7 @@ public class FileReadTest {
             e.printStackTrace();
 
         }
-        this.countTime(start);
+        countTime(start);
     }
 
     public void bufferedReader4InputStream2(String fileName) {
@@ -146,9 +145,8 @@ public class FileReadTest {
 
             BufferedReader bf = new BufferedReader(new InputStreamReader(in));
 
-            while (bf.readLine() != null) {
-
-                bf.readLine();
+            String str;
+            while ((str = bf.readLine()) != null) {
 
             }
             in.close();
@@ -163,7 +161,7 @@ public class FileReadTest {
             e.printStackTrace();
 
         }
-        this.countTime(start);
+        countTime(start);
     }
 
     public void mappedByteBufferRead(String fileName) {
@@ -203,7 +201,7 @@ public class FileReadTest {
             e.printStackTrace();
 
         }
-        this.countTime(start);
+        countTime(start);
     }
 
     public void countTime(long start) {
@@ -213,16 +211,13 @@ public class FileReadTest {
     }
 
     public static void main(String[] args) {
-        String s = "\na\r地方";
-        byte[] b = s.getBytes();
-        System.out.println(new String(b));
         FileReadTest test = new FileReadTest();
         test.mappedByteBufferRead(test.generalFile);
-//        test.bufferedReader4InputStream2(test.generalFile);
-//        test.bufferedReader4InputStream(test.generalFile);
-//        test.bufferedReader4FileReader(test.generalFile);
-//        test.generalFileRead(test.generalFile);
-//        test.randomFileRead(test.generalFile);
+        test.bufferedReader4InputStream2(test.generalFile);
+        test.bufferedReader4InputStream(test.generalFile);
+        test.bufferedReader4FileReader(test.generalFile);
+        test.generalFileRead(test.generalFile);
+        test.randomFileRead(test.generalFile);
 
 
     }
