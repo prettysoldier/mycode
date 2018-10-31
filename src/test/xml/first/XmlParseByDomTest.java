@@ -17,7 +17,6 @@ import test.xml.JsonUtil;
 
 public class XmlParseByDomTest {
 
-    private static final String PACKAGE_PREFIX = "test.xml.first.";
 
 //    @Test
     public void dom() {
@@ -70,7 +69,8 @@ public class XmlParseByDomTest {
                 try {
                     objectName = upperCaseFirstChar(
                         underlineToHump(objectName));
-                    c = Class.forName(PACKAGE_PREFIX + objectName);
+                    c = Class.forName(
+                        clazz.getPackage().getName() + "." + objectName);
                 } catch (Exception e1) {
                     continue;
                 }
@@ -83,10 +83,9 @@ public class XmlParseByDomTest {
                         String fName = field.getAttribute("name");
                         Method setMethod;
                         try {
-                            setMethod = c
-                                .getMethod("set" + upperCaseFirstChar(
-                                    underlineToHump(fName)),
-                                    String.class);
+                            setMethod = c.getMethod("set"
+                                + upperCaseFirstChar(underlineToHump(fName)),
+                                String.class);
                         } catch (Exception e1) {
                             continue;
                         }
@@ -98,7 +97,7 @@ public class XmlParseByDomTest {
 
                     }
                 }
-                Method rootSetMethod = Root.class.getMethod("set" + objectName,
+                Method rootSetMethod = clazz.getMethod("set" + objectName,
                     c);
                 rootSetMethod.invoke(root, o);
             }
