@@ -11,7 +11,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.junit.Test;
 
 import test.xml.JsonUtil;
 
@@ -20,7 +19,7 @@ public class XmlParseByJaxbTest {
 
 
 
-	@Test
+//	@Test
     public void saxb() {
 		RandomAccessFile accessFile = null;
 		try {

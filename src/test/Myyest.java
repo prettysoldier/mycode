@@ -1,5 +1,8 @@
 package test;
 
+import test.java.list.ArrayListTest;
+import test.java.throwab.A;
+
 import java.math.BigDecimal;
 import java.util.ArrayDeque;
 import java.util.Stack;
@@ -7,8 +10,8 @@ import java.util.Stack;
 public class Myyest {
 
     public void a() {
-        Stack<B> bs = new Stack<B>();
-        bs.push(new B());
+        Stack<ArrayListTest> bs = new Stack<ArrayListTest>();
+        bs.push(new ArrayListTest());
         System.out.println(bs);
 
         new ArrayDeque<>();

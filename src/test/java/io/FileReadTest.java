@@ -117,7 +117,7 @@ public class FileReadTest {
 
             String str;
             while ((str = bf.readLine()) != null) {
-
+//                System.out.println(str);
 
             }
             bf.close();
@@ -212,12 +212,12 @@ public class FileReadTest {
 
     public static void main(String[] args) {
         FileReadTest test = new FileReadTest();
-        test.mappedByteBufferRead(test.generalFile);
-        test.bufferedReader4InputStream2(test.generalFile);
+//        test.mappedByteBufferRead(test.generalFile);
+//        test.bufferedReader4InputStream2(test.generalFile);
         test.bufferedReader4InputStream(test.generalFile);
-        test.bufferedReader4FileReader(test.generalFile);
-        test.generalFileRead(test.generalFile);
-        test.randomFileRead(test.generalFile);
+//        test.bufferedReader4FileReader(test.generalFile);
+//        test.generalFileRead(test.generalFile);
+//        test.randomFileRead(test.generalFile);
 
 
     }

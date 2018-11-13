@@ -18,7 +18,7 @@ public class InterfaceTest {
     interface IHello {
         int a = 2;
 
-        void sayHello() throws Exception;
+        default void sayHello() throws Exception{};
 
         /**
          * JDK8 以后接口可以有方法体。
@@ -81,14 +81,6 @@ public class InterfaceTest {
 
 class A implements IHello {
 
-    /*
-     * (non-Javadoc)
-     * @see test.interface_.InterfaceTest.IHello#sayHello()
-     */
-    @Override
-    public void sayHello() {
-        // TODO Auto-generated method stub
 
-    }
 
 }
