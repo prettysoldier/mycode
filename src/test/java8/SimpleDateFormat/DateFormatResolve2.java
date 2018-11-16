@@ -1,5 +1,5 @@
 
-package test.SimpleDateFormat;
+package test.java8.SimpleDateFormat;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

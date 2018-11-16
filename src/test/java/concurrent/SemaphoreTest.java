@@ -7,6 +7,7 @@ import java.util.concurrent.Semaphore;
 /**
  * @author Shuaijun He
  */
+@SuppressWarnings("ALL")
 public class SemaphoreTest {
 
     public static void main(String[] args) {

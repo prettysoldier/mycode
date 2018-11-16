@@ -2,6 +2,7 @@ package test.timer;
 
 import java.util.Timer;
 
+@SuppressWarnings("ALL")
 public class MyTimer {
 
     public static void main(String[] args) {

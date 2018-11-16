@@ -8,8 +8,10 @@ import java.util.regex.Pattern;
  */
 public class MyRegex {
 
+    static   Pattern pattern = Pattern.compile("^[A-Z_][A-Z_|,]+[A-Z_]$");
+    static  Pattern p = Pattern.compile("^[^0]\\d{10}$");
+
     public static void main(String[] args) {
-        Pattern pattern = Pattern.compile("^[A-Z_][A-Z_|,]+[A-Z_]$");
         System.out.println("" + pattern.matcher("sdfgA,dfg").matches());
         System.out.println("" + pattern.matcher("ADSDF,").matches());
         System.out.println("" + pattern.matcher(",FFFGF").matches());
@@ -29,7 +31,6 @@ public class MyRegex {
         System.out.println(s);
         System.out.println(s1);
 
-        Pattern p = Pattern.compile("^[^0]\\d{10}$");
         System.out.println("" + p.matcher("15166666666").matches());
     }
 }

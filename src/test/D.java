@@ -1,13 +1,27 @@
 
 package test;
 
+import java.util.Date;
 
 /**
  * @author Shuaijun He
  */
+@SuppressWarnings("ALL")
 public class D {
 
+    private boolean haha;
+
+    public boolean isHaha() {
+        return haha;
+    }
+
+    public void setHaha(boolean haha) {
+        this.haha = haha;
+    }
+
     public static void main(String[] args) {
+        System.out.println(new Date().getTime());
+        System.out.println(System.currentTimeMillis());
 //        try (BufferedReader br = new BufferedReader(new InputStreamReader(
 //            new FileInputStream(new File("sdf"))))) {
 //            br.readLine();
@@ -28,7 +42,7 @@ public class D {
             System.out.println(10 / a);
         } catch (Exception e) {
             System.out.println(e);
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         String str = "a,b,c,,";
         String[] ary = str.split(",");

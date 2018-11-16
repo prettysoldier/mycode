@@ -53,6 +53,7 @@ public class InterfaceTest {
 
     interface IHello2 extends IHello {
 
+        @Override
         void sayHello();
     }
 

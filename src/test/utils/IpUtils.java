@@ -81,7 +81,7 @@ public class IpUtils {
         }
         String[] ipSections = ip.split("\\.");
         for (int i = 0; i < ipWhiteSections.length; i++) {
-            if (ipWhiteSections[i].equals("*")) {
+            if ("*".equals(ipWhiteSections[i])) {
                 continue;
             }
             if (ipWhiteSections[i].contains("-")) {

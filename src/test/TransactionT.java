@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 /**
  * @author Shuaijun He
  */
+@SuppressWarnings("ALL")
 public class TransactionT {
     private final static ExecutorService cachedThreadPool = Executors
         .newCachedThreadPool();

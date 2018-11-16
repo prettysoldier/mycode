@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * @author Shuaijun He
  */
+@SuppressWarnings("ALL")
 public class ForTest {
 
     public static void main(String[] args) throws InterruptedException {

@@ -10,7 +10,7 @@ public class MyInheritableThreadLocal extends InheritableThreadLocal<Object> {
 
     @Override
     protected Object initialValue() {
-        return new Date().getTime();
+        return System.currentTimeMillis();
     }
 
     public static void main(String[] args) {

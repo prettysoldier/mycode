@@ -4,6 +4,7 @@ package test;
 /**
  * @author Shuaijun He
  */
+@SuppressWarnings("ALL")
 public class IntegerTest {
 
     public static void main(String[] args) {
