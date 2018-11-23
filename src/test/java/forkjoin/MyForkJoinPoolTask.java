@@ -1,5 +1,5 @@
 
-package test.forkjoin;
+package test.java.forkjoin;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
