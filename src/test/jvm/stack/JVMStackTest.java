@@ -2,12 +2,12 @@
 package test.jvm.stack;
 
 /**
- * 栈的高度称为栈的深度，栈深度受栈帧大小影响。
+ * 虚拟机栈的高度称为栈的深度，栈深度受栈帧大小影响。
  * 在栈中存放局部变量，参数，运行中间结果
  *
  * @author Shuaijun He
  */
-public class StackTest {
+public class JVMStackTest {
     int count = 0;
 
     /**
@@ -53,7 +53,7 @@ public class StackTest {
     }
 
     public static void main(String[] args) {
-        StackTest test = new StackTest();
+        JVMStackTest test = new JVMStackTest();
         try {
 //            test.testStack();
             test.testStack(1, 2);

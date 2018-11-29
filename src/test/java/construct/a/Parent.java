@@ -8,17 +8,19 @@ package test.java.construct.a;
 public abstract class Parent
 {
 
-    static int parentStaticInt = 10;
+
     static {
         System.out.println("Parent static code block...");
-        System.out.println("parentStaticInt=" + parentStaticInt);
+//        System.out.println("parentStaticInt=" + parentStaticInt);
     }
+    static int parentStaticInt = 10;
 
-    int parentInt = 10;
+
 
     {
         System.out.println("Parent code block ...");
     }
+    int parentInt = 10;
 
     protected Parent(int b) {
         System.out.println("Parent construct " + b);

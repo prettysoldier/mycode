@@ -3,7 +3,6 @@
  */
 package test.java.construct;
 
-import test.java.construct.a.A;
 import test.java.construct.a.Parent;
 
 /**
