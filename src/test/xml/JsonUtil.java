@@ -5,21 +5,8 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-
 /**
- * <p> Title: JsonUtil.java </p>
- * 
- * <p> Description:  </p>
- * 
- * <p> Copyright: Copyright (c) 2015 </p>
- * 
- * <p> Company:  </p>
- * 
- * @author cyj
- * 
- * @version 1.0
- * 
- * @date 
+ *
  */
 public class JsonUtil {
 

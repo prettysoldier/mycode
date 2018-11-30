@@ -9,22 +9,30 @@ public class TryCatchFinally {
 
     public static void main(String[] args) {
 
-        System.out.println(test());
+        System.out.println(finallyNotWork());
     }
 
-    public static String test(){
+    /**
+     * finally 在return 表达式运行之后执行。
+     * 此时 return 的值 已经存到了一个新的局部变量中，
+     * 所以finally 并不会修改return 的值。
+     *
+     * finally 中有return语句，情况就不同了，会在加载一遍temp值返回，
+     * 所以【强制】不要在finally中写返回语句
+     * @return
+     */
+    public static int finallyNotWork(){
+        int temp = 10;
         try {
-            System.out.println("1");
-            System.out.println(1/0);
-            return "inner";
-        }catch (Exception e){
-            System.out.println("catch1");
-//            return "catch1";
-        }finally {
-            System.out.println("finally1");
-//            return "finally";
+            throw new Exception();
+        } catch (Exception e){
+            return ++temp;
         }
-        return "outer";
-
+        finally {
+            temp = 99;
+//            return temp;
+        }
     }
+
+
 }
