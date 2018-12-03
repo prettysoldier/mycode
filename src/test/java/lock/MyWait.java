@@ -1,5 +1,5 @@
 
-package test.java;
+package test.java.lock;
 
 /**
  * @author Shuaijun He
@@ -10,8 +10,8 @@ public class MyWait {
         System.out.println("start:" + System.currentTimeMillis());
         Object lock = new Object();
         synchronized (lock) {
-            lock.wait(1000);
+            lock.wait(3000);
         }
-        System.out.println("start:" + System.currentTimeMillis());
+        System.out.println("end:" + System.currentTimeMillis());
     }
 }

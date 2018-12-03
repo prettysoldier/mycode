@@ -14,13 +14,13 @@ public class NpeDemo {
 
     public static int a() {
         Integer a = null;
-        return a;
+        return a;//Exception in thread "main" java.lang.NullPointerException
     }
 
     public static void b() {
         List<Integer> list = new ArrayList<>();
         list.add(null);
-        System.out.println(list.size());
+        System.out.println(list.size());// 1
     }
 
     public static void main(String[] args) {

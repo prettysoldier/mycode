@@ -6,6 +6,15 @@ package test.algorithm.priorityqueue;
  */
 public class MyBinaryHeap<T extends Comparable<? super T>> {
 
+    public static void main(String[] args) {
+        Integer[] arr = { 3, 7, 1, 5, 2, 4, 8 };
+        MyBinaryHeap<Integer> heap = new MyBinaryHeap<>(arr);
+        int i = arr.length;
+        while (i-- > 0) {
+            System.out.print(heap.deleteMin() + ", ");
+        }
+    }
+
     @SuppressWarnings("unused")
     private static final int DEFAULT_CAPACITY = 10;
     private T[] array;
@@ -84,12 +93,5 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
         return this.currentSize <= 0;
     }
 
-    public static void main(String[] args) {
-        Integer[] arr = { 3, 7, 1, 5, 2, 4, 8 };
-        MyBinaryHeap<Integer> heap = new MyBinaryHeap<>(arr);
-        int i = arr.length;
-        while (i-- > 0) {
-            System.out.print(heap.deleteMin() + ", ");
-        }
-    }
+
 }

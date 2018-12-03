@@ -10,6 +10,14 @@ import java.util.Random;
  * @author Shuaijun He
  */
 public class MyMergeSort extends MySortBase {
+    public static void main(String[] args) {
+        Random r = new Random();
+        Integer[] arr = new Integer[Client.SIZE];
+        for (int i = 0; i < Client.SIZE; i++) {
+            arr[i] = r.nextInt(Client.SIZE);
+        }
+        new MyMergeSort().sortWithLog(arr);
+    }
 
     public static <T extends Comparable<? super T>> void mergeSort(T[] t) {
         @SuppressWarnings("unchecked")
@@ -54,15 +62,10 @@ public class MyMergeSort extends MySortBase {
 
     @Override
     protected <T extends Comparable<? super T>> void sort(T[] a) {
+
         MyMergeSort.mergeSort(a);
+//        Arrays.sort(a);
     }
 
-    public static void main(String[] args) {
-        Random r = new Random();
-        Integer[] arr = new Integer[Client.SIZE];
-        for (int i = 0; i < Client.SIZE; i++) {
-            arr[i] = r.nextInt(Client.SIZE);
-        }
-        new MyMergeSort().sortWithLog(arr);
-    }
+
 }
