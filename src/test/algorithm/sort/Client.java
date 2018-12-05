@@ -12,7 +12,7 @@ public class Client {
     /**
      * int最大[-21.47亿,+21.47]
      */
-    static final int SIZE = 1000_0000;
+    static final int SIZE = 10_0000;
 
     static boolean log = false;
 
@@ -45,24 +45,29 @@ public class Client {
 
             Integer[] mergeArr = new Integer[quickList.size()];
             quickList.toArray(mergeArr);
+
             Integer[] insertSort = new Integer[quickList.size()];
             quickList.toArray(insertSort);
+
             Integer[] shellArr = new Integer[quickList.size()];
             quickList.toArray(shellArr);
+
             Integer[] heapArr = new Integer[quickList.size()];
             quickList.toArray(heapArr);
+
             Integer[] quickArr = new Integer[quickList.size()];
             quickList.toArray(quickArr);
+
             Integer[] bucketArr = new Integer[quickList.size()];
             quickList.toArray(bucketArr);
-
+            // 此算法MyInsertionSort对于大合集简直是灾难！
 //            new MyInsertionSort().sortWithLog(insertSort);
 //            new MyShellSort().sortWithLog(shellArr);
 //            new MyQuickSort().sortWithLog(quickList);
 //            new MyBinaryHeapSort().sortWithLog(heapArr);
 //            new MyMergeSort().sortWithLog(mergeArr);
-            new MyQuickSort().sortWithLog(quickArr);
-            new MyBucketSort().sortWithLog4Integer(bucketArr);
+//            new MyQuickSort().sortWithLog(quickArr);
+//            new MyBucketSort().sortWithLog4Integer(bucketArr);
 
             System.out.println("===============");
         }

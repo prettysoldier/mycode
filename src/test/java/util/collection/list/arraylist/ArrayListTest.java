@@ -1,5 +1,5 @@
 
-package test.list;
+package test.java.util.collection.list.arraylist;
 
 import java.util.ArrayList;
 import java.util.Iterator;

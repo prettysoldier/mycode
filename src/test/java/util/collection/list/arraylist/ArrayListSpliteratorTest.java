@@ -1,4 +1,4 @@
-package test.java.util.collection.list;
+package test.java.util.collection.list.arraylist;
 
 import com.google.gson.Gson;
 

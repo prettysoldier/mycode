@@ -10,11 +10,11 @@ import java.util.Random;
  */
 public class MyBucketSort extends MySortBase {
 
-    private static final int M = 1_000_0000;
+    private static final int M = Client.SIZE;
 
     @Override
     protected void sort4Integer(Integer[] a) {
-        MyBucketSort.bucketSort(a, Client.SIZE);
+        MyBucketSort.bucketSort(a, a.length);
     }
 
     public static void bucketSort(Integer[] a, int m) {
@@ -36,8 +36,8 @@ public class MyBucketSort extends MySortBase {
 
     public static void main(String[] args) {
         Random r = new Random();
-        Integer[] a = new Integer[MyBucketSort.M];
-        for (int i = 0; i < MyBucketSort.M; i++) {
+        Integer[] a = new Integer[Client.SIZE];
+        for (int i = 0; i < Client.SIZE; i++) {
             a[i] = r.nextInt(MyBucketSort.M);
         }
         new MyBucketSort().sortWithLog4Integer(a);
