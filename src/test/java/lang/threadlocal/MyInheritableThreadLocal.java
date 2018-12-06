@@ -1,7 +1,5 @@
 
-package test.java.threadlocal;
-
-import java.util.Date;
+package test.java.lang.threadlocal;
 
 /**
  * @author Shuaijun He

@@ -1,4 +1,4 @@
-package test.java.concurrent;
+package test.java.util.concurrent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,18 +15,27 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class MyBlockQueueByCondition {
 
-    private List<Object> list = new ArrayList<>();
+    private int capacity;
+    private List<Object> list;
     private Lock lock = new ReentrantLock();
-    private Condition conditon = this.lock.newCondition();
+    private Condition emptyConditon = this.lock.newCondition();
+    private Condition fullConditon = this.lock.newCondition();
+
+    public MyBlockQueueByCondition(int capacity) {
+        this.capacity = capacity;
+        list = new ArrayList<>(capacity);
+    }
 
     public Object pop() {
         try {
             this.lock.lock();
             while (this.list.size() == 0) {
-                this.conditon.await();
+                this.emptyConditon.await();
             }
             if (this.list.size() > 0) {
-                return this.list.remove(0);
+                Object obj = this.list.remove(0);
+                this.fullConditon.signal();
+                return obj;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,8 +48,15 @@ public class MyBlockQueueByCondition {
     public void put(Object obj) {
         try {
             this.lock.lock();
+
+            while(list.size() >= this.capacity){
+                this.fullConditon.await();
+            }
             this.list.add(obj);
-            this.conditon.signal();
+            this.emptyConditon.signal();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             this.lock.unlock();
         }
@@ -51,34 +67,37 @@ public class MyBlockQueueByCondition {
     }
 
     public static void main(String[] args) {
-        MyBlockQueueByCondition bq = new MyBlockQueueByCondition();
-        Thread th1 = new Thread(() -> {
+        int size = 10;
+        MyBlockQueueByCondition bq = new MyBlockQueueByCondition(size);
+        Thread consumerThread = new Thread(() -> {
             while (true) {
 
                 try {
-                    System.out.println("th1, bq size is " + bq.size());
-                    System.out.println(bq.pop());
-                    Thread.sleep(4000);
+                    System.out.println("consumerThread, bq size is " + bq.size());
+                    System.out.println("consumerThread, 消费" + bq.pop());
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
 
         });
-        th1.start();
+        consumerThread.start();
 
-        Thread th2 = new Thread(() -> {
+        Thread producerThread = new Thread(() -> {
             int i = 0;
             while (true) {
-                System.out.println("th2, bq size is " + bq.size());
-                bq.put(new Item(i++ + ""));
+                System.out.println("producerThread, bq size is " + bq.size());
+
                 try {
                     Thread.sleep(1000);
+                    bq.put(new Item(i++ + ""));
+                    System.out.println("producerThread, 生产: " + i);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         });
-        th2.start();
+        producerThread.start();
     }
 }

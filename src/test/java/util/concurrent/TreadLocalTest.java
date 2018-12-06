@@ -1,4 +1,4 @@
-package test.java.concurrent;
+package test.java.util.concurrent;
 
 /**
  * @author Shuaijun He

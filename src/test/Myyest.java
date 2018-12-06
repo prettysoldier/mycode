@@ -1,6 +1,6 @@
 package test;
 
-import test.java.list.ArrayListTest;
+import test.java.util.collection.list.arraylist.ArrayListTest;
 import test.java.throwab.A;
 
 import java.math.BigDecimal;
