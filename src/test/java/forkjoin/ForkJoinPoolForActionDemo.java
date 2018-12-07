@@ -4,14 +4,16 @@ package test.java.forkjoin;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Shuaijun He
  */
-public class MyForkJoinPoolTask {
+public class ForkJoinPoolForActionDemo {
+    static final AtomicInteger COUNT = new AtomicInteger();
 
     public static void main(String[] args) throws InterruptedException {
-        PrintTask task = new PrintTask(0, 300);
+        PrintTask task = new PrintTask(0, 200);
         //创建实例，并执行分割任务
         ForkJoinPool pool = new ForkJoinPool();
         pool.submit(task);
@@ -45,8 +47,10 @@ class PrintTask extends RecursiveAction {
 
         if (this.end - this.start < PrintTask.THRESHOLD) {
             for (int i = this.start; i < this.end; i++) {
+                int count = ForkJoinPoolForActionDemo.COUNT.incrementAndGet();
                 System.out.println(Thread.currentThread().getName() + "的i值："
-                    + i);
+                    + i + ". 共打印：" + count);
+
             }
         } else {
             int middle = (this.start + this.end) / 2;

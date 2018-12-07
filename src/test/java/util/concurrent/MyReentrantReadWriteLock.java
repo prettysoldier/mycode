@@ -1,5 +1,5 @@
 
-package test.java.utils.concurrent;
+package test.java.util.concurrent;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 

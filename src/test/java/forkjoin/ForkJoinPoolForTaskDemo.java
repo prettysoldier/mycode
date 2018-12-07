@@ -11,12 +11,12 @@ import java.util.concurrent.RecursiveTask;
  *
  * @author Shuaijun He
  */
-public class MyForkJoinPoolTask2 {
+public class ForkJoinPoolForTaskDemo {
 
     static int ARR_LENGTH = 4_0000_0000;
 
     public static void main(String[] args) throws Exception {
-        int[] arr = new int[MyForkJoinPoolTask2.ARR_LENGTH];
+        int[] arr = new int[ForkJoinPoolForTaskDemo.ARR_LENGTH];
         Random random = new Random();
         //初始化100个数组元素
         for (int i = 0, len = arr.length; i < len; i++) {
@@ -57,7 +57,7 @@ public class MyForkJoinPoolTask2 {
     static class SumTask extends RecursiveTask<Integer> {
         private static final long serialVersionUID = -3020481591629633367L;
 
-        private static final int THRESHOLD = MyForkJoinPoolTask2.ARR_LENGTH / 8; //每个小任务 最多只累加20个数
+        private static final int THRESHOLD = ForkJoinPoolForTaskDemo.ARR_LENGTH / 8; //每个小任务 最多只累加20个数
         private int arry[];
         private int start;
         private int end;

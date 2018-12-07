@@ -57,8 +57,10 @@ public class SynchronizeDemo {
      * 7: monitorexit
      */
     public void test1(){
+
         synchronized(this){
             int i = 2;
+            ++i;
         }
     }
 }
