@@ -1,5 +1,5 @@
 
-package test.java;
+package test.java.object;
 
 /**
  * @author Shuaijun He

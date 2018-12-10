@@ -17,7 +17,7 @@ public class TryCatchFinally {
      * 此时 return 的值 已经存到了一个新的局部变量中，
      * 所以finally 并不会修改return 的值。
      *
-     * finally 中有return语句，情况就不同了，会在加载一遍temp值返回，
+     * finally 中有return语句，情况就不同了，会再加载一遍temp值返回，
      * 所以【强制】不要在finally中写返回语句
      * @return
      */
