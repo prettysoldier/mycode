@@ -1,4 +1,4 @@
-package algorithm.algori50;
+package java;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author Shuaijun He
  */
-public class A {
+public class CharForSwitch {
 
     public static void main(String[] args) {
         char s = '-';
