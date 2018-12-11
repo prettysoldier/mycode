@@ -1,4 +1,4 @@
-package main.test.java;
+package java;
 
 /**
  * @Desc

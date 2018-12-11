@@ -1,4 +1,4 @@
-package main.test.java.lang.reference;
+package java.lang.reference;
 
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package main.test.java.lang.thread;
+package java.lang.thread;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 

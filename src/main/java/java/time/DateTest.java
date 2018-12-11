@@ -1,4 +1,4 @@
-package main.test.java.time;
+package java.time;
 
 import java.util.Date;
 

@@ -1,5 +1,5 @@
 
-package main.test.jvm.stack;
+package jvm.stack;
 
 /**
  * 虚拟机栈的高度称为栈的深度，栈深度受栈帧大小影响。

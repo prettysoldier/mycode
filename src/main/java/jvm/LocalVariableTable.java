@@ -1,5 +1,5 @@
 
-package main.test.jvm;
+package jvm;
 
 /**
  * 虚拟机参数 -verbose:gc 输出详细的gc过程

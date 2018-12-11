@@ -1,4 +1,4 @@
-package main.test.java.text;
+package java.text;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;

@@ -1,4 +1,4 @@
-package main.test.java.lock.synchronize;
+package java.lock.synchronize;
 
 /**
  * @Desc 1 验证哪些类型的方法不在字节码中，private方法不在

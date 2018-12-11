@@ -1,4 +1,4 @@
-package main.test.java.lang.string;
+package java.lang.string;
 
 public class Split {
     public static void main(String[] args) {

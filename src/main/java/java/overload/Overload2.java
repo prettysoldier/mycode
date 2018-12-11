@@ -1,4 +1,4 @@
-package main.test.java.overload;
+package java.overload;
 
 /**
  * 重载时如果有两个被重载方法，如果会引起歧义，编译不过

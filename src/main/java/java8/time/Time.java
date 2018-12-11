@@ -1,5 +1,5 @@
 
-package main.test.java8.time;
+package java8.time;
 
 import java.io.Serializable;
 import java.util.Date;

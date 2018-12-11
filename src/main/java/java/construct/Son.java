@@ -1,9 +1,9 @@
 /**
  * 
  */
-package main.test.java.construct;
+package java.construct;
 
-import main.test.java.construct.a.Parent;
+import java.construct.a.Parent;
 
 /**
  * 父子之间的构造器，可以不一样（主要指参数）。父子构造器之间没有继承关系

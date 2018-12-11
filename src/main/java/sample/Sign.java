@@ -1,4 +1,4 @@
-package main.test.sample;
+package sample;
 
 import com.google.gson.GsonBuilder;
 

@@ -1,5 +1,5 @@
 
-package main.test.httpclient;
+package httpclient;
 
 import java.security.cert.X509Certificate;
 

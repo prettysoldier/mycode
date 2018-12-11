@@ -1,5 +1,5 @@
 
-package main.test.pattern.single;
+package pattern.single;
 
 /**
  * 双重检查锁定

@@ -1,5 +1,5 @@
 
-package main.test.java8.interface_;
+package java8.interface_;
 
 /**
  * 可见性与其他class相同

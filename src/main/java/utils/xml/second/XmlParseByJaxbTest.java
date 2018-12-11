@@ -1,4 +1,4 @@
-package main.test.utils.xml.second;
+package utils.xml.second;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
-import main.test.utils.JsonUtil;
+import utils.JsonUtil;
 
 
 public class XmlParseByJaxbTest {

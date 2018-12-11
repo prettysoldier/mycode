@@ -1,4 +1,4 @@
-package main.test.java.volatile_;
+package java.volatile_;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

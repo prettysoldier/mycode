@@ -1,5 +1,5 @@
 
-package main.test.java.extend;
+package java.extend;
 
 /**
  * @author Shuaijun He

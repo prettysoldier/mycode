@@ -1,5 +1,5 @@
 
-package main.test.java.finalize;
+package java.finalize;
 
 /**
  * @author Shuaijun He

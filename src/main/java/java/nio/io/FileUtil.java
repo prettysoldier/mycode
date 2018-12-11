@@ -1,4 +1,4 @@
-package main.test.java.nio.io;
+package java.nio.io;
 
 import java.io.BufferedReader;
 import java.io.File;

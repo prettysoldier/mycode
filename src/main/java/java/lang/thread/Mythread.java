@@ -1,4 +1,4 @@
-package main.test.java.lang.thread;
+package java.lang.thread;
 
 /**
  * thread的各个状态

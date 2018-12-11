@@ -1,6 +1,6 @@
-package main.test.java.cast;
+package java.cast;
 
-import main.test.java.throwab.A;
+import java.throwab.A;
 
 import java.math.BigDecimal;
 

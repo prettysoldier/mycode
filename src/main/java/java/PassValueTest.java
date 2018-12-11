@@ -1,5 +1,5 @@
 
-package main.test.java;
+package java;
 
 /**
  * @author Shuaijun He

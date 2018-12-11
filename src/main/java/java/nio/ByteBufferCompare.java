@@ -1,7 +1,7 @@
 /**
  * 
  */
-package main.test.java.nio;
+package java.nio;
 
 import java.nio.ByteBuffer;
 

@@ -1,5 +1,5 @@
 
-package main.test.java8.call;
+package java8.call;
 
 /**
  * @author Shuaijun He

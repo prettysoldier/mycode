@@ -1,5 +1,5 @@
 
-package main.test.java.string;
+package java.string;
 
 /**
  * @author Shuaijun He

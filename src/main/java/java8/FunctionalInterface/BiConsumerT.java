@@ -1,5 +1,5 @@
 
-package main.test.java8.FunctionalInterface;
+package java8.FunctionalInterface;
 
 import java.util.HashMap;
 import java.util.Map;

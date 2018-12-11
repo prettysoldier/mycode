@@ -1,4 +1,4 @@
-package main.test.algorithm.algori50;
+package algorithm.algori50;
 
 import java.util.Arrays;
 import java.util.List;

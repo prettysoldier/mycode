@@ -1,5 +1,5 @@
 
-package main.test.pattern.single;
+package pattern.single;
 
 /**
  * @author Shuaijun He

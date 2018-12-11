@@ -1,5 +1,5 @@
 
-package main.test.java.lang.reference;
+package java.lang.reference;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;

@@ -1,4 +1,4 @@
-package main.test.java.time;
+package java.time;
 
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;

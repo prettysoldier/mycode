@@ -1,5 +1,5 @@
 
-package main.test.java.io.serialize;
+package java.io.serialize;
 
 import java.io.Serializable;
 

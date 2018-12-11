@@ -1,4 +1,4 @@
-package main.test.algorithm.sort;
+package algorithm.sort;
 
 /**
  * 插入排序：O(n^2)

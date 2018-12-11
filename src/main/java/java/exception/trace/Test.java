@@ -1,5 +1,5 @@
 
-package main.test.java.exception.trace;
+package java.exception.trace;
 
 /**
  * @author Shuaijun He

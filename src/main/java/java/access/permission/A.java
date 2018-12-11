@@ -1,4 +1,4 @@
-package main.test.java.access.permission;
+package java.access.permission;
 
 /**
  * @Desc

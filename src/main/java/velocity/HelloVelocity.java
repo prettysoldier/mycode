@@ -1,5 +1,5 @@
 
-package main.test.velocity;
+package velocity;
 
 import java.io.StringWriter;
 import java.util.ArrayList;

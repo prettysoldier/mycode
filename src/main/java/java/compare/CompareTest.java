@@ -1,4 +1,4 @@
-package main.test.java.compare;
+package java.compare;
 
 import java.util.*;
 

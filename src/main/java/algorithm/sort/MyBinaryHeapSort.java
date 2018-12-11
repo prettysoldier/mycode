@@ -1,8 +1,8 @@
-package main.test.algorithm.sort;
+package algorithm.sort;
 
 import java.util.Arrays;
 
-import main.test.algorithm.priorityqueue.MyBinaryHeap;
+import algorithm.priorityqueue.MyBinaryHeap;
 
 /**
  * 二叉堆排序 O(NlogN)

@@ -1,4 +1,4 @@
-package main.test.pattern.state;
+package pattern.state;
 
 /**
  * @Desc

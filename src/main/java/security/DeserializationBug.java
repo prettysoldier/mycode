@@ -1,4 +1,4 @@
-package main.test.security;
+package security;
 
 import org.apache.commons.collections.Transformer;
 import org.apache.commons.collections.functors.ChainedTransformer;

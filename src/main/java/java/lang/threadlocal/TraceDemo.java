@@ -1,4 +1,4 @@
-package main.test.java.lang.threadlocal;
+package java.lang.threadlocal;
 
 import org.apache.commons.lang.StringUtils;
 

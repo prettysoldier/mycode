@@ -1,4 +1,4 @@
-package main.test.java.object;
+package java.object;
 
 public class WaitNotify implements Runnable {
 

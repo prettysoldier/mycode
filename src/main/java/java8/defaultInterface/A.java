@@ -1,5 +1,5 @@
 
-package main.test.java8.defaultInterface;
+package java8.defaultInterface;
 
 /**
  * @author Shuaijun He

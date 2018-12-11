@@ -1,4 +1,4 @@
-package main.test.java.volatile_;
+package java.volatile_;
 
 public class Test {
     public volatile int inc = 0;

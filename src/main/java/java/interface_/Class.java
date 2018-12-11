@@ -1,5 +1,5 @@
 
-package main.test.java.interface_;
+package java.interface_;
 
 /**
  * @author Shuaijun He

@@ -1,4 +1,4 @@
-package main.test.algorithm.sort;
+package algorithm.sort;
 
 /**
  * 希尔排序Shellsort（缩减增量排序diminishing increment sort）

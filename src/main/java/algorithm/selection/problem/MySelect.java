@@ -1,4 +1,4 @@
-package main.test.algorithm.selection.problem;
+package algorithm.selection.problem;
 
 /**
  * @author Shuaijun He

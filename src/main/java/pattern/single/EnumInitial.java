@@ -1,5 +1,5 @@
 
-package main.test.pattern.single;
+package pattern.single;
 
 import java.util.HashMap;
 import java.util.Map;

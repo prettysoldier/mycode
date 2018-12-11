@@ -1,5 +1,5 @@
 
-package main.test.java.lang.integer;
+package java.lang.integer;
 
 /**
  * @author Shuaijun He

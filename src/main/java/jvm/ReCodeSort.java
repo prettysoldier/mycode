@@ -1,5 +1,5 @@
 
-package main.test.jvm;
+package jvm;
 
 /**
  * 代码重排

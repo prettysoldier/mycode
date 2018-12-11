@@ -1,5 +1,5 @@
 
-package main.test.java.util.regex;
+package java.util.regex;
 
 import java.util.regex.Pattern;
 

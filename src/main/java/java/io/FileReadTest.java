@@ -1,7 +1,7 @@
 /**
  * 
  */
-package main.test.java.io;
+package java.io;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

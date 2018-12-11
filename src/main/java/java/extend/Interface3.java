@@ -1,4 +1,4 @@
-package main.test.java.extend;
+package java.extend;
 
 /**
  * @Desc 接口是可以多继承的

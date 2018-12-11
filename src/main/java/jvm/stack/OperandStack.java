@@ -1,4 +1,4 @@
-package main.test.jvm.stack;
+package jvm.stack;
 
 /**
  * @Desc

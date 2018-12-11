@@ -1,8 +1,8 @@
-package main.test.algorithm.selection.problem;
+package algorithm.selection.problem;
 
 import java.util.Random;
 
-import main.test.algorithm.priorityqueue.MyBinaryHeap;
+import algorithm.priorityqueue.MyBinaryHeap;
 
 /**
  * 堆

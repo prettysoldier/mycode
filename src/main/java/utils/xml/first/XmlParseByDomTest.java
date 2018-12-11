@@ -1,4 +1,4 @@
-package main.test.utils.xml.first;
+package utils.xml.first;
 
 import java.io.ByteArrayInputStream;
 import java.io.RandomAccessFile;
@@ -11,7 +11,7 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import main.test.utils.JsonUtil;
+import utils.JsonUtil;
 
 
 public class XmlParseByDomTest {

@@ -1,4 +1,4 @@
-package main.test.java.clone;
+package java.clone;
 
 /**
  * 可以得到如下结论：如果在拷贝一个对象时，要想让这个拷贝的对象和源对象完全彼此独立，那么在引用链上的每一级对象都要被显式的拷贝。

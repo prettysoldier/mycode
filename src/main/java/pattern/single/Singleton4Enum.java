@@ -1,5 +1,5 @@
 
-package main.test.pattern.single;
+package pattern.single;
 
 /***
  * 这种方式是《Effective Java》作者Josh Bloch提倡的方式，

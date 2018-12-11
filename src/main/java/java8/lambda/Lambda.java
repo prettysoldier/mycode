@@ -1,5 +1,5 @@
 
-package main.test.java8.lambda;
+package java8.lambda;
 
 import java.util.Arrays;
 import java.util.Collections;

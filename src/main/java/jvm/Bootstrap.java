@@ -1,4 +1,4 @@
-package main.test.jvm;
+package jvm;
 
 import sun.misc.Launcher;
 

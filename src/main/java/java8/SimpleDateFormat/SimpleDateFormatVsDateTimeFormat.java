@@ -1,5 +1,5 @@
 
-package main.test.java8.SimpleDateFormat;
+package java8.SimpleDateFormat;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Date;

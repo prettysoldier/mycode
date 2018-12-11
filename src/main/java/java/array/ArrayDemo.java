@@ -1,4 +1,4 @@
-package main.test.java.array;
+package java.array;
 
 /**
  * @Desc

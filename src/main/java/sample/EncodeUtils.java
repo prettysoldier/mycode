@@ -1,4 +1,4 @@
-package main.test.sample;
+package sample;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;

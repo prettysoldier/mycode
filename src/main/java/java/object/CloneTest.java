@@ -1,5 +1,5 @@
 
-package main.test.java.object;
+package java.object;
 
 /**
  * @author Shuaijun He

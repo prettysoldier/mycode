@@ -1,4 +1,4 @@
-package main.test.java.operand;
+package java.operand;
 
 /**
  * @Desc

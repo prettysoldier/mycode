@@ -1,4 +1,4 @@
-package main.test.java.throwab;
+package java.throwab;
 
 public class A<T> {
 

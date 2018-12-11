@@ -1,5 +1,5 @@
 
-package main.test.java8.FunctionalInterface;
+package java8.FunctionalInterface;
 
 /**
  * @author Shuaijun He

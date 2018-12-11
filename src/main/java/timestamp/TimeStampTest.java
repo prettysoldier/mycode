@@ -1,5 +1,5 @@
 
-package main.test.timestamp;
+package timestamp;
 
 import java.util.Date;
 

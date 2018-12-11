@@ -1,4 +1,4 @@
-package main.test.java.nio;
+package java.nio;
 
 import java.io.BufferedReader;
 import java.io.IOException;

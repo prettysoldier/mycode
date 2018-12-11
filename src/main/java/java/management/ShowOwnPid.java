@@ -1,4 +1,4 @@
-package main.test.java.management;
+package java.management;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;

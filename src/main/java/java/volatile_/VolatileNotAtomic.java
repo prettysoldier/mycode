@@ -1,4 +1,4 @@
-package main.test.java.volatile_;
+package java.volatile_;
 
 /**
  * @Desc 为什么同步不好用呢？

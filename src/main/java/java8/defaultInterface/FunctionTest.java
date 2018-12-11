@@ -1,5 +1,5 @@
 
-package main.test.java8.defaultInterface;
+package java8.defaultInterface;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -10,7 +10,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-import main.test.java8.call.Person;
+import java8.call.Person;
 
 /**
  * @author Shuaijun He

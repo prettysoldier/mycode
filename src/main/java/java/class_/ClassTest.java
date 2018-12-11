@@ -1,4 +1,4 @@
-package main.test.java.class_;
+package java.class_;
 
 /**
  * @author Shuaijun He

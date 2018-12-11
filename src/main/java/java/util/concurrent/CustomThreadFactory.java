@@ -1,4 +1,4 @@
-package main.test.java.util.concurrent;
+package java.util.concurrent;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

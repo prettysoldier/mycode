@@ -1,5 +1,5 @@
 
-package main.test.java.lock;
+package java.lock;
 
 /**
  * 上面代码synchronized同时修饰静态方法和实例方法，但是运行结果是交替进行的，这证明了类锁和对象锁是两个不一样的锁，控制着不同的区域，

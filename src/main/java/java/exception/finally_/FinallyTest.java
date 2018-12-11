@@ -1,4 +1,4 @@
-package main.test.java.exception.finally_;
+package java.exception.finally_;
 
 /**
  * @author Shuaijun He

@@ -1,4 +1,4 @@
-package main.test.java.util.map;
+package java.util.map;
 
 import java.util.WeakHashMap;
 

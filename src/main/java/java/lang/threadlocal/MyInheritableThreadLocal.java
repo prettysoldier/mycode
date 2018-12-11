@@ -1,5 +1,5 @@
 
-package main.test.java.lang.threadlocal;
+package java.lang.threadlocal;
 
 /**
  * @author Shuaijun He

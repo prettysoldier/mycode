@@ -1,5 +1,5 @@
 
-package main.test.try_catch_finally;
+package try_catch_finally;
 
 /**
  * 【强制】不能在finally块中使用return，finally块中的return返回后方法结束执行，不会再执行catch块中的return语句。

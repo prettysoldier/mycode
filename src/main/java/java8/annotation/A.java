@@ -1,5 +1,5 @@
 
-package main.test.java8.annotation;
+package java8.annotation;
 
 import java.lang.annotation.Annotation;
 

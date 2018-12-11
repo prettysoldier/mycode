@@ -1,4 +1,4 @@
-package main.test.java.volatile_;
+package java.volatile_;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

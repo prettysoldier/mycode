@@ -1,5 +1,5 @@
 
-package main.test.java.util.collection.list.arraylist;
+package java.util.collection.list.arraylist;
 
 import java.util.ArrayList;
 import java.util.List;

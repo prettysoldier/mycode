@@ -1,7 +1,7 @@
-package main.test.algorithm.selection.problem;
+package algorithm.selection.problem;
 
-import main.test.algorithm.sort.MyInsertionSort;
-import main.test.algorithm.sort.MyQuickSort;
+import algorithm.sort.MyInsertionSort;
+import algorithm.sort.MyQuickSort;
 
 /**
  * 快速选择

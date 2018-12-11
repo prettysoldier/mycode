@@ -1,5 +1,5 @@
 
-package main.test.java.forkjoin;
+package java.forkjoin;
 
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;

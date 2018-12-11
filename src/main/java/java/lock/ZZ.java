@@ -1,7 +1,7 @@
 /**
  * 
  */
-package main.test.java.lock;
+package java.lock;
 
 /**
  * @author shuaijunhe

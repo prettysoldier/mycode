@@ -1,7 +1,7 @@
 
-package main.test.java.interface_;
+package java.interface_;
 
-import main.test.java.interface_.InterfaceTest.IHello;
+import java.interface_.InterfaceTest.IHello;
 
 /**
  * 可见性与其他class相同

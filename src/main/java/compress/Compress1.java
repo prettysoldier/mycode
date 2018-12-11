@@ -1,5 +1,5 @@
 
-package main.test.compress;
+package compress;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

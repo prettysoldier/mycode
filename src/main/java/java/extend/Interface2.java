@@ -1,4 +1,4 @@
-package main.test.java.extend;
+package java.extend;
 
 /**
  * @Desc

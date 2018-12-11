@@ -1,4 +1,4 @@
-package main.test.java.overload;
+package java.overload;
 
 import java.io.Serializable;
 

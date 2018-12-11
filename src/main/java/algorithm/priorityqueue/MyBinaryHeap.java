@@ -1,4 +1,4 @@
-package main.test.algorithm.priorityqueue;
+package algorithm.priorityqueue;
 
 /**
  * @author Shuaijun He

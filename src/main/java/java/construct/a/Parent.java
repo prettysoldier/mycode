@@ -1,4 +1,4 @@
-package main.test.java.construct.a;
+package java.construct.a;
 
 /**
  * @Desc
