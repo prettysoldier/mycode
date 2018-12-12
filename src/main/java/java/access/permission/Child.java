@@ -1,12 +1,13 @@
 package java.access.permission;
 
 /**
- * @Desc
+ * @Desc protected 方法包内可见
  * @Author shuaijunhe
  * @CreateTime 2018/11/23 16:44
  **/
-public class B {
+public class Child {
     public static void main(String[] args) {
-        new A().b();
+
+        new Parent().b();
     }
 }

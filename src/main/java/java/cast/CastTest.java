@@ -18,6 +18,7 @@ public class CastTest {
 
     public static void main(String[] args) {
         int a = 2;
+        long b2 = 2;
         long b = a;
 //        Long b1 = a;// 编译失败
 

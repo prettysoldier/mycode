@@ -1,13 +1,8 @@
 
 package httpclient;
 
+import javax.net.ssl.*;
 import java.security.cert.X509Certificate;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 /**
  * @author Shuaijun He
@@ -15,13 +10,13 @@ import javax.net.ssl.X509TrustManager;
 public class SslUtils {
     private static void trustAllHttpsCertificates() throws Exception {
         TrustManager[] trustAllCerts = new TrustManager[1];
-        trustAllCerts[0] = new miTM();
+        trustAllCerts[0] = new MyTrustManager();
         SSLContext sc = SSLContext.getInstance("SSL");
         sc.init(null, trustAllCerts, null);
         HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
     }
 
-    static class miTM implements X509TrustManager {
+    static class MyTrustManager implements X509TrustManager {
         @Override
         public X509Certificate[] getAcceptedIssuers() {
             return null;
