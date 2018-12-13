@@ -9,10 +9,10 @@ import java.util.*;
  **/
 public class CompareTest {
     public static void main(String[] args) {
-        List<A> list = new ArrayList<>(10);
+        List<ComparatorA> list = new ArrayList<>(10);
         Random random = new Random();
         for(int i = 0; i < 10; i++){
-            list.add(new A(random.nextInt(10)));
+            list.add(new ComparatorA(random.nextInt(10)));
         }
         list.forEach(e->{
             System.out.print(e.getA() + ", ");
@@ -22,8 +22,8 @@ public class CompareTest {
         arraysSort2(list);
     }
 
-    private static void arraysSort(List<A> list) {
-        A[] arr = new A[list.size()];
+    private static void arraysSort(List<ComparatorA> list) {
+        ComparatorA[] arr = new ComparatorA[list.size()];
         // Arrays的sort方法，的前提是 数组元素实现了Comparable接口
         Arrays.sort(list.toArray(arr));
         Arrays.stream(arr).forEach(e->{
@@ -31,20 +31,20 @@ public class CompareTest {
         });
     }
 
-    private static void arraysSort2(List<A> list) {
-        A[] arr = new A[list.size()];
+    private static void arraysSort2(List<ComparatorA> list) {
+        ComparatorA[] arr = new ComparatorA[list.size()];
         // Arrays的sort方法，的前提是 数组元素实现了Comparable接口
-        Arrays.sort(list.toArray(arr), new B());
+        Arrays.sort(list.toArray(arr), new ComparatorB());
         Arrays.stream(arr).forEach(e->{
             System.out.println(e.getA());
         });
     }
 }
 
-class A implements Comparable<A>{
+class ComparatorA implements Comparable<ComparatorA>{
     private int a;
 
-    public A(int a) {
+    public ComparatorA(int a) {
         this.a = a;
     }
 
@@ -53,7 +53,7 @@ class A implements Comparable<A>{
     }
 
     @Override
-    public int compareTo(A o) {
+    public int compareTo(ComparatorA o) {
         if(this.a != o.getA()){
             return this.a > o.getA() ? -1: 2;
         }
@@ -61,9 +61,9 @@ class A implements Comparable<A>{
     }
 }
 
-class B implements Comparator<A>{
+class ComparatorB implements Comparator<ComparatorA>{
     @Override
-    public int compare(A o1, A o2) {
+    public int compare(ComparatorA o1, ComparatorA o2) {
         if(o1.getA() != o2.getA()){
             return o1.getA() > o2.getA() ? 1 : -1;
         }
