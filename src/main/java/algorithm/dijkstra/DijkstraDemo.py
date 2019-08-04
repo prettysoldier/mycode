@@ -19,6 +19,7 @@ processed = []
 
 
 # 5.算法过程
+# 找出权重最小的节点，可以节省一些节点的遍历
 def find_lowest_cost_node(costs):
     lowest_cost = infinity
     lowest_cost_node = None
