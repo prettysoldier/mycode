@@ -22,15 +22,14 @@ public class TryCatchFinally {
      * @return
      */
     public static int finallyNotWork(){
-        int temp = 10;
+        int i = 1;
         try {
             throw new Exception();
         } catch (Exception e){
-            return ++temp;
+            return ++i;
         }
         finally {
-            temp = 99;
-//            return temp;
+            i = 99;
         }
     }
 
