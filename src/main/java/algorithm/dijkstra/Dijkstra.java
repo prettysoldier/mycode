@@ -10,6 +10,14 @@ import java.util.*;
  */
 public class Dijkstra {
 
+    public static void main(String[] args) {
+        Graph graph = new Graph(7);
+        initGraph(graph);
+        Map<Integer, Integer> distanceMap = dijkstra(graph, 0);
+        int distance = distanceMap.get(6);
+        System.out.println(distance);
+    }
+
     /**
      * Dijkstra最短路径算法
      */
@@ -65,13 +73,7 @@ public class Dijkstra {
         return distanceMap;
     }
 
-    public static void main(String[] args) {
-        Graph graph = new Graph(7);
-        initGraph(graph);
-        Map<Integer, Integer> distanceMap = dijkstra(graph, 0);
-        int distance = distanceMap.get(6);
-        System.out.println(distance);
-    }
+
 
     private static void initGraph(Graph graph) {
         graph.vertexes[0] = new Vertex("A");
