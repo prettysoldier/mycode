@@ -130,6 +130,9 @@ public class NSJedisCluster implements IJedisCluster {
 		if (this.poolMinIdle == 0) {
 			this.poolMinIdle = DEFALT_MIN_IDLE;
 		}
+		if (this.timeout == 0) {
+		    this.timeout = DEFALT_TIMEOUT;
+        }
 		if (this.jedisClusterNode == null) {
 		    this.jedisClusterNode = new ArrayList<>(6);
 
