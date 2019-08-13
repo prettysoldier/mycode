@@ -1,0 +1,300 @@
+# Scala介绍
+## 设计目的
+Scala是一门多范式的类java编程语言，集成了*面向对象编程*和*函数式编程*的各种特性。
+与Java和C#实现无缝互操作（这两种对象都非纯面向对象）
+兼容java: Scala类可以调用JAVA方法，创建java对象，继承java类和实现java接口。Scala 运行在Java虚拟机上，并兼容现有的Java程序。
+
+## Scala是纯面向对象
+Scala是纯面向对象：每个值都是一个对象，也就是说scala没有类似java中的原生类型，一切皆对象，也就是说，在scala是可以对数字等基础类型调用方法的。
+
+## 函数式语言
+每个函数都是一个值（或者说对象），支持*函数套嵌*和*高阶函数*
+支持*模式匹配*，用来操作代数式类型?
+
+## 静态类型
+Scala具备类型系统，通过编译时检查，保证代码的安全性和一致性。类型系统具体支持以下特性：
+- 泛型类
+- 协变和逆变
+- 标注
+- 类型参数的上下限约束
+- 把类别和抽象类型作为对象成员
+- 复合类型
+- 引用自己时显式指定类型
+- 视图
+- 多态方法
+## 扩展性
+Scala的设计秉承一项事实，即在实践中，某个领域特定的应用程序开发往往需要特定于该领域的语言扩展。Scala提供了许多独特的语言机制，可以以库的形式轻易无缝添加新的语言结构：
+- 任何方法可用作前缀或后缀操作符
+- 可以根据预期类型自动构造闭包。
+## 并发性
+Scala使用Actor作为其并发模型，Actor是类似线程的实体，通过邮箱发收消息。
+Actor可以复用线程，因此可以在程序中可以使用数百万个Actor,而线程只能创建数千个。
+在2.10之后的版本中，使用**Akka**作为其默认Actor实现。
+
+## Scala Web 框架
+   以下列出了两个目前比较流行的 Scala 的 Web应用框架：   
++ Lift 框架
+- Play 框架
+
+## 数据类型
+数据类型	描述
+- Byte	8位有符号补码整数。数值区间为 -128 到 127
+- Short	16位有符号补码整数。数值区间为 -32768 到 32767
+- Int	32位有符号补码整数。数值区间为 -2147483648 到 2147483647
+- Long	64位有符号补码整数。数值区间为 -9223372036854775808 到 9223372036854775807
+- Float	32 位, IEEE 754 标准的单精度浮点数
+- Double	64 位 IEEE 754 标准的双精度浮点数
+- Char	16位无符号Unicode字符, 区间值为 U+0000 到 U+FFFF
+- String	字符序列
+- Boolean	true或false
+- Unit	表示无值，和其他语言中void等同。用作不返回任何结果的方法的结果类型。Unit只有一个实例值，写成()。
+- Null	null 或空引用
+- Nothing	Nothing类型在Scala的类层级的最低端；它是任何其他类型的子类型。
+- Any	Any是所有其他类的超类
+- AnyRef	AnyRef类是Scala里所有引用类(reference class)的基类
+## 作用域保护
+private[x] 这里的x指代某个所属的包、类或单例对象。如果写成private[x],读作"这个成员除了对[…]中的类或[…]中的包中的类及它们的伴生对像可见外，对其它所有类都是private。
+这种技巧在横跨了若干包的大型项目中非常有用，它允许你定义一些在你项目的若干子包中可见但对于项目外部的客户却始终不可见的东西。
+Scala 中的 private 限定符，比 Java 更严格，在嵌套类情况下，外层类甚至不能访问被嵌套类的私有成员。
+在 scala 中，对保护（Protected）成员的访问比 java 更严格一些。因为它只允许保护成员在定义了该成员的的类的子类中被访问。
+## 循环
+Scala 不支持 break 或 continue 语句，但从 2.8 版本后提供了一种中断循环的方式
+for loop: 
+- var 不能在循环判断括号里。可以不定义var
+- 可以用（;）来设置多个区间，**循环会用笛卡尔积展开**
+- for 循环过滤: [if express; express]可以使用分号(;)来为表达式添加一个或多个的过滤条件。
+- 使用yield: [var newArray = for{ a <- numList if express; express}yield] 会把当前的元素记下来，保存在集合中，循环结束后将返回该集合
+
+## Scala 方法与函数
+   Scala 有方法与函数，二者在语义上的区别很小。Scala 方法是类的一部分，而函数是一个对象，可以赋值给一个变量。换句话来说在类中定义的函数即是方法。   
+   Scala 中的方法跟 Java 的类似，方法是组成类的一部分。   
+   Scala 中的函数则是一个完整的对象，Scala 中的函数其实就是继承了 Trait 的类的对象。   
+   Scala 中使用 val/var 语句可以定义函数，def 语句定义方法。
+### 方法
+   如果你不写等于号和方法主体，那么方法会被隐式声明为抽象(abstract)，包含它的类型于是也是一个抽象类型，必须加abstract 
+   **方法可以直接调用，或者用对象调用**
+### 函数
+- 函数传名调用：在函数内部，每次取参数时调用一次
+- 函数传值调用：在函数外部，先调用一次参数函数，将值传给函数
+- 指定函数参数名：一般情况下函数调用参数，就按照函数定义时的参数顺序一个个传递。但是我们也可以通过指定函数参数名，并且不需要按照顺序向函数传递参数，实例如下：
+
+```scala
+object Test {
+   def main(args: Array[String]) {
+        printInt(b=5, a=7);
+   }
+   def printInt( a:Int, b:Int ) = {
+      println("Value of a : " + a );
+      println("Value of b : " + b );
+   }
+}
+```
+- 可变参数：允许最后一个参数是可重复的，用*表示
+```scala
+object Test {
+   def main(args: Array[String]) {
+        printStrings("Runoob", "Scala", "Python");
+   }
+   def printStrings( args : String* ) = {
+      var i : Int = 0;
+      for( arg <- args ){
+         println("Arg value[" + i + "] = " + arg );
+         i = i + 1;
+      }
+   }
+}
+```
+- 递归函数：自己调用自己
+```scala
+object Test {
+   def main(args: Array[String]) {
+      for (i <- 1 to 10)
+         println(i + " 的阶乘为: = " + factorial(i) )
+   }
+   
+   def factorial(n: BigInt): BigInt = {  
+      if (n <= 1)
+         1  
+      else    
+      n * factorial(n - 1)
+   }
+}
+
+```
+- 默认参数值
+```scala
+object Test {
+   def main(args: Array[String]) {
+        println( "返回值 : " + addInt() );
+   }
+   def addInt( a:Int=5, b:Int=7 ) : Int = {
+      var sum:Int = 0
+      sum = a + b
+
+      return sum
+   }
+}
+```
+- 高阶函数
+高阶函数：使用其他函数作为参数，类型格式：[其他函数的参数] => [其他函数的返回值]
+
+```scala
+object Test {
+   def main(args: Array[String]) {
+
+      println( apply( layout, 10) )
+
+   }
+   // 函数 f 和 值 v 作为参数，而函数 f 又调用了参数 v
+   def apply(f: Int => String, v: Int) = f(v)
+
+   def layout[A](x: A) = "[" + x.toString() + "]"
+   
+}
+```
+- 函数套嵌
+我们可以在 Scala 函数内定义函数，定义在函数内的函数称之为局部函数。
+以下实例我们实现阶乘运算，并使用内嵌函数：
+```scala
+object Test {
+   def main(args: Array[String]) {
+      println( factorial(0) )
+      println( factorial(1) )
+      println( factorial(2) )
+      println( factorial(3) )
+   }
+
+   def factorial(i: Int): Int = {
+      def fact(i: Int, accumulator: Int): Int = {
+         if (i <= 1)
+            accumulator
+         else
+            fact(i - 1, i * accumulator)
+      }
+      fact(i, 1)
+   }
+}
+```
+- 匿名函数
+匿名函数
+```scala
+var inc = (x:Int) => x+1
+```
+- 偏应用函数:相当于一种函数封装，你不需要提供函数需要的所有参数，只需要提供部分，或不提供所需参数。
+```scala
+object Test {
+   def main(args: Array[String]) {
+      val date = new Date
+      val logWithDateBound = log(date, _ : String)
+
+      logWithDateBound("message1" )
+      Thread.sleep(1000)
+      logWithDateBound("message2" )
+      Thread.sleep(1000)
+      logWithDateBound("message3" )
+   }
+
+   def log(date: Date, message: String)  = {
+     println(date + "----" + message)
+   }
+}
+```
+- 函数柯里化Currying
+柯里化(Currying)指的是将原来接受两个参数的函数变成新的接受一个参数的函数的过程。新的函数返回一个以原有第二个参数为参数的函数。
+```scala
+def add(x:Int,y:Int)=x+y
+def add(x:Int)(y:Int) = x + y
+// 原理如下：
+def add(x:Int) = (y:Int) => x+y
+
+```
+- Scala闭包
+闭包是一个函数，这个函数依赖一个或多个自由变量，相当于将自由变量捕获而构成一个封闭的函数。
+```scala
+def outer(step: Int) : ()=>Int = {
+
+    var freeVariable = 1
+
+    def inner() = {
+
+      freeVariable += step
+      println(freeVariable)
+      freeVariable
+    }
+    inner
+}
+
+def main(args: Array[String]) {   
+    val f = outer(3)
+    f()
+    f()
+    f()
+  }
+  
+```
+## 字符串
+在 Scala 中，字符串的类型实际上是 Java String，它本身没有 String 类。
+在 Scala 中，String 是一个不可变的对象，所以该对象不可被修改。这就意味着你如果修改字符串就会产生一个新的字符串对象。
+## 数组
+```scala
+var a: Array[String] = new Array[String](3)
+var z = new Array[String](3)
+z(0) = "Runoob" 
+z(4/2) = "Google"
+var x = Array("Runoob", "Baidu", "Google")
+// 多维数组
+import Array._ 
+var myMatrix = ofDim[Int](3,3) // 或者Array.ofDim
+// 创建矩阵
+for (i <- 0 to 2) {
+  for ( j <- 0 to 2) {
+    myMatrix(i)(j) = j;
+  }
+}
+
+var myList1 = Array(1.9, 2.9, 3.4, 3.5)
+var myList2 = Array(8.9, 7.9, 0.4, 1.5)
+
+var myList3 =  concat( myList1, myList2)
+
+// 输出所有数组元素
+for ( x <- myList3 ) {
+ println( x )
+}
+
+//    // 创建区间数组
+//    var myArr1 = range(10, 20, 2)
+//    var myArr2 = range(10, 20)
+//    // 输出所有数组元素
+//    for ( x <- myArr1 ) {
+//      print(x + " " )
+//    }
+//    println()
+//    for ( x <- myArr2 ) {
+//      print( x + " ")
+//    }
+//    println()
+
+
+//    var arr = Array.iterate(0, 3)(a => a+1)
+//    var arr = Array.apply(1)
+//    def f(x: Int) = x + 1
+//    var arr = Array.fill(5)(f(1))
+
+//    var arr = Array.tabulate(5)(s => s + 10)
+//    for ( x <- arr ) {
+//      print( x + " ")
+//    }
+//    println()
+
+var arr = Array.tabulate(5, 2)((x, y) => (x + 10, y + 20))
+println(arr)
+for ( x <- arr ) {
+  for ( y <- x){
+    print( y + " ")
+  }
+  println()
+}
+println()
+
+```
