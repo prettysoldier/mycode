@@ -139,7 +139,6 @@ public class NSJedisCluster implements IJedisCluster {
             jedisClusterNode.add(getNode("10.100.137.16", "6379"));
             jedisClusterNode.add(getNode("10.100.137.16", "6380"));
             jedisClusterNode.add(getNode("10.100.137.16", "6381"));
-
             jedisClusterNode.add(getNode("10.100.137.16", "6382"));
             jedisClusterNode.add(getNode("10.100.137.16", "6383"));
             jedisClusterNode.add(getNode("10.100.137.16", "6384"));

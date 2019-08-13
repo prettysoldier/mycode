@@ -1,5 +1,8 @@
 package redis.cluster;
 
+import redis.clients.jedis.JedisCluster;
+import utils.JsonUtil;
+
 /**
  * 主从测试
  * @author shuaijunhe
@@ -12,10 +15,15 @@ public class MasterSlaveTest {
 
         NSJedisCluster cluster = new NSJedisCluster();
         cluster.init();
+        JedisCluster jedis = cluster.getJedis();
         for(int i = 0; i < 1000000; i++){
-            Thread.sleep(3000);
-            cluster.getJedis().set("test", i + "");
-            System.out.println(cluster.getJedis().get("test"));
+            try {
+                Thread.sleep(2000);
+                jedis.set("test", i + "");
+                System.out.println(cluster.getJedis().get("test"));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
