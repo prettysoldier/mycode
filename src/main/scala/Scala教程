@@ -182,9 +182,10 @@ var inc = (x:Int) => x+1
 ```
 - 偏应用函数:相当于一种函数封装，你不需要提供函数需要的所有参数，只需要提供部分，或不提供所需参数。
 ```scala
+import java.util.Date
 object Test {
    def main(args: Array[String]) {
-      val date = new Date
+      val date = new Date      
       val logWithDateBound = log(date, _ : String)
 
       logWithDateBound("message1" )
@@ -298,3 +299,241 @@ for ( x <- arr ) {
 println()
 
 ```
+## 集合
+Scala集合有三个基本操作：
++ head 返回集合第一个元素
++ tail 返回一个集合，包含除了第一元素之外的其他元素
+- isEmpty 在集合为空时返回true
+```scala
+val list = List("Runoob", "Google")
+val empty = List()
+val empty2 = Nil
+val dim = List(List(0, 1), List(2, 3), List(1, 2))
+```
+虽然可变Set和不可变Set都有添加或删除元素的操作，但是有一个非常大的差别。
+对不可变Set进行操作，会产生一个新的set，原来的set并没有改变，这与List一样。 而对可变Set进行操作，改变的是该Set本身，与ListBuffer类似。
+### 元组
+与List一样，也是不可变的。但是可以包含不同类型的元素，最大长度为22。
+
+### Option
+Option用来表示一个值是可选的（有值或无值）
+Option[T] 是一个类型为 T 的可选值的容器： 如果值存在， Option[T] 就是一个 Some[T] ，如果不存在， Option[T] 就是对象 None 。
+### 迭代器 Iterator
+迭代器不是一个集合，而是一种访问集合的方法
+```scala
+object Test {
+   def main(args: Array[String]) {
+      val it = Iterator("Baidu", "Google", "Runoob", "Taobao")
+      
+      while (it.hasNext){
+         println(it.next())
+      }
+      println("最大元素是：" + it.max )
+      println("最小元素是：" + it.min )
+      println("it.size 的值: " + it.size )
+      println("it.length 的值: " + it.length )
+      val it2 = Iterator(1, 2, 3)
+      val merge = it ++ it2
+      while (it.hasNext){
+       println(it.next())
+      }
+      
+   }
+}
+```
+## 类和对象
+类是对象的抽象，而对象是类的具体实例。类是抽象的，不占用内存，而对象是具体的，占用存储空间。类是用于创建对象的蓝图
+Scala中的类不声明为public，一个Scala源文件中可以有多个类。
+Scala 的类定义可以有参数，称为类参数，类参数在整个类中都可以访问。
+单例对象：在 Scala 中，是没有 static 这个东西的，但是它也为我们提供了单例模式的实现方法，那就是使用关键字 object。它和类的区别是，object对象不能带参数。
+当单例对象与某个类共享同一个名称时，他被称作是这个类的伴生对象：companion object。你必须在同一个源文件里定义类和它的伴生对象。类被称为是这个单例对象的伴生类：companion class。
+
+
+### 继承
+
+Scala继承一个基类跟Java很相似, 但我们需要注意以下几点：
+
+1. 重写一个非抽象方法必须使用override修饰符。
+2. 只有主构造函数才可以往基类的构造函数里写参数。
+3. 在子类中重写超类的抽象方法时，你不需要使用override关键字。
+
+## Trait(特征)
+Scala Trait(特征) 相当于 Java 的接口，实际上它比接口还功能强大。
+与接口不同的是，它还可以定义属性和方法的实现。
+### 特征构造顺序
+特征也可以有构造器，由字段的初始化和其他特征体中的语句构成。这些语句在任何混入该特征的对象在构造时都会被执行。
+构造器的执行顺序：
+
+- 调用超类的构造器；
+- 特征构造器在超类构造器之后、类构造器之前执行；
+- 特征由左到右被构造；
+- 每个特征当中，父特征先被构造；
+- 如果多个特征共有一个父特征，父特征不会被重复构造
+- 所有特征被构造完毕，子类被构造。
+
+构造器的顺序是类的线性化的反向。线性化是描述某个类型的所有超类型的一种技术规格。
+
+## 模式匹配
+类似于java的switch语句
+```scala
+object Test {
+   def main(args: Array[String]) {
+      println(matchTest(3))
+
+   }
+   def matchTest(x: Int): String = x match {
+      case 1 => "one"
+      case 2 => "two"
+      case _: Int => "是整数" // 判断是否是Int类型
+      case _ => "many" // 通配符
+   }
+}
+```
+match 表达式通过以代码编写的先后次序尝试每个模式来完成计算，只要发现有一个匹配的case，剩下的case不会继续匹配。
+### 样例类
+
+使用了case关键字的类定义就是就是样例类(case classes)，样例类是种特殊的类，经过优化以用于模式匹配。
+以下是样例类的简单实例:
+```scala
+object Test {
+  def main(args: Array[String]) {
+    val alice = Person("Alice", 25) // 可以去掉new关键字，因为为自动生成伴生对象，伴生对象中提供了apply方法
+    val bob = new Person("Bob", 32)
+    val charlie = new Person("Charlie", 32)
+   
+    for (person <- List(alice, bob, charlie)) {
+      person match {
+        case Person("Alice", 25) => println("Hi Alice!")
+        case Person("Bob", 32) => println("Hi Bob!")
+        case Person(name, age) =>
+             println("Age: " + age + " year, name: " + name + "?")
+      }
+    }
+  }
+  // 样例类
+  case class Person(name: String, age: Int)
+}
+
+```
+在声明样例类时，下面的过程自动发生了：
+- 构造器的每个参数都成为val，除非显式被声明为var，但是并不推荐这么做；
+- 生成伴生对象，在伴生对象中提供了apply方法，所以可以不使用new关键字就可构建对象；
+- 提供unapply方法使模式匹配可以工作；
+- 生成toString、equals、hashCode和copy方法，除非显示给出这些方法的定义。
+## 正则表达式
+```scala
+import scala.util.matching.Regex
+
+
+object Test {
+  def main(args: Array[String]) {
+    // 使用 String 类的 r() 方法构造了一个Regex对象。
+    val pattern = "Scala".r
+    val str = "Scala is scalable and cool"
+
+    println(pattern findFirstIn str)
+
+    val p1 = new Regex("(S|s)cala")
+    println((p1 findAllIn str).mkString(","))
+
+    // 不会改变之前的变量str
+    println((p1 replaceFirstIn(str, "Java")))
+    println(str)
+
+    val s = "我 is a good man"
+    var p2 = new Regex("\\w")
+    // \w 匹配数字、字母和下划线
+    println(p2 findFirstIn s)
+    var p3 = new Regex("\\G我")
+    println(p3 findFirstIn s)
+  }
+}
+```
+## 异常处理
+异常捕捉的机制与java中一样，唯一不同是：
+在Scala里，借用了模式匹配的思想来做异常的匹配，因此，在catch的代码里，是一系列case字句，如下例所示：
+```scala
+import java.io.FileReader
+import java.io.FileNotFoundException
+import java.io.IOException
+object Test {
+   def main(args: Array[String]) {
+      try {
+         val f = new FileReader("input.txt")
+      } catch {
+         case ex: FileNotFoundException => {
+            println("Missing file exception")
+         }
+         case ex: IOException => {
+            println("IO Exception")
+         }
+      } finally {
+         println("Exiting finally...")
+      }
+   }
+}
+```
+## 提取器（Extractor）
+提取器是从传递给它的对象中提取出构造该对象的参数。
+Scala 标准库包含了一些预定义的提取器，我们会大致的了解一下它们。
+Scala 提取器是一个带有unapply方法的对象。unapply方法算是apply方法的反向操作：unapply接受一个对象，然后从对象中提取值，提取的值通常是用来构造该对象的值。
+```scala
+package extractor
+
+object Test {
+   def main(args: Array[String]) {
+      
+      println ("Apply 方法 : " + apply("Zara", "gmail.com"));
+      println ("Unapply 方法 : " + unapply("Zara@gmail.com"));
+      println ("Unapply 方法 : " + unapply("Zara Ali"));
+
+      // 在object中定义apply方法，就可以不使用new操作就可以创建对象
+      println(Test("asd", "zxcv"))
+      
+   }
+   // 注入方法 (可选)
+   def apply(user: String, domain: String) = {
+      user +"@"+ domain
+   }
+
+   // 提取方法（必选）
+   def unapply(str: String): Option[(String, String)] = {
+      val parts = str split "@"
+      if (parts.length == 2){
+         Some(parts(0), parts(1)) 
+      }else{
+         None
+      }
+   }
+}
+```
+### 提取器+模式匹配
+在我们实例化一个类的时，可以带上0个或者多个的参数，编译器在实例化的时会调用 apply 方法。我们可以在类和对象中都定义 apply 方法。
+就像我们之前提到过的，unapply 用于提取我们指定查找的值，它与 apply 的操作相反。 当我们在提取器对象中使用 match 语句时，unapply 将自动执行，如下所示：
+```scala
+package extractor
+object ExtractorWithMatch {
+
+  def main(args: Array[String]) {
+    // 这里自动调用apply方法
+    val x = ExtractorWithMatch(5)
+    println(x)
+
+    x match
+    {
+      // 这里自动调用unapply方法，提取参数num的值
+      case ExtractorWithMatch(num) => println(x + " 是 " + num + " 的两倍！")
+      //unapply 被调用
+      case _ => println("无法计算")
+    }
+
+  }
+
+  def apply(x: Int) = x*2
+  def unapply(z: Int): Option[Int] = if (z % 2 == 0) Some( z / 2) else None
+}
+
+```
+## 文件IO
+Scala 进行文件写操作，可以直接用的都是 java中 的 I/O 类 （java.io.File)：
+
