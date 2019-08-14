@@ -23,6 +23,7 @@ class Point(xc: Int, yc: Int) extends Equal {
 }
 
 object Test {
+
   def main(args: Array[String]): Unit = {
     val p1 = new Point(1, 2)
     val p2 = new Point(1, 2)
@@ -34,5 +35,6 @@ object Test {
     println(p1.isEqual(p3))
     println(p1.isEqual(p4))
     println(p1.isEqual(1))
+
   }
 }

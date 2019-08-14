@@ -1,7 +1,7 @@
 # Scala介绍
 ## 设计目的
 Scala是一门多范式的类java编程语言，集成了*面向对象编程*和*函数式编程*的各种特性。
-与Java和C#实现无缝互操作（这两种对象都非纯面向对象）
+可以与Java和C#实现无缝互操作（这两种对象都非纯面向对象）
 兼容java: Scala类可以调用JAVA方法，创建java对象，继承java类和实现java接口。Scala 运行在Java虚拟机上，并兼容现有的Java程序。
 
 ## Scala是纯面向对象
@@ -12,7 +12,7 @@ Scala是纯面向对象：每个值都是一个对象，也就是说scala没有�
 支持*模式匹配*，用来操作代数式类型?
 
 ## 静态类型
-Scala具备类型系统，通过编译时检查，保证代码的安全性和一致性。类型系统具体支持以下特性：
+Scala具备类型系统，通过**编译时检查**，保证代码的安全性和一致性。类型系统具体支持以下特性：
 - 泛型类
 - 协变和逆变
 - 标注
@@ -30,12 +30,10 @@ Scala的设计秉承一项事实，即在实践中，某个领域特定的应用
 Scala使用Actor作为其并发模型，Actor是类似线程的实体，通过邮箱发收消息。
 Actor可以复用线程，因此可以在程序中可以使用数百万个Actor,而线程只能创建数千个。
 在2.10之后的版本中，使用**Akka**作为其默认Actor实现。
-
 ## Scala Web 框架
    以下列出了两个目前比较流行的 Scala 的 Web应用框架：   
 + Lift 框架
 - Play 框架
-
 ## 数据类型
 数据类型	描述
 - Byte	8位有符号补码整数。数值区间为 -128 到 127
@@ -59,22 +57,121 @@ Scala 中的 private 限定符，比 Java 更严格，在嵌套类情况下，�
 在 scala 中，对保护（Protected）成员的访问比 java 更严格一些。因为它只允许保护成员在定义了该成员的的类的子类中被访问。
 ## 循环
 Scala 不支持 break 或 continue 语句，但从 2.8 版本后提供了一种中断循环的方式
+```scala
+import scala.util.control.Breaks
+/**
+  * @author
+  * @create 2019/8/13
+  * @description
+  */
+object BreakDemo {
+
+  val loop = new Breaks
+
+  def main(args: Array[String]): Unit = {
+
+    var i = 0
+    loop.breakable(while(true){
+      println(i)
+      if(i > 5){
+        loop.break()
+      }
+      i += 1
+    })
+  }
+}
+
+```
 for loop: 
 - var 不能在循环判断括号里。可以不定义var
 - 可以用（;）来设置多个区间，**循环会用笛卡尔积展开**
-- for 循环过滤: [if express; express]可以使用分号(;)来为表达式添加一个或多个的过滤条件。
-- 使用yield: [var newArray = for{ a <- numList if express; express}yield] 会把当前的元素记下来，保存在集合中，循环结束后将返回该集合
+```scala
+    var a = 0;
+    var b = 0;
+    // for 循环
+    for( a <- 1 to 2; b <- 1 to 2){
+      println( "Value of a: " + a );
+      println( "Value of b: " + b );
+    }
+    /* 输出
+    Value of a: 1
+    Value of b: 1
+    Value of a: 1
+    Value of b: 2
+    Value of a: 2
+    Value of b: 1
+    Value of a: 2
+    Value of b: 2 */
+```
+- for 循环过滤: “if express; express”可以使用分号(;)来为表达式添加一个或多个的过滤条件。
+- 使用yield: “var newArray = for{ a <- numList if express; express}yield a” 会把当前的元素记下来，保存在集合中，循环结束后将返回该集合
+```scala
+//    val numList = List(1,2,3,4,5,6,7,8,9,10);
+//    for( a <- numList if a != 3; if a < 8 ){
+//      println( "Value of a: " + a );
+//    }
+
+    val numList = List(1,2,3,4,5,6,7,8,9,10);
+    // for 后面用（）和{} 都可以
+    val retVal = for( a <- numList
+                      if a != 3; if a < 8
+    ) yield a
+    for( a <- retVal){
+      println( "Value of a: " + a );
+    }
+    /* 上面两例子都输出
+    Value of a: 1
+    Value of a: 2
+    Value of a: 4
+    Value of a: 5
+    Value of a: 6
+    Value of a: 7
+     */
+    
+```
 
 ## Scala 方法与函数
    Scala 有方法与函数，二者在语义上的区别很小。Scala 方法是类的一部分，而函数是一个对象，可以赋值给一个变量。换句话来说在类中定义的函数即是方法。   
    Scala 中的方法跟 Java 的类似，方法是组成类的一部分。   
-   Scala 中的函数则是一个完整的对象，Scala 中的函数其实就是继承了 Trait 的类的对象。   
+   Scala 中的函数则是一个完整的对象  
    Scala 中使用 val/var 语句可以定义函数，def 语句定义方法。
 ### 方法
    如果你不写等于号和方法主体，那么方法会被隐式声明为抽象(abstract)，包含它的类型于是也是一个抽象类型，必须加abstract 
    **方法可以直接调用，或者用对象调用**
 ### 函数
-- 函数传名调用：在函数内部，每次取参数时调用一次
+- 函数传名调用：在函数内部，每次取参数时都会调用一次。
+
+```scala
+object CallByName {
+
+  def main(args: Array[String]) {
+    delayed(time());
+  }
+
+  def time() = {
+    println("获取时间，单位为纳秒")
+    System.nanoTime
+  }
+  // 注意 此处的=> 就是传名调用，没有这个=>就是传值调用
+  def delayed( t: => Long ) = {
+    println("在 delayed 方法内")
+    println("参数： " + t)
+    println("参数： " + t)
+    t
+    t
+  }
+}
+/* 输出：
+在 delayed 方法内
+获取时间，单位为纳秒
+参数： 1675559648083415
+获取时间，单位为纳秒
+参数： 1675559648272007
+获取时间，单位为纳秒
+获取时间，单位为纳秒
+ */
+
+```
 - 函数传值调用：在函数外部，先调用一次参数函数，将值传给函数
 - 指定函数参数名：一般情况下函数调用参数，就按照函数定义时的参数顺序一个个传递。但是我们也可以通过指定函数参数名，并且不需要按照顺序向函数传递参数，实例如下：
 
@@ -127,17 +224,21 @@ object Test {
    def main(args: Array[String]) {
         println( "返回值 : " + addInt() );
    }
-   def addInt( a:Int=5, b:Int=7 ) : Int = {
+   def addInt( a: Int=5, b: Int=7 ) : Int = {
       var sum:Int = 0
       sum = a + b
 
       return sum
    }
 }
+/*
+输出 12
+ */
+
 ```
 - 高阶函数
 高阶函数：使用其他函数作为参数，类型格式：[其他函数的参数] => [其他函数的返回值]
-
+可以实现“模板设计模式”
 ```scala
 object Test {
    def main(args: Array[String]) {
