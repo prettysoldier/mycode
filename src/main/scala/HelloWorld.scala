@@ -12,11 +12,8 @@ object HelloWorld {
     println(i)
     println("hello world!")
 
-    println(new Symbol().main(args))
-
     var s = "asdf"
     val c : String = "asdfa"
-
 
   }
 }
