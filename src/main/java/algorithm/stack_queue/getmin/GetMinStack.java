@@ -12,7 +12,7 @@ public class GetMinStack {
 
     public int pop() throws Exception {
         if(stack.size() > 0){
-            if(stack.peek() == minStack.peek()){
+            if(stack.peek().intValue() == minStack.peek()){
                 this.minStack.pop();
             }
             return this.stack.pop();

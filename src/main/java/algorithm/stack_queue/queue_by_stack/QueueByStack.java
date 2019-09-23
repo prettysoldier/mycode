@@ -3,6 +3,7 @@ package algorithm.stack_queue.queue_by_stack;
 import java.util.Stack;
 
 /**
+ * 用栈来实现一个队列
  * @author heshuaijun
  * @date 2019/9/21 23:41
  */
