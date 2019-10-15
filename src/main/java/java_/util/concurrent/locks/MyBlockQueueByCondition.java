@@ -1,4 +1,5 @@
-package java_.util.concurrent;
+package java_.util.concurrent.locks;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +8,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 如果对象调用了wait方法就会使持有该对象的线程把该对象的控制权交出去，然后处于等待状态。
- * 如果对象调用了notify方法就会通知某个正在等待这个对象的控制权的线程可以继续运行。
- * 如果对象调用了notifyAll方法就会通知所有等待这个对象控制权的线程继续运行。
- *
+ * 当线程在指定Condition对象上等待的时候，其实就是将线程包装成结点，加入了条件队列，然后阻塞。
+ * 当线程被通知唤醒时，则是将条件队列中的结点转换成等待队列中的结点，之后的处理就和独占功能完全一样。
  * @author Shuaijun He
  */
 public class MyBlockQueueByCondition {

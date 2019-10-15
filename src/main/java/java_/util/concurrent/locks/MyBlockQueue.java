@@ -1,4 +1,4 @@
-package java_.util.concurrent;
+package java_.util.concurrent.locks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,36 +37,35 @@ public class MyBlockQueue {
 
     public static void main(String[] args) {
         MyBlockQueue bq = new MyBlockQueue();
-        Thread th1 = new Thread(() -> {
+        new Thread(() -> {
             while (true) {
 
                 try {
-                    System.out.println("th1, bq size is " + bq.size());
-                    System.out.println(bq.pop());
-                    Thread.sleep(4000);
+                    System.out.println("取出值：" + bq.pop());
+                    Thread.sleep(300);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
 
-        });
-        th1.start();
+        }).start();
 
-        Thread th2 = new Thread(() -> {
-            int i = 0;
+        new Thread(() -> {
+            int i = 1;
             while (true) {
-                System.out.println("th2, bq size is " + bq.size());
-                bq.put(new Item(i++ + ""));
+                bq.put(new Item(i + ""));
+                System.out.println("存入值：" + i + ", 总数：" + bq.size());
+                i++;
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-        });
-        th2.start();
+        }).start();
 
     }
+
 
 }
 

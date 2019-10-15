@@ -1,4 +1,4 @@
-package java_.util.concurrent;
+package java_.util.concurrent.locks;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
@@ -15,6 +15,10 @@ public class MyReentrantlock {
     public static void main(String[] args) {
 
         System.out.println(null == null);
+        Object a = new Object();
+        Object b = a;
+        a = null;
+        System.out.println(b);
 
         ReentrantLock lock = new ReentrantLock();
         try {
@@ -100,7 +104,9 @@ public class MyReentrantlock {
 
 }
 
-
+/**
+ *
+ */
 class Print {
 
     private int flag = 1;
@@ -126,7 +132,10 @@ class Print {
                 e.printStackTrace();
             }
             finally {
-                lock.unlock();
+                /**
+                 * 可以注掉此行的原因是 condition_A.await(); 也会释放当前线程的锁
+                 */
+//                lock.unlock();
             }
         }
     }
@@ -150,7 +159,7 @@ class Print {
             }
             finally
             {
-                lock.unlock();
+//                lock.unlock();
             }
         }
     }
@@ -173,7 +182,7 @@ class Print {
             }
             finally
             {
-                lock.unlock();
+//                lock.unlock();
             }
         }
     }
