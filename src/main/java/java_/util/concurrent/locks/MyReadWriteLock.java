@@ -9,8 +9,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * 所有读锁释放之后，才能获取写锁
- * 写锁 如何降级为读锁？？
- * 在写锁中获取读锁
+ *
  * @author Shuaijun He
  */
 public class MyReadWriteLock {
@@ -40,13 +39,22 @@ public class MyReadWriteLock {
             System.out.println(Thread.currentThread() + "获取了写锁" + System.currentTimeMillis());
             this.readLock.lock();
             System.out.println(Thread.currentThread() + "获取了读锁" + System.currentTimeMillis());
-            Thread.sleep(5 * 1000);
             // do something
         } catch (Exception e){
             e.printStackTrace();
         }finally {
             this.writeLock.unlock();
         }
+
+        try {
+            Thread.sleep(5 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+
+            this.readLock.unlock();
+        }
+
     }
 
     public static void main(String[] args) throws Exception {
@@ -58,9 +66,9 @@ public class MyReadWriteLock {
         executorService.execute(() -> {readWriteLock.processRead();});
 
         executorService.execute(() -> {readWriteLock.processWrite();});
-        Thread.sleep(1 * 1000);
         executorService.execute(() -> {readWriteLock.processRead();});
-
+        executorService.execute(() -> {readWriteLock.processWrite();});
+        executorService.execute(() -> {readWriteLock.processRead();});
 
     }
 }
