@@ -5,6 +5,7 @@ import sun.misc.Contended;
 /**
  * 执行时，必须加上虚拟机参数-XX:-RestrictContended，@Contended注释才会生效。很多文章把这个漏掉了，那样的话实际上就没有起作用。
  * https://yq.aliyun.com/articles/609962
+ * 不优化时32.534577733秒，加上@Contended注解后9.699835227秒，快了两倍多
  *
  * @author shuaijunhe
  * @create 2019/10/17
