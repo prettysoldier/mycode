@@ -1,12 +1,12 @@
 package java_.util.concurrent.atomic;
 
+import java_.lang.instrument.PreMainTraceAgent;
+import scala.annotation.meta.field;
 import sun.misc.Unsafe;
 
 import java.lang.instrument.Instrumentation;
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Modifier;
 
 /**
  * @author shuaijunhe
@@ -22,9 +22,13 @@ public class MyUnsafe {
      */
     private static final Unsafe unsafe;
     public static Unsafe getUnsafeInstance() throws Exception{
+        /**
+         * 缓存Field、Method可以加快速度，报错后重新获取
+         */
         Field f = Unsafe.class.getDeclaredField("theUnsafe");
         f.setAccessible(true);
-        return (Unsafe)f.get(Unsafe.class);
+        // f.get(null) 和 f.get(Unsafe.class) 效果是一样的
+        return (Unsafe)f.get(null);
     }
 
 
@@ -43,12 +47,15 @@ public class MyUnsafe {
     }
 
     public static void main(String[] args) throws Exception{
+        System.out.println("通过unsafe原子地修改属性");
         MyUnsafe myUnsafe = new MyUnsafe();
         System.out.println(myUnsafe.compareAndSetX(0, 1));
         System.out.println(myUnsafe.x);
 
+        System.out.println("----------------");
         /**
          * arrayBaseOffset：返回指定类型数组的第一个元素地址相对于数组起始地址的偏移值。
+         * 一般是16，如果关闭指针压缩的话是22。UseCompressedOops
          *
          * 数组对象:8个字节对象头(mark) + 4/8字节对象指针 + 4字节数组长度 + 数据区 + padding内存对齐(按照8的倍数对齐)
          * 对象指针究竟是4字节还是8字节要看是否开启指针压缩。Oracle JDK从6 update 23开始在64位系统上会默认开启压缩指针
@@ -63,13 +70,21 @@ public class MyUnsafe {
          * 计算对象占用内存大小：Instrumentation
          */
         System.out.println("----------------");
-        System.out.println(countMemoryByteSize(A.class.getName()));
+        System.out.println("对象A的内存占用：" + countMemoryByteSize(A.class.getName()));
         System.out.println("----------------");
-        System.out.println(countArrayMemoryByteSize(new A[1]));
+        System.out.println("数组A[1]的内存占用：" + countArrayMemoryByteSize(new A[1]));
         System.out.println("----------------");
+        System.out.println("通过Instrumentation获得对象A的内存：" + PreMainTraceAgent.sizeOf(new A()));
 
     }
 
+    /**
+     * 计算一个数组对象的内存占用
+     * @param obj
+     * @param <T>
+     * @return
+     * @throws Exception
+     */
     private static <T> long countArrayMemoryByteSize(T[] obj) throws Exception{
         if(obj == null){
             return 0;
@@ -80,7 +95,6 @@ public class MyUnsafe {
         return countMemoryByteSize(obj.getClass().getName());
     }
     /**
-     * 此方法无法过滤静态field
      * @param clazz
      * @return
      */
@@ -90,9 +104,15 @@ public class MyUnsafe {
         }
 
         Field[] fields = Class.forName(clazz).getDeclaredFields();
+
         String[] max = {"0", null};
         String[] min = {"100000", null};
         for(Field f : fields){
+            // 过滤静态域
+            int modifiers = f.getModifiers();
+            if(Modifier.isStatic(modifiers)){
+                continue;
+            }
             long offset = unsafe.objectFieldOffset(f);
             System.out.println(f.getName() + " offset: " + unsafe.objectFieldOffset(f));
             if(offset > Long.valueOf(max[0])){
@@ -135,13 +155,7 @@ public class MyUnsafe {
         return 8 + 4 + Long.valueOf(max[0]) - Long.valueOf(min[0]) + data;
     }
 
-    private static Instrumentation inst;
-    public static void premain(String agentArgs, Instrumentation instP){
-        inst = instP;
-    }
-    public static long sizeOf(Object obj){
-        return inst.getObjectSize(obj);
-    }
+
 
     static class A {
         char c;
@@ -152,8 +166,16 @@ public class MyUnsafe {
         int a;
         byte b;
         String str;
+        // 不占用内存
+        static String str1;
         Object o;
-        Integer h;
-        A i;
+        Integer h = null;
+        MyUnsafe u = null;
+        MyAtomicInteger u1 = null;
+        /**
+         * 两种计算方式不一致的原因是？
+         * 当一个对象含有自己（A i = new A()）时，会发生StackOverflowError，当这个值为null时
+         */
+//         A i = null;
     }
 }
