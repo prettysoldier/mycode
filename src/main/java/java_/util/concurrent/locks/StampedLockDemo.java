@@ -42,7 +42,7 @@ import java.util.concurrent.locks.StampedLock;
  * @create 2019/10/15
  * @description
  */
-public class MyStampedLock {
+public class StampedLockDemo {
 
     private double x, y;
     private final StampedLock stampedLock = new StampedLock();

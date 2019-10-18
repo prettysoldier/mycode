@@ -6,12 +6,15 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * CyclicBarrier 可以循环使用的栅栏
+ * CyclicBarrier：可以循环使用的栅栏，通过ReentrantLock和Condition实现！！
  *
  * 注意：使用CyclicBarrier时，对异常的处理一定要小心，比如线程在到达栅栏前就抛出异常，
  * 此时如果没有重试机制，其它已经到达栅栏的线程会一直等待（因为没有还没有满足总数），最终导致程序无法继续向下执行。
+ * 所以必须处理好异常！
  *
  * 问题：if(Thread.interrupted()){} 当前线程是否被中断，中断后执行操作。线程被中断后还能继续执行吗？（CyclicBarrier的209行）
+ * 实际上只是发送了中断消息，还没有执行中断。线程不会中断！
+ *
  *
  *
  * @author shuaijunhe
@@ -20,18 +23,18 @@ import java.util.concurrent.CyclicBarrier;
  */
 public class CyclicBarrierDemo {
     public static void main(String[] args) throws InterruptedException{
-
+        /**
+         * 多个运动员线程，在到达指定数目的等待线程后，一起继续运行。
+         * 第三个运动员最先到达，其他运动员还未到达，此时中断第三个运动员线程，那么后续的所有运动员都会抛出栅栏损坏异常！
+         */
         // 运动员数
         int N = 5;
-        CyclicBarrier cb = new CyclicBarrier(N, new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("****** 所有运动员已准备完毕，发令枪：跑！******");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        CyclicBarrier cb = new CyclicBarrier(N, () -> {
+            System.out.println("****** 所有运动员已准备完毕，发令枪：跑！******");
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         });
         List<Thread> list = new ArrayList<>(N);

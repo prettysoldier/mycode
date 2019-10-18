@@ -8,19 +8,22 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * 通过ReentrantLock & Condition 实现阻塞队列
+ *
  * 当线程在指定Condition对象上等待的时候，其实就是将线程包装成结点，加入了条件队列，然后阻塞。
  * 当线程被通知唤醒时，则是将条件队列中的结点转换成等待队列中的结点，之后的处理就和独占功能完全一样。
  * @author Shuaijun He
  */
-public class MyBlockQueueByCondition {
+public class BlockQueueByReentrantLockCondition {
 
     private int capacity;
     private List<Object> list;
+
     private Lock lock = new ReentrantLock();
     private Condition emptyConditon = this.lock.newCondition();
     private Condition fullConditon = this.lock.newCondition();
 
-    public MyBlockQueueByCondition(int capacity) {
+    public BlockQueueByReentrantLockCondition(int capacity) {
         this.capacity = capacity;
         list = new ArrayList<>(capacity);
     }
@@ -67,7 +70,7 @@ public class MyBlockQueueByCondition {
 
     public static void main(String[] args) {
         int size = 10;
-        MyBlockQueueByCondition bq = new MyBlockQueueByCondition(size);
+        BlockQueueByReentrantLockCondition bq = new BlockQueueByReentrantLockCondition(size);
         Thread consumerThread = new Thread(() -> {
             while (true) {
 
@@ -98,5 +101,20 @@ public class MyBlockQueueByCondition {
             }
         });
         producerThread.start();
+    }
+    static class Item {
+        private String name;
+
+        /**
+         * @param name
+         */
+        public Item(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return this.name;
+        }
     }
 }
