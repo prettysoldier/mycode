@@ -1,10 +1,8 @@
 package java_.util.concurrent.atomic;
 
 import java_.lang.instrument.PreMainTraceAgent;
-import scala.annotation.meta.field;
 import sun.misc.Unsafe;
 
-import java.lang.instrument.Instrumentation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -74,6 +72,9 @@ public class MyUnsafe {
         System.out.println("----------------");
         System.out.println("数组A[1]的内存占用：" + countArrayMemoryByteSize(new A[1]));
         System.out.println("----------------");
+        /**
+         * 添加vm参数： -javaagent:E:\data\idea_workspace\mycode\out\artifacts\PreMainTraceAgent\PreMainTraceAgent.jar=asdf
+         */
         System.out.println("通过Instrumentation获得对象A的内存：" + PreMainTraceAgent.sizeOf(new A()));
 
     }
@@ -157,7 +158,7 @@ public class MyUnsafe {
 
 
 
-    static class A {
+    public static class A {
         char c;
         boolean d;
         short e;
