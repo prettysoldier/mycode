@@ -2,25 +2,30 @@
 package try_catch_finally;
 
 /**
+ * finally块中return的问题
  * 【强制】不能在finally块中使用return，finally块中的return返回后方法结束执行，不会再执行catch块中的return语句。
- *
  * @author Shuaijun He
  */
 public class ReturnTest {
 
-    private int f() {
+    public int f() {
+        int x;
         try {
-            int i = 12 / 0;
-            System.out.println(" try return" + i);
-            return 1;
+            // try 中报错，会返回x=2，原因是return 会先将返回值存下，finally修改x后，程序会直接将预存的返回值直接返回。
+            x = 1 / 0;
+            System.out.println(" try return" + x);
+            // 如果出现Exception以外的异常，方法异常退出，没有返回值
+//            throw new Error();
+            return x;
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            System.out.println(" catch return");
-            return 2 / 0;
+            System.out.println("catch");
+            x = 2;
+            return x;
         } finally {
-            System.out.println("finally return");
-//            return 3;
+            System.out.println("finally");
+            x = 3;
+            //【强制】不能在finally块中使用return，finally块中的return返回后方法结束执行，不会再执行catch块中的return语句。
+            return x;
         }
 
     }
