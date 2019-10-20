@@ -7,13 +7,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 /**
+ * Unsafe的强大功能：内存管理、操纵对象、阻塞/唤醒线程
  * @author shuaijunhe
  * @create 2019/10/16
  * @description
  */
 public class MyUnsafe {
     /**
-     * 内存管理、操纵对象、阻塞/唤醒线程
      * Unsafe是一个final类，不能被继承，也没有公共的构造器，只能通过工厂方法getUnsafe获得Unsafe的单例。
      *
      * Unsafe unsafe = Unsafe.getUnsafe(); 通过这样的方式获得Unsafe的实力会抛出异常信息，因为在unsafe的源码中会有对安全性的检查
