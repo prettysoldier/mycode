@@ -3,7 +3,8 @@ package java_.util.concurrent.sync;
 import java.util.concurrent.Semaphore;
 
 /**
- * 信号量：类似于“许可证”，用于限流，实现各种资源池
+ * 信号量：类似于“许可证”，用AQS实现
+ * 用于限流，实现各种资源池
  * 比如公共资源比较紧缺，控制同时访问的最大线程数量
  *
  * 注意：Semaphore不是锁，只能限制同时访问资源的线程数，至于对数据一致性的控制，Semaphore是不关心的。
