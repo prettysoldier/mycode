@@ -3,6 +3,7 @@ package java_.util.concurrent.atomic;
 import java.util.concurrent.atomic.AtomicStampedReference;
 
 /**
+ * 关心引用变量更改了几次
  * @author shuaijunhe
  * @create 2019/10/17
  * @description

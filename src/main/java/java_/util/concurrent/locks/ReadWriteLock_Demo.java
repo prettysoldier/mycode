@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  *
  * @author Shuaijun He
  */
-public class MyReadWriteLock {
+public class ReadWriteLock_Demo {
 
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
     private Lock readLock = this.lock.readLock();
@@ -58,7 +58,7 @@ public class MyReadWriteLock {
     }
 
     public static void main(String[] args) throws Exception {
-        MyReadWriteLock readWriteLock = new MyReadWriteLock();
+        ReadWriteLock_Demo readWriteLock = new ReadWriteLock_Demo();
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
         executorService.execute(() -> {readWriteLock.processRead();});

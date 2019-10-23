@@ -12,12 +12,12 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @create 2019/10/16
  * @description
  */
-public class MyReadWriteLock4LockDegree implements Runnable{
+public class ReadWriteLock4LockDegree implements Runnable{
     public static int index; // 共享资源
     public volatile boolean update; // 是否更新的标志
     private ReentrantReadWriteLock reentrantReadWriteLock;
 
-    public MyReadWriteLock4LockDegree() {
+    public ReadWriteLock4LockDegree() {
         this.update = true;
         reentrantReadWriteLock = new ReentrantReadWriteLock();
     }
@@ -72,7 +72,7 @@ public class MyReadWriteLock4LockDegree implements Runnable{
     }
 
     public static void main(String[] args) {
-        MyReadWriteLock4LockDegree myStudy1 = new MyReadWriteLock4LockDegree();
+        ReadWriteLock4LockDegree myStudy1 = new ReadWriteLock4LockDegree();
         Thread thread1 = new Thread(myStudy1);
         Thread thread2 = new Thread(myStudy1);
         Thread thread3 = new Thread(myStudy1);

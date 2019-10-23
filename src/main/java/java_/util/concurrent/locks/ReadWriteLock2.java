@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * @author Shuaijun He
  */
-public class MyReadWriteLock2 {
+public class ReadWriteLock2 {
 
 //资源
     private int value;
@@ -27,7 +27,7 @@ public class MyReadWriteLock2 {
         ReadWriteLock lock = new ReentrantReadWriteLock();
         final Lock readLock = lock.readLock();
         final Lock writeLock = lock.writeLock();
-        final MyReadWriteLock2 resource = new MyReadWriteLock2();
+        final ReadWriteLock2 resource = new ReadWriteLock2();
         final Random random = new Random();
 
         for (int i = 0; i < 20; ++i) {//读线程
@@ -86,7 +86,7 @@ public class MyReadWriteLock2 {
     }
 
     public static void main(String[] args) {
-        new MyReadWriteLock2().test();
+        new ReadWriteLock2().test();
     }
 
 }

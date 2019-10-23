@@ -172,7 +172,7 @@ public class MyUnsafe {
         Object o;
         Integer h = null;
         MyUnsafe u = null;
-        MyAtomicInteger u1 = null;
+        AtomicInteger_Demo u1 = null;
         /**
          * 两种计算方式不一致的原因是？
          * 当一个对象含有自己（A i = new A()）时，会发生StackOverflowError，当这个值为null时

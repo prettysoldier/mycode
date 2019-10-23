@@ -1,12 +1,11 @@
 package java_.util.concurrent.sync;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.concurrent.Phaser;
 
 /**
  * Phaser jdk1.7 用于分阶段任务处理，类似于“多阶段栅栏”
  * 多阶段栅栏，可以在初始时设定参与线程数，也可以中途注册/注销参与者，当到达的参与者数量满足栅栏设定的数量后，会进行阶段升级（advance）
+ * 用LockSupport 、CAS/自旋 实现
  *
  * 概念：
  * 阶段 phase ：在任意时间点，Phaser只处于某一个phase(阶段)，初始阶段为0，最大达到Integerr.MAX_VALUE，然后再次归零。当所有parties参与者都到达后，phase值会递增。

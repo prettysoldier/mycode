@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @create 2019/10/16
  * @description
  */
-public class MyAtomicInteger {
+public class AtomicInteger_Demo {
 
     /**
      * lazySet内部调用了Unsafe类的putOrderedInt方法，通过该方法对共享变量值的改变，不一定能被其他线程立即看到。也就是说以普通变量的操作方式来写变量。

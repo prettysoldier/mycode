@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
  * 上述方法调用了Unsafe类的getAndAddLong方法，该方法是个native方法，它的逻辑是采用自旋的方式不断更新目标值，直到更新成功。 *
  * 在并发量较低的环境下，线程冲突的概率比较小，自旋的次数不会很多。但是，高并发环境下，N个线程同时进行自旋操作，
  * 会出现大量失败并不断自旋的情况，此时AtomicLong的自旋会成为瓶颈。
- * 这就是LongAdder引入的初衷——解决高并发环境下AtomicLong的自旋瓶颈问题。
+ * 这就是LongAdder引入的初衷——解决高并发环境下 AtomicLong的自旋瓶颈问题 。
  *
  * LongAdder的思路
  * 我们知道，AtomicLong中有个内部变量value保存着实际的long值，所有的操作都是针对该变量进行。
