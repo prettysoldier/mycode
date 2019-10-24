@@ -12,3 +12,5 @@
 |:----|:-----:|:-----:|:----:|:-----:|
 |有锁算法	|ArrayBlockingQueue|	LinkedBlockingQueue、LinkedBlockingDeque	|/|	PriorityBlockingQueue、DelayQueue|
 |无锁算法	|/|	/|	LinkedTransferQueue|	SynchronousQueue
+
+是不是所有元素都不能是null ???

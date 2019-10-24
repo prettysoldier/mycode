@@ -3,16 +3,17 @@ package java_.util.concurrent.collections.queue.unblock;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * 无锁队列：ConcurrentLinkedQueue
- * JDK1.5时随着J.U.C一起引入的一个支持并发环境的队列。
- * 从名字就可以看出来，底层是基于链表实现的。自旋+CAS的非阻塞算法
- * 使用了自旋+CAS的非阻塞算法来保证线程并发访问时的数据一致性。
+ * 无锁队列 ConcurrentLinkedQueue
+ * JDK1.5
+ * 从名字就可以看出来，底层是基于链表实现的。
+ * 同步实现：自旋+CAS、非阻塞算法。
  *
  * 由于是完全基于无锁算法实现的，所以当出现多个线程同时进行修改队列的操作（比如同时入队），很可能出现CAS修改失败的情况，
  * 那么失败的线程会进入下一次自旋，再尝试入队操作，直到成功。所以，在并发量适中的情况下，一般具有较好的性能。
  *
  * 缺点：
- * ConcurrentLinkedQueue不具备实时的数据一致性，实际运用中，队列一般在生产者-消费者的场景下使用得较多，
+ * ConcurrentLinkedQueue不具备实时的数据一致性，实际运用中，队列一般在生产者-消费者的场景下使用得较多
+ * 并发量太大时，性能会降低！
  * 所以ConcurrentLinkedQueue的使用场景并不如阻塞队列那么多。
  *
  * 另外，关于ConcurrentLinkedQueue还有以下需要注意的几点： *
