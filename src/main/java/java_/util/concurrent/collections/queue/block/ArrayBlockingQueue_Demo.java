@@ -3,6 +3,7 @@ package java_.util.concurrent.collections.queue.block;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
+ * 基于数组的有界阻塞队列
  * ArrayBlockingQueue jdk1.5 有界阻塞队列
  * 通过ReentrantLock来保证并发环境下的线程安全。针对队列的修改都需要加全局锁。
  * 对于超高并发的环境，由于生产者-消息者共用一把锁，可能出现性能瓶颈。

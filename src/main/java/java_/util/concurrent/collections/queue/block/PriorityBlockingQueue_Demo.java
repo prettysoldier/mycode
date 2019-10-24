@@ -3,6 +3,7 @@ package java_.util.concurrent.collections.queue.block;
 import java.util.concurrent.PriorityBlockingQueue;
 
 /**
+ * 基于堆的优先级阻塞队列
  * PriorityBlockingQueue (jdk1.5) 无界阻塞队列
  * 特点：
  *   1.优先级队列

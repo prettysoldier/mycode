@@ -3,6 +3,7 @@ package java_.util.concurrent.collections.queue.block;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
+ * 基于单链表的阻塞队列
  * 近似有界阻塞队列：无法扩容。可以指定队列的容量，也可以不指定，如果不指定，那么它的容量大小默认为Integer.MAX_VALUE
  * 底层数据结构：单链表
  * 维护了两把锁——takeLock和putLock。
