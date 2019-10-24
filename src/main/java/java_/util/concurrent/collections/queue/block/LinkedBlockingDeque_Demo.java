@@ -6,7 +6,7 @@ import java.util.concurrent.LinkedBlockingDeque;
  * 基于双链表的阻塞双端队列 LinkedBlockingDeque
  *
  * JDK1.5
- * 底层利用ReentrantLock实现同步
+ * 同步实现：ReentrantLock
  * 容量必须大于0；不指定的话为Integer.MAX_VALUE
  * 不能含有null数据
  * 同步实现：一把锁ReentrantLock，所有对队列的修改操作都需要先获取这把全局锁，实现比较简单！

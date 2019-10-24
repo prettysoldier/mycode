@@ -3,10 +3,12 @@ package java_.util.concurrent.collections.queue.block;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * 基于单链表的阻塞队列
+ * 基于单链表的阻塞队列 LinkedBlockingQueue
+ *
+ * 同步实现：维护了两把锁——takeLock和putLock。
+ *
  * 近似有界阻塞队列（无法扩容）。可以指定队列的容量，也可以不指定，如果不指定，那么它的容量大小默认为Integer.MAX_VALUE
  * 底层数据结构：单链表
- * 同步实现：维护了两把锁——takeLock和putLock。
  *   takeLock : 控制出队的并发
  *   putLock : 控制入队的并发
  *   也就是说，出队和入队是并发执行的

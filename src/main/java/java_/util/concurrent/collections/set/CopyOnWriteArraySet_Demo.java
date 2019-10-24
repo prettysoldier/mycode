@@ -3,10 +3,15 @@ package java_.util.concurrent.collections.set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
- * CopyOnWriteArraySet，从名字上可以看出，也是基于“写时复制”的思想。事实上，CopyOnWriteArraySet内部引用了一个CopyOnWriteArrayList对象，
+ * 写时复制集合 CopyOnWriteArraySet
+ *
+ * 同步实现：ReentrantLock
+ *
+ * CopyOnWriteArraySet，从名字上可以看出，也是基于“写时复制”的思想。
  * 以“组合”方式，委托CopyOnWriteArrayList对象实现了所有API功能。
  *
- * 唯一的区别就是CopyOnWriteArraySet不允许含有重复元素，所以添加元素（add方法）时，内部调用了CopyOnWriteArrayList的addAllAbsent方法。
+ * 唯一的区别就是 CopyOnWriteArraySet 不允许含有重复元素，所以添加元素（add方法）时，
+ * 内部调用了CopyOnWriteArrayList的 addAllAbsent 方法。
  *
  * 总结：
  * 1 适合“读多写少”且数据量不大的场景。

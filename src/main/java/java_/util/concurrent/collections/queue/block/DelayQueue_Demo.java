@@ -11,8 +11,9 @@ import java.util.concurrent.atomic.AtomicLong;
  * 延迟阻塞队列 DelayQueue
  *
  * JDK1.5
- * 内部委托给 PriorityQueue
  * 同步实现：ReentrantLock + Condition
+ *
+ * 内部委托给 PriorityQueue
  * 实现接口：BlockingQueue
  *
  * 数据实现 Delay 接口：

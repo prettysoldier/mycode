@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
  * 特殊的同步队列 SynchronousQueue
  * JDK1.5
  * 同步实现：自旋+CAS+LockSupport
+ *
  * 实现了BlockingQueue接口，底层基于栈和队列实现：
  *
  * SynchronousQueue的底层实现包含两种数据结构——栈和队列。这是一种非常特殊的阻塞队列，它的特点简要概括如下：

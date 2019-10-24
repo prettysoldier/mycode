@@ -6,6 +6,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * 无锁队列 ConcurrentLinkedQueue
  * JDK1.5
  * 从名字就可以看出来，底层是基于链表实现的。
+ *
  * 同步实现：自旋+CAS、非阻塞算法。
  *
  * 由于是完全基于无锁算法实现的，所以当出现多个线程同时进行修改队列的操作（比如同时入队），很可能出现CAS修改失败的情况，

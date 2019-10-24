@@ -4,21 +4,25 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * ConcurrentHashMap jdk1.5 线程安全。各个版本的ConcurrentHashMap，内部实现机制千差万别，本节所有的讨论基于JDK1.8
+ * 同步实现：同步块
  *
- * 一）tableSizeFor：
- *      对n右移1位：001xx...xxx，再位或：011xx...xxx
+ * 一）tableSizeFor(int c)：
+ *      n = c - 1; // 让c-1再赋值给n的目的是另找到的目标值大于或等于原值。
+ *      对n右移1位：001xx...xxx，再按位或：011xx...xxx
  *      对n右移2为：00011...xxx，再位或：01111...xxx
  *      此时前面已经有四个1了，再右移4位且位或可得8个1
  *      同理，有8个1，右移8位肯定会让后八位也为1。
  *      综上可得，该算法让最高位的1后面的位全变为1。
  *      最后再让结果n+1，即得到了2的整数次幂的值了。
- *      让cap-1再赋值给n的目的是另找到的目标值大于或等于原值。
  *
- * 二）concurrencyLevel只是为了兼容JDK1.8以前的版本，并不是实际的并发级别，loadFactor也不是实际的负载因子
- *      这两个都失去了原有的意义，仅仅对初始容量有一定的控制作用
- * 三）链表转树的阈值：8    MIN_TREEIFY_CAPACITY  键值对总数不小于64
- *      树转链表的阈值：6   MIN_TRANSFER_STRIDE 键值对总数小于16
- *      上面指的是单个槽。另外链表转树还有一个条件：键值对总数不少于64
+ *
+ * 二）concurrencyLevel loadFactor 是无用的，只是为了兼容旧版本。
+ *   concurrencyLevel 只是为了兼容JDK1.8以前的版本，并不是实际的并发级别，
+ *   loadFactor 也不是实际的负载因子，这两个都失去了原有的意义，仅仅对初始容量有一定的控制作用
+ *
+ * 三）链表转树的阈值：8    MIN_TREEIFY_CAPACITY（键值对总数）不小于64
+ *     树转链表的阈值：6   MIN_TRANSFER_STRIDE （键值对总数）小于16
+ *
  * 四）put(k, v) 键和值都不能为null
  * 五）当正在写锁被占用时，如果此时需要查找，用链表形势进行查找（TreeBin、TreeNode 是 Node 的子类）
  *
