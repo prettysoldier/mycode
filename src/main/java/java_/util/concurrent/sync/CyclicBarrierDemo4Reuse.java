@@ -1,4 +1,4 @@
-package java_.util.concurrent;
+package java_.util.concurrent.sync;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -22,7 +22,7 @@ public class CyclicBarrierDemo4Reuse {
 
         try {
             Thread.sleep(2000);
-//            barrier.reset();
+            barrier.reset();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -41,10 +41,11 @@ public class CyclicBarrierDemo4Reuse {
 
         @Override
         public void run() {
-            System.out.println("线程"+Thread.currentThread().getName()+"正在写入数据...");
             try {
                 //以睡眠来模拟写入数据操作
-                Thread.sleep((long)(Math.random() * 6000));
+                long time = (long)(Math.random() * 4000);
+                System.out.println(Thread.currentThread().getName() + " sleep时间: " + time);
+                Thread.sleep(time);
                 System.out.println("线程" + Thread.currentThread().getName()+"写入数据完毕，等待其他线程写入完毕");
 
                 cyclicBarrier.await();
