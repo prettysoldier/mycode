@@ -5,8 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 1.Thread构造器中的 stackSize 的作用？
- *    1）stackSize 如果VM支持这个参数：超过VM的最大值，按最大值；如果低于VM最小值，按最小值算。
- *              如果VM不支持这个参数，会忽略。
+ *    1）stackSize
  *    2）如果没有特殊的需求，尽量不要修改此参数，因为它本身的作用和范围取决于平台，在不同的VM上使用此参数，
  *    跨平台迁移时，如果以前已设定了对应值，需要检查是否需要修改这个参数。
  *    3）参考 JVMStackTest

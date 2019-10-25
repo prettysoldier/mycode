@@ -10,7 +10,6 @@ import java.lang.reflect.Field;
  * （在栈中存放局部变量，参数，运行中间结果）
  * 每次运行的结果不同
  *
- * stack height:20642
  *
  * @author Shuaijun He
  */
