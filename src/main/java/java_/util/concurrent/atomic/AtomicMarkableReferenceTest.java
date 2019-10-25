@@ -16,7 +16,7 @@ public class AtomicMarkableReferenceTest {
 
         boolean[] mark = new boolean[1];
         System.out.println(amr.get(mark) + ": " + mark[0]);
-        amr.compareAndSet(1, 2, false, true);
-        System.out.println(amr.get(mark) + ": " + mark[0]);
+        amr.set(2, true);
+        System.out.println(amr.get(mark) + ": " + amr.isMarked());
     }
 }

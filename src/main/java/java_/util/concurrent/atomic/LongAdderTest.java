@@ -30,8 +30,10 @@ import java.util.stream.IntStream;
  * 2.会多消耗一些内存
  *
  * LongAdder的原理：
+ *
  * LongAdder是每个线程拥有自己的槽，各个线程一般只对自己槽中的那个值进行CAS操作。
- * cells最大长度不会超过cpu核数
+ *
+ * 注意：cells最大长度不会超过cpu核数
  *
  * @author shuaijunhe
  * @create 2019/10/17
