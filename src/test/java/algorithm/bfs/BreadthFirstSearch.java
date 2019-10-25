@@ -1,4 +1,4 @@
-package test.algorithm.bfs;
+package algorithm.bfs;
 
 import java.util.ArrayList;
 import java.util.Arrays;

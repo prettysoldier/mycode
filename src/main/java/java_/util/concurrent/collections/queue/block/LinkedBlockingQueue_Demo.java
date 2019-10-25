@@ -15,11 +15,11 @@ import java.util.concurrent.LinkedBlockingQueue;
  *
  * 队列不能包含null元素
  *
- * 归纳一下，LinkedBlockingQueue和ArrayBlockingQueue比较主要有以下区别：
+ * 归纳一下，LinkedBlockingQueue 和 ArrayBlockingQueue 比较主要有以下区别：
  *   1.队列大小不同
  *     ArrayBlockingQueue初始构造时必须指定大小，
  *     而LinkedBlockingQueue构造时既可以指定大小，也可以不指定（默认为Integer.MAX_VALUE，近似于无界）；
- *   2.底层数据结构不同。
+ *   2.底层数据结构不同
  *     ArrayBlockingQueue底层采用数组作为数据存储容器，
  *     而LinkedBlockingQueue底层采用单链表作为数据存储容器；
  *   3.两者的加锁机制不同
