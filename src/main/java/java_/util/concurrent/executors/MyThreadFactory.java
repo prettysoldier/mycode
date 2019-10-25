@@ -56,16 +56,4 @@ public class MyThreadFactory implements ThreadFactory {
 
 }
 
-class Client{
-    private static int f(int i){
-        i++;
-        return i;
-    }
 
-    public static void main(String[] args) {
-        Thread t = MyThreadFactory.getMyThreadFactory().newThread(()->{
-            System.out.println(f(f(f(0))));
-        });
-        t.start();
-    }
-}
