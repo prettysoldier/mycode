@@ -6,4 +6,9 @@
     - newFixedThreadPool(int nThreads)
     - newFixedThreadPool(int nThreads, ThreadFactory threadFactory) 
     - 返回 ThreadPoolExecutor （ExecutorService的实现类）
+  - 单个线程的线程池
+    - newSingleThreadExecutor()
+    - newSingleThreadExecutor(ThreadFactory threadFactory)
+    - 返回的Executor实例用了一个 FinalizableDelegatedExecutorService 对象进行包装。FinalizableDelegatedExecutorService
+的核心是其继承的 DelegatedExecutorService ，这是一个包装类，委托 ThreadPoolExecutor 实现了 ExecutorService 的所有方法。为什么要加一层委托层呢？因为不想暴露 ThreadPoolExecutor 的一些方法给只有单个线程的线程池。比如 setCorePoolSize 。
   
