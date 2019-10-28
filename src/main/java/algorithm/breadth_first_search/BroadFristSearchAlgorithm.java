@@ -1,4 +1,4 @@
-package algorithm.breadthfirstsearch;
+package algorithm.breadth_first_search;
 
 import java.util.ArrayList;
 import java.util.HashMap;
