@@ -1,5 +1,5 @@
 
-package java_.forkjoin;
+package java_.util.concurrent.executors.fork_join;
 
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
@@ -13,7 +13,7 @@ import java.util.concurrent.RecursiveTask;
  */
 public class ForkJoinPoolForTaskDemo {
 
-    static int ARR_LENGTH = 4_0000_0000;
+    static int ARR_LENGTH = 400_0000;
 
     public static void main(String[] args) throws Exception {
         int[] arr = new int[ForkJoinPoolForTaskDemo.ARR_LENGTH];

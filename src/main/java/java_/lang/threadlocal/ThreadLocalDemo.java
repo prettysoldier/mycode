@@ -1,7 +1,15 @@
 package java_.lang.threadlocal;
 
 /**
- * @Desc
+ * Thread-Specific Storage 模式-----ThreadLocal 线程独有的存储库
+ *
+ * 每一个线程都有一个ThreadLocal.ThreadLocalMap，ThreadLocalMap底层由数组实现：Entry[] table。
+ *   Entry继承了WeakReference，以ThreadLocal作为引用，也称为键。
+ * 当线程没有ThreadLocalMap时，在ThreadLocal初次get的时候会创建。
+ * 如果ThreadLocal的初始值是null。一般会调用 ThreadLocal.withInitial(), set()，或者复写initialValue()
+ *
+ *
+ *
  * @Author shuaijunhe
  * @CreateTime 2018/12/5 20:37
  **/
