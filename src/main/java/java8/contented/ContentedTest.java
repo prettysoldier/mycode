@@ -1,6 +1,5 @@
 package java8.contented;
 
-import sun.misc.Contended;
 
 /**
  * 执行时，必须加上虚拟机参数-XX:-RestrictContended，@Contended注释才会生效。很多文章把这个漏掉了，那样的话实际上就没有起作用。
@@ -61,7 +60,7 @@ public class ContentedTest implements Runnable{
 }
 
 
-@Contended
+//@Contenttend
 class VolatileLong {
     public volatile long value = 0L;
 }
