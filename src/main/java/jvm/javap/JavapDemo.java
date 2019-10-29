@@ -1,7 +1,8 @@
 
-package javap;
+package jvm.javap;
 
 /**
+ * 查看字节码
  * javap -verbose JavapDemo.class
  * 
  * @author Shuaijun He

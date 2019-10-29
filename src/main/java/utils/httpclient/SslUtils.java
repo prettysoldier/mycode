@@ -1,5 +1,5 @@
 
-package httpclient;
+package utils.httpclient;
 
 import javax.net.ssl.*;
 import java.security.cert.X509Certificate;
