@@ -3,7 +3,9 @@ package algorithm.dijkstra;
 import java.util.*;
 
 /**
- * 迪杰斯特拉算法：是从一个顶点到其余各顶点的最短路径算法，解决的是有向图中最短路径问题。
+ * 迪杰斯特拉算法：是从一个顶点到其余各顶点的最短路径算法，解决的是有权图中最短路径问题。
+ * 1.该算法要求图中不存在负权边
+ *
  * @author shuaijunhe
  * @create 2019/4/17
  * @description
@@ -11,9 +13,13 @@ import java.util.*;
 public class Dijkstra {
 
     public static void main(String[] args) {
+
         Graph graph = new Graph(7);
+
         initGraph(graph);
+
         Map<Integer, Integer> distanceMap = dijkstra(graph, 0);
+
         int distance = distanceMap.get(6);
         System.out.println(distance);
     }
@@ -25,16 +31,19 @@ public class Dijkstra {
 
         //图的顶点数量
         int size = graph.vertexes.length;
+
         //创建距离表，存储从起点到每一个顶点的临时距离
         Map<Integer, Integer> distanceMap = new HashMap<>(size);
-        //记录遍历过的顶点
-        Set<Integer> accessedSet = new HashSet<>();
         //初始化最短路径表，到达每个顶点的路径代价默认为无穷大
         for (int i = 1; i < size; i++) {
             distanceMap.put(i, Integer.MAX_VALUE);
         }
+
+        //记录遍历过的顶点
+        Set<Integer> accessedSet = new HashSet<>();
         //遍历起点，刷新距离表
         accessedSet.add(0);
+
         List<Edge> edgesFromStart = graph.adj[startIndex];
         for (Edge edge : edgesFromStart) {
             distanceMap.put(edge.index, edge.weight);

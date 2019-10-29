@@ -9,7 +9,8 @@ public class Fabonacci {
     public static int max_int_iteration() {
         int a = 0, b = 1, c = 1;
         int count = 3;
-        for (; b <= c;) {   //一旦c达到编程环境最大斐波那契数，便会产生内存溢出，从而变成一个负数，到此循环结束
+        //一旦c达到编程环境最大斐波那契数，便会产生内存溢出，从而变成一个负数，到此循环结束
+        while (b <= c) {
             a = b;
             b = c;
             c = a + b;
@@ -22,7 +23,7 @@ public class Fabonacci {
     public static long max_long_iteration() {
         long a = 0, b = 1, c = 1;
         long count = 3;
-        for (; b <= c;) {    //一旦c达到编程环境最大斐波那契数，便会产生内存溢出，从而变成一个负数，到此循环结束
+        while ( b <= c) {
             a = b;
             b = c;
             c = a + b;
@@ -32,7 +33,8 @@ public class Fabonacci {
     }
 
     public static int recursion(int n) {
-        int result = 0;   //最后一个斐波那契数及存储中间斐波那契数的变量
+        //最后一个斐波那契数及存储中间斐波那契数的变量
+        int result = 0;
         if (n <= 0) {
             result = 0;
         }
@@ -41,7 +43,6 @@ public class Fabonacci {
         }
         if (n > 2) {
             result = Fabonacci.recursion(n - 1) + Fabonacci.recursion(n - 2);
-            //System.out.print(result+"  ");
         }
         return result;
     }
