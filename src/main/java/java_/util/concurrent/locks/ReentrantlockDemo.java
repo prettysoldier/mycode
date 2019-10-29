@@ -87,7 +87,7 @@ public class ReentrantlockDemo {
                      * 注释掉：减少一次解锁，在await时同时释放2次锁
                      * 不注释：正常的解锁和加锁。
                      */
-                lock.unlock();
+                    lock.unlock();
                 }
             }
         }
@@ -111,7 +111,7 @@ public class ReentrantlockDemo {
                 }
                 finally
                 {
-//                lock.unlock();
+//                  lock.unlock();
                 }
             }
         }
@@ -134,7 +134,7 @@ public class ReentrantlockDemo {
                 }
                 finally
                 {
-//                lock.unlock();
+//                  lock.unlock();
                 }
             }
         }
