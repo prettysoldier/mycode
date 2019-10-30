@@ -11,22 +11,19 @@ public class ReverseLinkedList {
         // 初始化链表
         Node head = initLinkedList();
 
-        printLinkedList(head);
+        Node.printLinkedList(head);
 
 //        reverse(head).setNext(null);
 //        newHead = reverse2(head);
-        newHead = reverse3(head);
-
-        printLinkedList(newHead);
+//        newHead = reverse3(head);
+        /**
+         * 部分反转
+         */
+        newHead = reversePart(head, 2, 4);
+        Node.printLinkedList(newHead);
     }
 
-    private static void printLinkedList (Node newHead) {
-        while(newHead != null){
-            System.out.print(newHead.getValue() + " ");
-            newHead = newHead.getNext();
-        }
-        System.out.println();
-    }
+
 
     private static Node initLinkedList () {
         Node head = new Node(1);
@@ -95,5 +92,80 @@ public class ReverseLinkedList {
         }
         return pre;
     }
+
+    /**
+     * 这是我自己实现的方法，书上提供的见reversePart2
+     * @param head
+     * @param begin
+     * @param end
+     * @return
+     */
+    private static Node reversePart(Node head, int begin, int end){
+
+        if( end - begin < 1){
+            return head;
+        }
+        if ( begin < 1) {
+            return head;
+        }
+        Node newHead = head;
+        Node pre = null;
+        int curr = 0;
+        Node next = null;
+        /**
+         * 先循环一遍，找出3个边界节点
+         */
+        Node subBegin = null;
+        Node subBeginPrev = null;
+        Node subEndNext = null;
+        Node currNode = head;
+        while(currNode != null){
+            curr++;
+            next = currNode.getNext();
+            if(curr == begin){
+                subBeginPrev = pre;
+                subBegin = currNode;
+            }
+            if(curr == end){
+                subEndNext = next;
+            }
+            pre = currNode;
+            currNode = next;
+        }
+
+        if(end > curr){
+            return newHead;
+        }
+
+        Node[] ret = reversePartInner(subBegin, end - begin + 1);
+        if(subBeginPrev != null){
+            subBeginPrev.setNext(ret[0]);
+        }else{
+            newHead = ret[0];
+        }
+        ret[1].setNext(subEndNext);
+
+        return newHead;
+    }
+
+    private static Node[] reversePartInner(Node head, int count){
+
+        Node h = head;
+        Node pre = null;
+        Node next = null;
+        int i = 1;
+        while(head != null && i <= count){
+            next = head.getNext();
+            head.setNext(pre);
+            pre = head;
+            head = next;
+            i++;
+        }
+        Node[] ret = new Node[2];
+        ret[0] = pre;
+        ret[1] = h;
+        return ret;
+    }
+
 
 }

@@ -29,4 +29,22 @@ public class Node {
         this.next = next;
         return this;
     }
+
+    public static void printLinkedList (Node newHead) {
+        while(newHead != null){
+            System.out.print(newHead.getValue() + " ");
+            newHead = newHead.getNext();
+        }
+        System.out.println();
+    }
+
+    public static void printCyclicLinkedList (Node newHead, int size) {
+        int i = 0;
+        while(i < size && newHead != null){
+            i++;
+            System.out.print(newHead.getValue() + " ");
+            newHead = newHead.getNext();
+        }
+        System.out.println();
+    }
 }
