@@ -12,6 +12,11 @@ public class JosephProblem {
         josephProblem(10, 3);
     }
 
+    /**
+     * 时间复杂度：O(n * m)
+     * @param size
+     * @param m
+     */
     private static void josephProblem(int size, int m){
         if(m > size || m < 1){
             return;
@@ -22,21 +27,16 @@ public class JosephProblem {
         Node.printCyclicLinkedList(head, size);
 
         // 找出最后的节点
-        Node curr = head;
-        Node last = null;
-        int i = 0;
-        while(i < size){
-            i++;
-            last = curr;
-            curr = curr.getNext();
+        Node last = head;
+        while(last.getNext() != head){
+            last = last.getNext();
         }
 
-        int phase = 0;
-        curr = head;
         Node prev = last;
+        int phase = 0;
+        Node curr = head;
         while(curr.getNext() != curr){
-            phase++;
-            if(phase == m){
+            if(++phase == m){
                 // 删除curr节点
                 prev.setNext(curr.getNext());
                 phase = 0;
@@ -65,4 +65,6 @@ public class JosephProblem {
         }
         return head;
     }
+
+    
 }
