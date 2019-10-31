@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.Evelynne;
 
 import java.util.Scanner;
 
