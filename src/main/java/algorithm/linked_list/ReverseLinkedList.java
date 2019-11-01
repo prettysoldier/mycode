@@ -71,7 +71,7 @@ public class ReverseLinkedList {
         return newHead;
     }
 
-    private static Node reverse3(Node head){
+    public static Node reverse3(Node head){
         Node pre = null;
         Node next = null;
 
