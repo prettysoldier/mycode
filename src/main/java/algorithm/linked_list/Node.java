@@ -47,4 +47,36 @@ public class Node {
         }
         System.out.println();
     }
+
+    public static Node initLinkedList (int size) {
+        Node head = new Node(1);
+        Node curr = head;
+        for(int i = 2; i <= size; i++){
+            Node node = new Node(i);
+            curr.setNext(node);
+            curr = node;
+        }
+        return head;
+    }
+
+    public static Node initLinkedList (int... values) {
+        if(values.length == 0){
+            return null;
+        }
+        if(values.length == 1){
+            return new Node(values[0]);
+        }
+        Node prev = null;
+        Node head = null;
+        for (int e : values) {
+            Node n = new Node(e);
+            if(prev != null){
+                prev.setNext(n);
+            }else{
+                head = n;
+            }
+            prev = n;
+        }
+        return head;
+    }
 }

@@ -9,7 +9,7 @@ import java.util.Stack;
 public class ReverseLinkedList {
     public static void main (String[] args) {
         // 初始化链表
-        Node head = initLinkedList();
+        Node head = Node.initLinkedList(6);
 
         Node.printLinkedList(head);
 
@@ -25,16 +25,7 @@ public class ReverseLinkedList {
 
 
 
-    private static Node initLinkedList () {
-        Node head = new Node(1);
-        Node curr = head;
-        for(int i = 2; i <= 6; i++){
-            Node node = new Node(i);
-            curr.setNext(node);
-            curr = node;
-        }
-        return head;
-    }
+
 
     /**
      * 用递归实现

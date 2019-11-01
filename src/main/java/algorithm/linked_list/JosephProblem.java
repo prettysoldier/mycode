@@ -9,23 +9,60 @@ package algorithm.linked_list;
 public class JosephProblem {
 
     public static void main(String[] args) {
-        josephProblem(10, 3);
+        // 初始化链表
+        int size = 15;
+        Node head = initCyclicLinkedList(size);
+
+        Node.printCyclicLinkedList(head, size);
+
+//        Node live = josephProblem(head, size, 3);
+        Node live = josephProblemAdvance(head,3);
+
+        System.out.println(live.getValue());
     }
 
+    /**
+     * 进阶解法，没有理解！！
+     * 难度：3
+     */
+    private static Node josephProblemAdvance(Node head, int m){
+        if(head == null || head.getNext() == head || m < 1){
+            return head;
+        }
+
+        // 获取链表大小
+        Node cur = head.getNext();
+        int tmp = 1;
+        while(cur != head){
+            tmp++;
+            cur = cur.getNext();
+        }
+        // 核心方法：获取存活节点的位置！
+        tmp = getLive(tmp, m);
+
+        // 获取tmp位的节点
+        while(--tmp != 0){
+            head = head.getNext();
+        }
+        return head;
+    }
+
+    private static int getLive(int i, int m){
+        if(i == 1){
+            return 1;
+        }
+        int live = getLive(i - 1, m);
+        return (live + m -1 ) % i + 1;
+    }
     /**
      * 时间复杂度：O(n * m)
      * @param size
      * @param m
      */
-    private static void josephProblem(int size, int m){
+    private static Node josephProblem(Node head, int size, int m){
         if(m > size || m < 1){
-            return;
+            return head;
         }
-        // 初始化链表
-        Node head = initLinkedList(size);
-
-        Node.printCyclicLinkedList(head, size);
-
         // 找出最后的节点
         Node last = head;
         while(last.getNext() != head){
@@ -47,9 +84,10 @@ public class JosephProblem {
         }
 
         Node.printCyclicLinkedList(curr, 2);
+        return curr;
     }
 
-    private static Node initLinkedList (int initNum) {
+    private static Node initCyclicLinkedList(int initNum) {
         Node head = new Node(1);
         if(initNum == 1){
             head.setNext(head);
@@ -65,6 +103,4 @@ public class JosephProblem {
         }
         return head;
     }
-
-    
 }
