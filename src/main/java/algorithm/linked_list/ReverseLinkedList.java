@@ -85,7 +85,7 @@ public class ReverseLinkedList {
     }
 
     /**
-     * 这是我自己实现的方法，书上提供的见reversePart2
+     *
      * @param head
      * @param begin
      * @param end
