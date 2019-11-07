@@ -1,4 +1,4 @@
-package algorithm.Evelynne_homework;
+package algorithm.wenhan_homework;
 
 import java.util.Scanner;
 
