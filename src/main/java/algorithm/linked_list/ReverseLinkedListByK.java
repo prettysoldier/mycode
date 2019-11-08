@@ -71,6 +71,13 @@ public class ReverseLinkedListByK {
         return newHead;
     }
 
+    /**
+     * 不使用额外的栈
+     *
+     * @param head
+     * @param k
+     * @return
+     */
     public static Node reverse3(Node head, int k){
         if(head == null || head.getNext() == null || k < 2){
             return head;
@@ -135,4 +142,6 @@ public class ReverseLinkedListByK {
         }
         return newHead;
     }
+
+
 }
