@@ -11,33 +11,16 @@ public class ReverseDoubleLinkedList {
         // 初始化链表
         DoubleNode head = initLinkedList();
 
-        printLinkedList(head);
+        DoubleNode.printLinkedList(head);
 
         reverse(head).setNext(null);
 //        DoubleNode newHead = reverse2(head);
 //        DoubleNode newHead = reverse3(head);
 
-        printLinkedList(newHead);
+        DoubleNode.printLinkedList(newHead);
     }
 
-    private static void printLinkedList (DoubleNode newHead) {
-        DoubleNode last = null;
-        while(newHead != null){
-            System.out.print(newHead.getValue() + " ");
-            if(newHead.getNext() == null){
-                last = newHead;
-            }
-            newHead = newHead.getNext();
-        }
-        System.out.println();
-        while(last != null){
-            System.out.print(last.getValue() + " ");
 
-            last = last.getPrev();
-        }
-        System.out.println();
-        System.out.println("---------");
-    }
 
     private static DoubleNode initLinkedList () {
         DoubleNode head = new DoubleNode(1);

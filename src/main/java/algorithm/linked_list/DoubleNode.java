@@ -33,7 +33,24 @@ public class DoubleNode {
         this.next = next;
     }
 
+    public static void printLinkedList (DoubleNode newHead) {
+        DoubleNode last = null;
+        while(newHead != null){
+            System.out.print(newHead.getValue() + " ");
+            if(newHead.getNext() == null){
+                last = newHead;
+            }
+            newHead = newHead.getNext();
+        }
+        System.out.println();
+        while(last != null){
+            System.out.print(last.getValue() + " ");
 
+            last = last.getPrev();
+        }
+        System.out.println();
+        System.out.println("---------");
+    }
 
 
 }
