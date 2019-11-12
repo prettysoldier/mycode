@@ -14,12 +14,57 @@ public class TransferBinaryTreeToLinkedList {
     public static void main(String[] args) {
 
         TreeNode head = buildBinaryTree();
+
+        // 方法一：用队列存储，时间O(N)，空间O(N)
         DoubleNode newHead = transfer(head);
         DoubleNode.printLinkedList(newHead);
+
+
+        // 方法二：递归，时间O(N)，空间O(h) h为树的高度
+        TreeNode.printLinkedList(transfer2(head));
+
+        // 还存在第三种方法：时间O(N)，空间O(1) TODO
+
+    }
+
+
+
+    private static TreeNode transfer2(TreeNode head){
+        if(head == null){
+            return null;
+        }
+        return process(head).start;
+    }
+
+    private static ReturnType process(TreeNode head){
+        if(head == null){
+            return new ReturnType(null, null);
+        }
+        ReturnType left = process(head.getLeft());
+        ReturnType right = process(head.getRight());
+        if(left.end != null){
+            left.end.setRight(head);
+        }
+        if(right.start != null){
+            right.start.setLeft(head);
+        }
+        head.setLeft(left.end);
+        head.setRight(right.start);
+        return new ReturnType(left.start != null ? left.start : head, right.end != null ? right.end : head);
+    }
+
+    static class ReturnType {
+        TreeNode start;
+        TreeNode end;
+
+        public ReturnType(TreeNode start, TreeNode end) {
+            this.start = start;
+            this.end = end;
+        }
     }
 
     /**
-     * 用队列把tree存起来
+     * 方法1: 用队列把tree存起来
      * @param head
      * @return
      */
@@ -106,5 +151,24 @@ class TreeNode {
 
     public void setRight(TreeNode right) {
         this.right = right;
+    }
+
+    public static void printLinkedList (TreeNode newHead) {
+        TreeNode last = null;
+        while(newHead != null){
+            System.out.print(newHead.getValue() + " ");
+            if(newHead.getRight() == null){
+                last = newHead;
+            }
+            newHead = newHead.getRight();
+        }
+        System.out.println();
+        while(last != null){
+            System.out.print(last.getValue() + " ");
+
+            last = last.getLeft();
+        }
+        System.out.println();
+        System.out.println("---------");
     }
 }
