@@ -48,7 +48,7 @@ public class QuickSelect extends MySelect {
 
     public static void main(String[] args) {
         Integer[] a = { 0, 9, 7, 8, 5, 4, 8, 2, 1, 6, 11, 12, 30 };
-        System.out.println(new QuickSelect().select(a, 4));
+        System.out.println(new QuickSelect().select(a, a.length));
         for (int i : a) {
             System.out.print(i + ", ");
         }

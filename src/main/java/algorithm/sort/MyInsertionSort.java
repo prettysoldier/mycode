@@ -9,6 +9,7 @@ public class MyInsertionSort extends MySortBase {
 
     @Override
     public <T extends Comparable<? super T>> void sort(T[] a) {
+
         MyInsertionSort.insertionSort(a, 0, a.length - 1);
     }
 
