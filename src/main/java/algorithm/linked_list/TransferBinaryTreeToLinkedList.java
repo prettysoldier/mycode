@@ -19,7 +19,6 @@ public class TransferBinaryTreeToLinkedList {
         DoubleNode newHead = transfer(head);
         DoubleNode.printLinkedList(newHead);
 
-
         // 方法二：递归，时间O(N)，空间O(h) h为树的高度
         TreeNode.printLinkedList(transfer2(head));
 
