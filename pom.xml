@@ -19,6 +19,13 @@
 	</properties>
 	
 	<dependencies>
+        <!-- websocket引入 -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
 		
 		 <!-- Spring Boot JDBC --> 
 		<dependency> 
