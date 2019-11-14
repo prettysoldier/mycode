@@ -79,4 +79,33 @@ public class Node {
         }
         return head;
     }
+
+    /**
+     * 初始化环形链表
+     * @param values
+     * @return
+     */
+    public static Node initCyclicLinkedList (int... values) {
+        if(values.length == 0){
+            return null;
+        }
+        if(values.length == 1){
+            Node node = new Node(values[0]);
+            node.setNext(node);
+            return node;
+        }
+        Node prev = null;
+        Node head = null;
+        for (int e : values) {
+            Node n = new Node(e);
+            if(prev != null){
+                prev.setNext(n);
+            }else{
+                head = n;
+            }
+            prev = n;
+        }
+        prev.setNext(head);
+        return head;
+    }
 }
