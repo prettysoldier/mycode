@@ -31,6 +31,9 @@ public class Node {
     }
 
     public static void printLinkedList (Node newHead) {
+        if(newHead == null){
+            System.out.println("空链表");
+        }
         while(newHead != null){
             System.out.print(newHead.getValue() + " ");
             newHead = newHead.getNext();
