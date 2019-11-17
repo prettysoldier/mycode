@@ -1,5 +1,5 @@
 
-package java_.exception.trace;
+package java_.exception.stack_trace;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 

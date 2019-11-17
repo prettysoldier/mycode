@@ -1,4 +1,4 @@
-package java_.exception.trace;
+package java_.exception.stack_trace;
 
 /**
  * @author Shuaijun He

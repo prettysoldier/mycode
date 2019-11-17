@@ -2,18 +2,21 @@ package java_._assert;
 
 /**
  * 默认情况下，断言是禁用的。可使用-ea -enableassertions 打开。
+ *
  * 什么时候用 assert？
+ *
  * 答：assertion(断言)在软件开发中是一种常用的调试方式。一般来说，assertion 用于保证程序最基本、关键的正确性。
  * 通常在开发和测试时开启。为了提高性能，在软件发布后，assertion 检查通常是关闭的。
  *
+ * 断言语法：
  * 在实现中，断言是一个包含布尔表达式的语句， 在执行这个语句时假定该表达式为 true；如果表达式计算为 false，
  * 那么系统会报告一个 Assertionerror。
  * 断言可以有两种形式：
  * assert Expression1 ;
- * assert Expression1 : expr ;
- * Expression1 应该总是产生一个布尔值。 Expression2 可以是得出一个值的任意表达式，这个值用于生成显示更多调试信息的 String 消息。
+ * assert Expression1 : msg ;
+ * Expression1 应该总是产生一个布尔值。 msg 用于生成显示更多调试信息的 String 消息。
  *
- * 断言在默认情况下是禁用的，要在编译时启用断言，需使用  source 1.4 标记 ： javac -source 1.4 Test.java
+ * 要在编译时启用断言，需使用  source 1.4 标记 ： javac -source 1.4 Test.java
  * 要在运行时启用断言，可使用 -enableassertions 或者 -ea 标记。
  * - 要在运行时选择禁用断言，可使用 -da 或者 -disableassertions 标记。
  * - 要在系统类中启用断言，可使用 -esa 或者 -dsa 标记。
