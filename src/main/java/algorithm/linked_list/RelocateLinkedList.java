@@ -13,6 +13,7 @@ public class RelocateLinkedList {
         Node head = Node.initLinkedList(1, 2, 3, 4, 5, 6, 7);
         relocate(head);
         Node.printLinkedList(head);
+
     }
 
     private static void relocate(Node head){
