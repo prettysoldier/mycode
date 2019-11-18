@@ -6,12 +6,13 @@ import java.util.Stack;
  * 用链表表示两个整数，将这两个整数相加，生成一个新的链表
  *
  * 1.如果将链表转换成整数，在用整数的相加，会有溢出的问题。
+ * 2.直接用链表模拟整数的相加过程。
  *
  * @author shuaijunhe
  * @create 2019/11/1
  * @description
  */
-public class Add {
+public class AddOperatorWithLikedList {
 
     public static void main(String[] args) {
 
