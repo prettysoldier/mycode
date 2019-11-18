@@ -34,7 +34,7 @@ class StopState extends AbstractLiftState {
     @Override
     public void open() {
         this.getLift().setLiftState(LiftContext.openState);
-        this.getLift().getLiftState().open();
+        LiftContext.openState.open();
     }
 
     @Override
@@ -46,7 +46,7 @@ class StopState extends AbstractLiftState {
     public void run() {
 
         this.getLift().setLiftState(LiftContext.runState);
-        this.getLift().getLiftState().run();
+        LiftContext.runState.run();
     }
 
     @Override
@@ -66,7 +66,7 @@ class OpenState extends AbstractLiftState {
     @Override
     public void close() {
         this.getLift().setLiftState(LiftContext.closeState);
-        this.getLift().getLiftState().close();
+        LiftContext.closeState.close();
     }
 
     @Override
@@ -101,7 +101,7 @@ class RunState extends AbstractLiftState {
     @Override
     public void stop() {
         this.getLift().setLiftState(LiftContext.stopState);
-        this.getLift().getLiftState().stop();
+        LiftContext.stopState.stop();
     }
 }
 
@@ -110,7 +110,7 @@ class CloseState extends AbstractLiftState {
     @Override
     public void open() {
         this.getLift().setLiftState(LiftContext.openState);
-        this.getLift().getLiftState().open();
+        LiftContext.openState.open();
     }
 
     @Override
@@ -121,7 +121,7 @@ class CloseState extends AbstractLiftState {
     @Override
     public void run() {
         this.getLift().setLiftState(LiftContext.runState);
-        this.getLift().getLiftState().run();
+        LiftContext.runState.run();
     }
 
     @Override
