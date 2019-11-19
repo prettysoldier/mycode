@@ -17,10 +17,13 @@ public class IterateBinaryTreeWithoutRecursion {
         IterateBinaryTreeWithoutRecursion.inOrderRecur(tree);
         System.out.println();
         IterateBinaryTreeWithoutRecursion.posOrderRecur(tree);
+        System.out.println();
+        IterateBinaryTreeWithoutRecursion.posOrderRecur2(tree);
     }
 
     /**
      * 先序遍历：先根后左右
+     *
      * @param tree
      */
     private static void preOrderRecur(BinaryTree tree){
@@ -35,6 +38,7 @@ public class IterateBinaryTreeWithoutRecursion {
 
             BinaryTree curr = stack.pop();
             System.out.print(curr.getValue() + " ");
+
             if(curr.getRight() != null){
                 stack.push(curr.getRight());
             }
@@ -111,6 +115,7 @@ public class IterateBinaryTreeWithoutRecursion {
         }
         Stack<BinaryTree> stack = new Stack<>();
         stack.push(root);
+
         BinaryTree lastPrint = root;
         BinaryTree top;
 
