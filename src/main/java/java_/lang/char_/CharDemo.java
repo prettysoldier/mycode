@@ -1,5 +1,7 @@
 package java_.lang.char_;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * 1. java内部其实是使用的UTF-16的编码，所以是支持大部分非生僻汉字的。
  *
@@ -11,6 +13,13 @@ public class CharDemo {
 
     public static void main(String[] args) {
 
+//        baseTest();
+
+
+        charLength();
+    }
+
+    private static void baseTest () {
         char c = '\b';
         System.out.println(c);
         int i = '\b';
@@ -23,13 +32,20 @@ public class CharDemo {
         char c3 = '\"';
         System.out.println(c3);
         System.out.println(c2 == c3);
-        // java中的“字母”和“数字”的范围很大。汉字、希腊字母都算是字母，罗马数字等都可以算是数字。
-        // 不能用在变量名中的是：- + 版权符号
-        // 不能以阿拉伯数字开头！
-        char ⅦⅢ齉__8s好;
-        System.out.println(Character.isJavaIdentifierPart('齉'));
-        System.out.println(Character.isJavaIdentifierStart('9'));
+    }
 
-        System.out.println(new CharDemo().si);
+    private static void charLength(){
+        Character  a ='a';
+        Character  b ='齉';
+        Integer c = 70000;
+        System.out.println(String.valueOf(a).getBytes(StandardCharsets.UTF_16).length);
+        System.out.println(b.toString().getBytes(StandardCharsets.UTF_16).length);
+        System.out.println(c.toString().getBytes(StandardCharsets.UTF_16).length);
+
+        // 比如下面这个字就无法放在Character里！
+//        Character d = '𤋮';
+        // 拷贝到String,自动变成两个码元
+        String s = "\uD850\uDEEE";
+        System.out.println(s);
     }
 }
