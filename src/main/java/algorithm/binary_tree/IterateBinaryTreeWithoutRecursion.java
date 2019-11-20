@@ -52,7 +52,7 @@ public class IterateBinaryTreeWithoutRecursion {
      * 中序遍历：左根右
      * @param root
      */
-    private static void inOrderRecur(BinaryTree root){
+    public static void inOrderRecur(BinaryTree root){
 
         if(root == null){
             return;
@@ -82,7 +82,7 @@ public class IterateBinaryTreeWithoutRecursion {
      * 每个弹出的元素 进入 第二个栈，最后遍历栈。
      * @param root
      */
-    private static void posOrderRecur(BinaryTree root){
+    public static void posOrderRecur(BinaryTree root){
 
         if(root == null){
             return;
@@ -108,7 +108,7 @@ public class IterateBinaryTreeWithoutRecursion {
         }
     }
 
-    private static void posOrderRecur2(BinaryTree root){
+    public static void posOrderRecur2(BinaryTree root){
 
         if(root == null){
             return;

@@ -38,6 +38,21 @@ public class BinaryTree {
         return root;
     }
 
+    /**
+     * 高度的定义为：从结点x向下到某个叶结点最长简单路径中边的条数
+     * @param root
+     * @return
+     */
+    public static int getHeight(BinaryTree root){
+        if(root == null){
+            return 0;
+        }
+        int left = getHeight(root.getLeft());
+        int right = getHeight(root.getRight());
+
+        return Math.max(left, right) + 1;
+    }
+
     public BinaryTree(int value) {
         this.value = value;
     }

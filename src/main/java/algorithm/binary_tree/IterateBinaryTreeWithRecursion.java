@@ -21,7 +21,7 @@ public class IterateBinaryTreeWithRecursion {
      * 先序遍历：先根后左右
      * @param tree
      */
-    private static void preOrderRecur(BinaryTree tree){
+    public static void preOrderRecur(BinaryTree tree){
 
         if(tree == null){
             return;
@@ -35,7 +35,7 @@ public class IterateBinaryTreeWithRecursion {
      * 中序遍历：左根右
      * @param tree
      */
-    private static void inOrderRecur(BinaryTree tree){
+    public static void inOrderRecur(BinaryTree tree){
 
         if(tree == null){
             return;
@@ -50,7 +50,7 @@ public class IterateBinaryTreeWithRecursion {
      * 后序遍历：左右根
      * @param tree
      */
-    private static void posOrderRecur(BinaryTree tree){
+    public static void posOrderRecur(BinaryTree tree){
 
         if(tree == null){
             return;
