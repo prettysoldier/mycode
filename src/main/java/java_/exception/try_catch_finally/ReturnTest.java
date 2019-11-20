@@ -1,5 +1,5 @@
 
-package java_.keyword.try_catch_finally;
+package java_.exception.try_catch_finally;
 
 /**
  * finally块中return的问题
