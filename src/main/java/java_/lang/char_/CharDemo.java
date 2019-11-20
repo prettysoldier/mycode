@@ -1,6 +1,7 @@
 package java_.lang.char_;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 /**
  * 1. java内部其实是使用的UTF-16的编码，所以是支持大部分非生僻汉字的。
@@ -39,8 +40,17 @@ public class CharDemo {
         Character  b ='齉';
         Integer c = 70000;
         System.out.println(String.valueOf(a).getBytes(StandardCharsets.UTF_16).length);
+        System.out.println(Arrays.toString(String.valueOf(a).getBytes(StandardCharsets.UTF_16)));
+        System.out.println(new String(String.valueOf(a).getBytes(StandardCharsets.UTF_16)));
+
         System.out.println(b.toString().getBytes(StandardCharsets.UTF_16).length);
+        System.out.println(Arrays.toString(String.valueOf(b).getBytes(StandardCharsets.UTF_16)));
+        System.out.println(new String(String.valueOf(b).getBytes(StandardCharsets.UTF_16)));
+        System.out.println(new String(String.valueOf(b).getBytes(StandardCharsets.UTF_8)));
+
         System.out.println(c.toString().getBytes(StandardCharsets.UTF_16).length);
+        System.out.println(Arrays.toString(String.valueOf(c).getBytes(StandardCharsets.UTF_16)));
+        System.out.println(new String(String.valueOf(c).getBytes(StandardCharsets.UTF_16)));
 
         // 比如下面这个字就无法放在Character里！
 //        Character d = '𤋮';
