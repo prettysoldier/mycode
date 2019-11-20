@@ -1,6 +1,6 @@
 package java_.lang.instrument;
 
-import java_.util.concurrent.atomic.MyUnsafe;
+import sun.misc.unsafe.MyUnsafe;
 
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.Instrumentation;
