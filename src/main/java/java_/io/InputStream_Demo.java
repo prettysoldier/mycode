@@ -1,8 +1,10 @@
 package java_.io;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -13,6 +15,19 @@ public class InputStream_Demo {
 
     public static void main (String[] args) throws Exception {
 
-        InputStream in = new BufferedInputStream(new FileInputStream(""));
+        String userDir = System.getProperty("user.dir");
+        System.out.println(userDir);
+
+        try(InputStream in = new BufferedInputStream(new FileInputStream("out.txt"))){
+
+            System.out.println(in.read());
+        }
+
+        InputStreamReader isr = new InputStreamReader(System.in);
+        while(true){
+            int i = isr.read();
+            char[] chars = Character.toChars(i);
+            System.out.print(String.valueOf(chars));
+        }
     }
 }

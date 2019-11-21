@@ -57,5 +57,9 @@ public class CharDemo {
         // 拷贝到String,自动变成两个码元
         String s = "\uD850\uDEEE";
         System.out.println(s);
+        String s2 = "𤋮";
+        System.out.println(s2);
+        System.out.println(s2.getBytes().length);
+        System.out.println(s2.codePoints().count());
     }
 }
