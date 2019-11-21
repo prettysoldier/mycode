@@ -35,13 +35,13 @@ public class PreMainTraceAgent {
 
         inst = instP;
 
-        System.out.println("agentArgs : " + agentArgs);
+//        System.out.println("agentArgs : " + agentArgs);
         inst.addTransformer(new ClassFileTransformer() {
             @Override
             public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
                                     ProtectionDomain protectionDomain, byte[] classfileBuffer) {
 
-                System.out.println("premain load Class     :" + className);
+//                System.out.println("premain load Class     :" + className);
                 return classfileBuffer;
             }
         }, true);
