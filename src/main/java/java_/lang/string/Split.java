@@ -9,5 +9,7 @@ public class Split {
 
         final int a = 1;
 
+        // 不行
+//        char[] chars = "asd";
     }
 }

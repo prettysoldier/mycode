@@ -18,6 +18,7 @@ public class CharDemo {
 
 
         charLength();
+        codePointTest();
     }
 
     private static void baseTest () {
@@ -61,5 +62,28 @@ public class CharDemo {
         System.out.println(s2);
         System.out.println(s2.getBytes().length);
         System.out.println(s2.codePoints().count());
+        System.out.println(s.length());
+        System.out.println(s.codePointCount(0, s.length()));
+        // 这里是拿不到实际的字符的，因为只能拿到一半。
+        System.out.println(s.charAt(0));
+        // 要想拿到某个实际字符，应该这样：
+        int index = s.offsetByCodePoints(0, 0);
+        System.out.println(s.codePointAt(index));
+        char[] sTOChars = Character.toChars(s.codePointAt(index));
+        System.out.println(new String(sTOChars));
+
+    }
+
+    private static void codePointTest(){
+        char[] c = Character.toChars(Integer.parseInt("1D306", 16));//1D306是一个辅助平面字符
+        System.out.println(Character.codePointAt(c, 0));//输出119558，这个是1D306对应的10进制值
+        System.out.println(Character.codePointAt(c, 1));//输出57094，这个是c[1]对应字符的10进制值
+        System.out.println(new String(c).codePointAt(0));//输出119558，这个是1D306对应的10进制值
+        System.out.println(new String(c).codePointAt(1));//输出57094，这个是c[1]对应字符的10进制值
+        String str = "a" + new String(c);
+        System.out.println(str.length());//9
+        System.out.println(str.codePointCount(0, str.length()));//8
+
+        System.out.println(String.valueOf(c));
     }
 }
