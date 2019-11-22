@@ -10,9 +10,22 @@ public class ShowBinaryTree {
 
         BinaryTree root = PrintAllEdges.buildTree();
 
-        printInOrder(root, 0, "H", 17);
+        showTree(root);
     }
 
+    private static final String HEAD_PREFIX = "H";
+    private static final String LEFT_PREFIX = "L";
+    private static final String RIGHT_PREFIX = "R";
+    /**
+     * 每个节点的显示长度：(最大整数的显示是Integer.MIN_VALUE，用十进制显示是11位)
+     * + (前缀：1) + (前后一个空格：2) = 14
+     */
+    private static final int LENGTH = Integer.MIN_VALUE;
+
+
+    public static void showTree(BinaryTree root){
+        printInOrder(root, 0, HEAD_PREFIX, LENGTH);
+    }
     /**
      * 从右边开始打印， 打印后顺时针旋转90度。
      * 旋转的目的：为了是高度与缩进一致！
@@ -26,14 +39,14 @@ public class ShowBinaryTree {
         if(head == null){
             return;
         }
-        printInOrder(head.getRight(), height + 1, "v", len);
-        String val = to + head.getValue() + to;
+        printInOrder(head.getRight(), height + 1, RIGHT_PREFIX, len);
+        String val = to + head.getValue();
         int lenM = val.length();
         int lenL = (len - lenM) / 2;
         int lenR = len - lenL;
         val = getSpace(lenL) + val + getSpace(lenR);
-        System.out.println(getSpace(height * 17) + val);
-        printInOrder(head.getLeft(), height + 1, "^", len);
+        System.out.println(getSpace(height * LENGTH) + val);
+        printInOrder(head.getLeft(), height + 1, LEFT_PREFIX, len);
     }
 
 
