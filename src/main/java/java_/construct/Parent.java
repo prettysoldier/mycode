@@ -1,4 +1,4 @@
-package java_.construct.a;
+package java_.construct;
 
 /**
  * @Desc
@@ -22,8 +22,10 @@ public abstract class Parent
     }
     int parentInt = 10;
 
+    private int b1;
     protected Parent(int b) {
         System.out.println("Parent construct " + b);
         System.out.println("parentInt=" + parentInt);
+        b1 = b;
     }
 }

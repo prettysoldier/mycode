@@ -1,4 +1,4 @@
-package java_.exception.try_catch_finally;
+package java_.try_catch_finally;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
