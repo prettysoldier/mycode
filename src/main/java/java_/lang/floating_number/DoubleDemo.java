@@ -10,9 +10,9 @@ public class DoubleDemo {
 
         double d1 = equalSignTest();
 
-        equalTest();
+//        equalTest();
 
-        infinityTest();
+//        infinityTest();
 
         // 答案：true。当一个数与本身不相等时，就是Nan。NaN 是唯一与自身不等的值
         System.out.println(Double.isNaN(d1));
@@ -21,6 +21,8 @@ public class DoubleDemo {
 
     private static double equalSignTest() {
         double d1 = Double.NaN;
+        double d3 = d1;
+        System.out.println("d3 == d1 : " + (d3 == d1));
         double d2 = Double.NaN;
         // 答案是 false ！ 惊不惊喜。因为所有NaN都认为是不相等的。
         // 为什么java里每个NaN都不相等,如何实现的？

@@ -22,7 +22,10 @@ public class Var_Demo {
         // 不能用在变量名中的是：- + 版权符号
         // 不能以阿拉伯数字开头！
         char ⅦⅢ齉__8s好;
+        int 是dfII;
+        int $_IIasdf;
         System.out.println(Character.isJavaIdentifierPart('齉'));
         System.out.println(Character.isJavaIdentifierStart('9'));
+
     }
 }

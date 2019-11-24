@@ -14,10 +14,13 @@ public class CharDemo {
 
     public static void main(String[] args) {
 
+        int i = 2;
+        double l = i;
+        byte b = 1;
+        short s = b;
+//        short s1 = s + b;
 //        baseTest();
-
-
-        charLength();
+//        charLength();
         codePointTest();
     }
 
@@ -81,8 +84,8 @@ public class CharDemo {
         System.out.println(new String(c).codePointAt(0));//输出119558，这个是1D306对应的10进制值
         System.out.println(new String(c).codePointAt(1));//输出57094，这个是c[1]对应字符的10进制值
         String str = "a" + new String(c);
-        System.out.println(str.length());//9
-        System.out.println(str.codePointCount(0, str.length()));//8
+        System.out.println(str.length());//3
+        System.out.println(str.codePointCount(0, str.length()));//3
 
         System.out.println(String.valueOf(c));
     }
