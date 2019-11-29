@@ -12,9 +12,17 @@ import java.io.Serializable;
  */
 public class Overload {
 
-//    public static void sayHello(boolean arg) {
-//        System.out.println("hello boolean : " + arg);
-//    }
+    public static void main(String[] args) {
+
+        sayHello(1);
+        Overload.sayHello("a".getBytes()[0]);
+        Overload.sayHello(true);
+//        Overload.sayHello(null);
+    }
+
+    public static void sayHello(boolean arg) {
+        System.out.println("hello boolean : " + arg);
+    }
 
     public static void sayHello(char arg) {
         System.out.println("hello char : " + arg);
@@ -29,9 +37,9 @@ public class Overload {
     }
 
 
-    public static void sayHello(int arg) {
-        System.out.println("hello int : " + arg);
-    }
+//    public static void sayHello(int arg) {
+//        System.out.println("hello int : " + arg);
+//    }
 
     public static void sayHello(long arg) {
         System.out.println("hello long : " + arg);
@@ -97,11 +105,6 @@ public class Overload {
 
 
 
-    public static void main(String[] args) {
 
-//        Overload.sayHello("a".getBytes()[0]);
-//        Overload.sayHello(true);
-//        Overload.sayHello(null);
-    }
 
 }

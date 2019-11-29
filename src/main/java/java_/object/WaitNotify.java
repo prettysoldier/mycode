@@ -1,6 +1,29 @@
 package java_.object;
 
+@Deprecated
 public class WaitNotify implements Runnable {
+
+    /**
+     * 顺序打印ABC
+     * 不懂！此方法不可行！
+     * @param args
+     * @throws Exception
+     */
+    public static void main(String[] args) throws Exception {
+        Object a = new Object();
+        Object b = new Object();
+        Object c = new Object();
+        WaitNotify worker_a = new WaitNotify("A", c, a);
+        WaitNotify worker_b = new WaitNotify("B", a, b);
+        WaitNotify worker_c = new WaitNotify("C", b, c);
+
+        new Thread(worker_a).start();
+        Thread.sleep(100);
+        new Thread(worker_b).start();
+        Thread.sleep(100);
+        new Thread(worker_c).start();
+        Thread.sleep(100);
+    }
 
     private String name;
     private Object prev;
@@ -15,13 +38,16 @@ public class WaitNotify implements Runnable {
     @Override
     public void run() {
         int count = 10;
-        while (count > 0) {
+        while (true) {
             synchronized (prev) {
                 synchronized (self) {
                     System.out.print(name + " ");
+                    if(name.equals("C")){
+                        System.out.println();
+                    }
                     count--;
                     try {
-                        Thread.sleep(1);
+                        Thread.sleep(500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -38,19 +64,5 @@ public class WaitNotify implements Runnable {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        Object a = new Object();
-        Object b = new Object();
-        Object c = new Object();
-        WaitNotify pa = new WaitNotify("A", c, a);
-        WaitNotify pb = new WaitNotify("B", a, b);
-        WaitNotify pc = new WaitNotify("C", b, c);
 
-        new Thread(pa).start();
-        Thread.sleep(10);
-        new Thread(pb).start();
-        Thread.sleep(10);
-        new Thread(pc).start();
-        Thread.sleep(10);
-    }
 }
