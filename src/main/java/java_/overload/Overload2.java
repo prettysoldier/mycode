@@ -15,17 +15,17 @@ public class Overload2 {
         System.out.println("hello B : " + arg);
     }
 
-//    public static void sayHello(C arg) {
-//        System.out.println("hello C : " + arg);
-//    }
-//
-//    public static void sayHello(C1 arg) {
-//        System.out.println("hello C1 : " + arg);
-//    }
+    public static void sayHello(C arg) {
+        System.out.println("hello C : " + arg);
+    }
+
+    public static void sayHello(C1 arg) {
+        System.out.println("hello C1 : " + arg);
+    }
 
     public static void main(String[] args) {
         // A 可以向上强转为 B、C或C1。
-        Overload2.sayHello(new A());
+//        Overload2.sayHello(new A());
     }
 }
 
