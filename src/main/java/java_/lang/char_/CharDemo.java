@@ -17,8 +17,10 @@ public class CharDemo {
 //        baseTest();
 //        charLength();
 //        codePointTest();
-        System.out.println(Arrays.toString(stringToUnicode("𤋮𤋮𤋮")));
-        System.out.println(unicodeArrayToString(stringToUnicode("𤋮𤋮𤋮")));
+        System.out.println(Arrays.toString(stringToUnicode("a𤋮a𤋮a𤋮")));
+        System.out.println(Arrays.toString(stringToUnicode2("a𤋮a𤋮a𤋮")));
+        System.out.println(Arrays.toString(stringToUnicode3("a𤋮a𤋮a𤋮")));
+        System.out.println(unicodeArrayToString(stringToUnicode("a𤋮a𤋮a𤋮")));
     }
 
     private static void baseTest () {
@@ -147,6 +149,48 @@ public class CharDemo {
             ret[i] = (int)unicodes[i];
         }
         return ret;
+    }
+
+    @Deprecated
+    public static int[] stringToUnicode2(String str) {
+        if (str == null || "".equals(str)) {
+            return new int[0];
+        }
+        int count = str.codePointCount(0, str.length());
+        int[] result = new int[count];
+
+        int i = 0;
+        int j = 0;
+        for(; i< str.length(); ){
+            result[j++] = str.codePointAt(i);
+            if(i == str.length() - 1){
+                i++;
+                continue;
+            }
+            if(str.codePointCount(i, i + 2) > 1){
+                i++;
+            }else{
+                i += 2;
+            }
+        }
+        return result;
+    }
+
+    public static int[] stringToUnicode3(String str) {
+        if (str == null || "".equals(str)) {
+            return new int[0];
+        }
+        int count = str.codePointCount(0, str.length());
+        int[] result = new int[count];
+        int index = 0;
+        for (int i = 0 ; i < str.length(); ++i) {
+            if (Character.isLowSurrogate(str.charAt(i))) {
+                continue;
+            }
+            result[index++] = str.codePointAt(i);
+        }
+
+        return result;
     }
 
     public static String unicodeArrayToString(int[] unicode){
