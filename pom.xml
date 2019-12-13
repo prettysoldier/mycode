@@ -26,7 +26,17 @@
             <artifactId>guava</artifactId>
             <version>28.1-jre</version>
         </dependency>
-        
+
+        <!-- https://mvnrepository.com/artifact/org.processing/core
+            一种图形工具包
+        -->
+        <dependency>
+            <groupId>org.processing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.7</version>
+        </dependency>
+
+
         <!-- websocket引入 -->
         <dependency>
             <groupId>javax</groupId>
