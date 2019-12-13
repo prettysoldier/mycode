@@ -7,7 +7,10 @@ import java.util.List;
 
 // import processing.core.PImage;   // For background image
 
-
+/**
+ * OpenGL的高效实现（利用了图形加速硬件）存在于Windows，部分UNIX平台和Mac OS。
+ * 这些实现一般由显示设备厂商提供，而且非常依赖于该厂商提供的硬件。
+ */
 public class Gotcha_Multi extends PApplet {
 
     // Keep track of current score
