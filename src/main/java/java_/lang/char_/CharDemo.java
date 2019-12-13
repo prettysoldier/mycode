@@ -14,9 +14,11 @@ public class CharDemo {
     public static void main(String[] args) {
 //        stringToLong();
 //        stringToFloatDouble();
-        baseTest();
+//        baseTest();
 //        charLength();
 //        codePointTest();
+        System.out.println(Arrays.toString(stringToUnicode("𤋮𤋮𤋮")));
+        System.out.println(unicodeArrayToString(stringToUnicode("𤋮𤋮𤋮")));
     }
 
     private static void baseTest () {
@@ -111,10 +113,51 @@ public class CharDemo {
         System.out.println(new String(c).codePointAt(0));//输出119558，这个是1D306对应的10进制值
         System.out.println(new String(c).codePointAt(1));//输出57094，这个是c[1]对应字符的10进制值
         String str = "a" + new String(c);
+        System.out.println(str);
         System.out.println(str.length());//3
-        System.out.println(str.codePointCount(0, str.length()));//3
+        System.out.println(new String(c).codePointCount(0, 1));//3
 
         System.out.println(String.valueOf(c));
+
+
+        Object[] unicodes = str.codePoints().boxed().toArray();
+
+    }
+
+    public static void codePointTest2() {
+
+        char[] chs = Character.toChars(0x242EE);
+        System.out.printf("U+10437 高代理字符: %04x%n", (int)chs[0]);
+        System.out.printf("U+10437 低代理字符: %04x%n", (int)chs[1]);
+        String str = new String(chs);
+        System.out.println("代码单元长度: " + str.length());
+        System.out.println("代码点数量: " + str.codePointCount(0, str.length()));
+        System.out.println(str);
+
+    }
+
+    public static int[] stringToUnicode(String str){
+
+        Object[] unicodes = str.codePoints().boxed().toArray();
+        if(unicodes == null || unicodes.length == 0){
+            return new int[0];
+        }
+        int[] ret = new int[unicodes.length];
+        for(int i = 0; i < unicodes.length; i++){
+            ret[i] = (int)unicodes[i];
+        }
+        return ret;
+    }
+
+    public static String unicodeArrayToString(int[] unicode){
+
+
+        StringBuilder sb = new StringBuilder();
+        Arrays.stream(unicode).forEach(i -> {
+            sb.append(String.valueOf(Character.toChars(i)));
+        });
+
+        return sb.toString();
     }
 
     /**
