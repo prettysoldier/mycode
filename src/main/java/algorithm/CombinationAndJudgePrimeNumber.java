@@ -67,6 +67,9 @@ public class CombinationAndJudgePrimeNumber {
                 return false;
             }
         }
+
         return true;
     }
+
+
 }

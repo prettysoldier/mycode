@@ -10,6 +10,10 @@ public class Child extends Parent {
         System.out.println("Child init");
     }
 
+    public Child () {
+        super();
+    }
+
     // 说明属性是可以重载的，但不建议使用
 //    static int m = 2;
 
@@ -21,6 +25,7 @@ public class Child extends Parent {
     @Override
     public void f() {
         try {
+            System.out.println(Child.m);
             name();
         } catch (ArithmeticException e) {
             // TODO Auto-generated catch block

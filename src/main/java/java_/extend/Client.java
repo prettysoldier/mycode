@@ -7,10 +7,10 @@ package java_.extend;
 public class Client {
 
     public static void main(String[] args) {
-//          Parent p = new Child();
+          Parent p = new Child();
         //
 //          p.f();
-        System.out.println(Parent.m);
+        System.out.println(Child.m);
     }
 
 }
