@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.Stack;
 
 /**
+ * 牛郎织女迷宫
  * @author heshuaijun
  * @date 2019/12/15 23:28
  */
@@ -33,70 +34,51 @@ public class CowherdWeaverMaze {
         }
         // 岔路口入栈
         Stack<Point> stack = new Stack<>();
-        Set<Point> set = new HashSet<>();
-        stack.push(new Point(sx, sy, 0));
-        set.add(new Point(sx, sy, 0));
-        int d, x = sx, y = sy, prevDirect = 0;
+        Set<Point> passed = new HashSet<>();
+        Point start = new Point(sx, sy, 0);
+        stack.push(start);
+        passed.add(start);
+
+        int d = 0;
         while(!stack.isEmpty()) {
-            if(isHer(x, y, tx, ty)){
+            Point curr = stack.pop();
+            if(isHer(curr.x, curr.y, tx, ty)){
                 return true;
             }
-            d = direction(maze, x, y, prevDirect);
-            if(directCount(d) == 0){
-                Point next = stack.pop();
-                x = next.x;
-                y = next.y;
-                prevDirect = next.prevDirect;
-                d = direction(maze, x, y, prevDirect);
-            }
-            if (directCount(d) == 1) {
+            d = direction(maze, curr.x, curr.y, curr.prevDirect);
+            if (directCount(d) >= 1) {
+                Point p;
                 if ((d & RIGHT) == RIGHT) {
-                    ++x;
-                    prevDirect = LEFT;
-                }
-                if ((d & LEFT) == LEFT) {
-                    --x;
-                    prevDirect = RIGHT;
-                }
-                if ((d & DOWN) == DOWN) {
-                    y++;
-                    prevDirect = UP;
-                }
-                if ((d & UP) == UP) {
-                    y--;
-                    prevDirect = DOWN;
-                }
-            }
-            if (directCount(d) > 1) {
-                if ((d & RIGHT) == RIGHT) {
-                    Point next = new Point(++sx, sy, LEFT);
-                    if(!set.contains(next)){
-                        stack.push(next);
-                        set.add(next);
+                    p = new Point(curr.x + 1, curr.y, LEFT);
+                    if(!passed.contains(p)){
+                        stack.push(p);
+                        passed.add(p);
                     }
                 }
                 if ((d & LEFT) == LEFT) {
-                    Point next = new Point(--sx, sy, RIGHT);
-                    if(!set.contains(next)){
-                        stack.push(next);
-                        set.add(next);
+                    p = new Point(curr.x - 1, curr.y, RIGHT);
+                    if(!passed.contains(p)){
+                        stack.push(p);
+                        passed.add(p);
                     }
                 }
                 if ((d & DOWN) == DOWN) {
-                    Point next = new Point(sx, ++sy, UP);
-                    if(!set.contains(next)){
-                        stack.push(next);
-                        set.add(next);
+                    p = new Point(curr.x, curr.y+1, UP);
+                    if(!passed.contains(p)){
+                        stack.push(p);
+                        passed.add(p);
                     }
                 }
                 if ((d & UP) == UP) {
-                    Point next = new Point(sx, --sy, DOWN);
-                    if(!set.contains(next)){
-                        stack.push(next);
-                        set.add(next);
+                    p = new Point(curr.x, curr.y-1, DOWN);
+                    if(!passed.contains(p)){
+                        stack.push(p);
+                        passed.add(p);
                     }
                 }
+
             }
+
         }
         return false;
     }

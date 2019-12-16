@@ -1,7 +1,7 @@
 package algorithm;
 
 /**
- * 一定要主要toCharArray方法是返回一个新的数组！而不是原数组。
+ * 一定要注意toCharArray方法是返回一个新的数组！而不是原数组。
  * @author heshuaijun
  * @date 2019/12/14 21:51
  */
@@ -13,6 +13,11 @@ public class ConcatMaxString {
         System.out.println(reverse2(s));
     }
 
+    /**
+     * 比较原字符串与反转后字符串大小
+     * @param s
+     * @return
+     */
     public static String reverse2(String s){
         String rev = new StringBuilder(s).reverse().toString();
         if(rev.compareTo(s) > 0){
@@ -21,6 +26,11 @@ public class ConcatMaxString {
         return s;
     }
 
+    /**
+     * 比较原字符串与反转后字符串大小
+     * @param s
+     * @return
+     */
     public static String reverse(String s){
         if(s == null || s.length() <= 1 ){
             return s;
