@@ -2,7 +2,9 @@ package algorithm.binary_tree;
 
 import org.apache.commons.lang.StringUtils;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -13,17 +15,17 @@ public class SerializationAndDeserialization {
 
     public static void main(String[] args) {
 
-        BinaryTree root = BinaryTree.initial(1, 2, 3, 4, 5);
-        String ret = serialize(root);
+        BinaryTree head = deserialize("3,9,#,#,20,15,#,#,7,#,#");
+        String ret = serialize(head);
         System.out.println(ret);
+        System.out.println(serialize(deserialize(ret)));
 
-        BinaryTree head = deserialize(ret);
-        ShowBinaryTree.showTree(head);
+//        ShowBinaryTree.showTree(head);
     }
 
     private static final String NULL = "#";
-    private static final String SPLIT = "!";
-    private static final String NULL_AND_SPLIT = "#!";
+    private static final String SPLIT = ",";
+    private static final String NULL_AND_SPLIT = "#,";
 
 
     public static String serialize(BinaryTree root){

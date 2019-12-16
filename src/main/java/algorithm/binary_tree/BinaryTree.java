@@ -8,11 +8,11 @@ import java.util.LinkedList;
  */
 public class BinaryTree {
 
-    private int value;
+    int value;
 
-    private BinaryTree left;
+    BinaryTree left;
 
-    private BinaryTree right;
+    BinaryTree right;
 
     static BinaryTree initial(int... values){
         if(values == null || values.length == 0){

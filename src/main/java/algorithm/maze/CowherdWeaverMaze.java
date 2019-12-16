@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.maze;
 
 import java.util.HashSet;
 import java.util.Objects;

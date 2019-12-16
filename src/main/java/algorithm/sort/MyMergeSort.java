@@ -28,7 +28,7 @@ public class MyMergeSort extends MySortBase {
     private static <T extends Comparable<? super T>> void mergeSort(T[] t,
             T[] tmpArray, int left, int right) {
         if (left < right) {
-            int center = left + right >>> 1;
+            int center = (left + right) >>> 1;
             MyMergeSort.mergeSort(t, tmpArray, left, center);
             MyMergeSort.mergeSort(t, tmpArray, center + 1, right);
             // 把两个已排序的数组合并
