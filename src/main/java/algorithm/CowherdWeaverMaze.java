@@ -46,7 +46,7 @@ public class CowherdWeaverMaze {
                 return true;
             }
             d = direction(maze, curr.x, curr.y, curr.prevDirect);
-            if (directCount(d) >= 1) {
+            if (d >= 0) {
                 Point p;
                 if ((d & RIGHT) == RIGHT) {
                     p = new Point(curr.x + 1, curr.y, LEFT);

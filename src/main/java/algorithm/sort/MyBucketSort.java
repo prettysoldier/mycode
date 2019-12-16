@@ -19,9 +19,9 @@ public class MyBucketSort extends MySortBase {
 
     public static void bucketSort(Integer[] a, int m) {
         Integer[] buckets = new Integer[m];
-        for (int i = 0; i < m; i++) {
-            buckets[i] = 0;
-        }
+//        for (int i = 0; i < m; i++) {
+//            buckets[i] = 0;
+//        }
         for (Integer t : a) {
             buckets[t]++;
         }
@@ -35,12 +35,30 @@ public class MyBucketSort extends MySortBase {
     }
 
     public static void main(String[] args) {
+        kthSmallest(3, new int[]{3,4,1,2,5});
         Random r = new Random();
         Integer[] a = new Integer[Client.SIZE];
         for (int i = 0; i < Client.SIZE; i++) {
             a[i] = r.nextInt(MyBucketSort.M);
         }
         new MyBucketSort().sortWithLog4Integer(a);
+    }
+
+
+    public static int kthSmallest(int k, int[] nums) {
+        // write your code here
+        int[] buckets = new int[2000];
+        for(int i = 0; i < nums.length; i++){
+            buckets[nums[i]]++;
+        }
+        int j = 0;
+        for(int i = 0; i < buckets.length; i++){
+            j += buckets[i];
+            if(j >= k){
+                return i;
+            }
+        }
+        return 0;
     }
 
 }
