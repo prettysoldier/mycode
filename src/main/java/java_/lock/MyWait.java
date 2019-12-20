@@ -12,6 +12,6 @@ public class MyWait {
         synchronized (lock) {
             lock.wait(3000);
         }
-        System.out.println("end:" + System.currentTimeMillis());
+        System.out.println("end  :" + System.currentTimeMillis());
     }
 }

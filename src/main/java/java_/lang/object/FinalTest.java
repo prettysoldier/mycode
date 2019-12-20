@@ -1,4 +1,4 @@
-package java_.object;
+package java_.lang.object;
 
 /**
  * final 域，不会被初始化为默认值，需要显示地赋值。

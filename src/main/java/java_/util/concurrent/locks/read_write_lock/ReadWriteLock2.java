@@ -1,4 +1,4 @@
-package java_.util.concurrent.locks;
+package java_.util.concurrent.locks.read_write_lock;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +12,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class ReadWriteLock2 {
 
-//资源
     private int value;
 
     public void setValue(int value) {

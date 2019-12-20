@@ -1,4 +1,4 @@
-package java_.object;
+package java_.lang.object;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,6 @@
-package java_.object;
+package java_.lang.object;
 
 import static java.util.Objects.compare;
-import static java.lang.Math.E;
 /**
  * 静态导入：可以导入某个特定的静态方法吗？可以。
  * @author heshuaijun

@@ -1,4 +1,4 @@
-package java_.object;
+package java_.lang.object;
 
 /**
  * 1、实例域和静态域的 初始化块 可以在声明之前，但是初始化和赋值语句是按照类定义顺序执行，后面的赋值覆盖前面的！

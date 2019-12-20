@@ -1,4 +1,4 @@
-package java_.util.concurrent.locks;
+package java_.util.concurrent.locks.read_write_lock;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -8,7 +8,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * 所有读锁释放之后，才能获取写锁
+ * 1.读锁之间不互斥
+ * 2.所有读锁释放之后，才能获取写锁
+ * 3.获取写锁后，不释放写锁就可以获取写锁。一旦写锁释放，所有的读锁都可以获得。（锁降级）
  *
  * @author Shuaijun He
  */
@@ -40,6 +42,7 @@ public class ReadWriteLock_Demo {
             this.readLock.lock();
             System.out.println(Thread.currentThread() + "获取了读锁" + System.currentTimeMillis());
             // do something
+            Thread.sleep(1 * 1000);
         } catch (Exception e){
             e.printStackTrace();
         }finally {
@@ -67,9 +70,6 @@ public class ReadWriteLock_Demo {
 
         executorService.execute(() -> {readWriteLock.processWrite();});
         executorService.execute(() -> {readWriteLock.processRead();});
-        executorService.execute(() -> {readWriteLock.processWrite();});
-        executorService.execute(() -> {readWriteLock.processRead();});
-
     }
 }
 

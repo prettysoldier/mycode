@@ -15,11 +15,7 @@ public class ReentrantlockDemo {
     public static void main(String[] args) {
         // null == null 为 true !!!
         System.out.println(null == null);
-        // a 和 b 同时指向对象
-        Object a = new Object();
-        Object b = a;
-        a = null;
-        System.out.println(b);
+
 
         // ReentrantLock的一般用法
         ReentrantLock lock = new ReentrantLock();
