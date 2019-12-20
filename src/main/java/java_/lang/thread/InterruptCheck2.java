@@ -40,6 +40,13 @@ public class InterruptCheck2 {
             System.out.println("E: isInterrupted="+Thread.currentThread().isInterrupted());
             System.out.println("F: Thread.interrupted()="+Thread.interrupted());
             System.out.println("G: isInterrupted="+Thread.currentThread().isInterrupted());
+            try {
+                Thread.sleep(10);
+                System.out.println("线程没有被中断");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                System.out.println("线程被中断了");
+            }
         });
         t.start();
 

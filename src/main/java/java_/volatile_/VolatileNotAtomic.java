@@ -2,7 +2,6 @@ package java_.volatile_;
 
 /**
  * @Desc 为什么同步不好用呢？
- * 不是同步不好用，是&&的短路机制: while(substractThread.isAlive() && addThread.isAlive()){ }
  * 前面线程停止后，不会判断后面的线程
  * @Author shuaijunhe
  * @CreateTime 2018/12/7 14:44

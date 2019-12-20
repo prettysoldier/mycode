@@ -13,8 +13,8 @@ public class MyReference {
 
     public static void main(String[] args) throws InterruptedException {
 //        MyReference.softReference();
-//        MyReference.weakReference();
-        MyReference.phantomReference();
+        MyReference.weakReference();
+//        MyReference.phantomReference();
     }
 
     /**
