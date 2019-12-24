@@ -1,7 +1,5 @@
 package algorithm;
 
-import algorithm.priorityqueue.PriorityQueueDemo;
-
 /**
  * 第K大的数
  * 时间复杂度O(n) 额外空间O(1)

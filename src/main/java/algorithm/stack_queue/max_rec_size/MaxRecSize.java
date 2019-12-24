@@ -37,7 +37,7 @@ public class MaxRecSize {
         int maxArea = 0;
         for(int i = 0; i < height.length; i++){
 
-            if(!stack.isEmpty() && height[i] <= height[stack.peek()]){
+            while(!stack.isEmpty() && height[i] <= height[stack.peek()]){
                 int pop = stack.pop();
                 int left = stack.isEmpty() ? -1 : stack.peek();
                 maxArea = Math.max(maxArea, (i - left -1) * height[pop]);
@@ -53,8 +53,9 @@ public class MaxRecSize {
     }
 
     public static void main(String[] args) {
-        int[][] input = new int[][]{{0,1,0,0,1,1}, {0,1,1,1,0,0}, {0,1,1,1,1,0}};
+//        int[][] input = new int[][]{{0,1,0,0,1,1}, {0,1,1,1,0,0}, {0,1,1,1,1,0}};
+//
+//        System.out.println(getMaxRecSize(input));
 
-        System.out.println(getMaxRecSize(input));
     }
 }

@@ -15,7 +15,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class AtomicInteger_Demo {
 
     /**
-     * lazySet内部调用了Unsafe类的putOrderedInt方法，通过该方法对共享变量值的改变，不一定能被其他线程立即看到。也就是说以普通变量的操作方式来写变量。
+     * lazySet内部调用了Unsafe类的putOrderedInt方法，通过该方法对共享变量值的改变，不一定能被其他线程立即看到。
+     * 也就是说以普通变量的操作方式来写变量。
+     *
      * 为什么会有这种奇怪方法？什么情况下需要使用lazySet呢？
      * 由于锁的存在：
      * lock()方法获取锁时，和volatile变量的读操作一样，会强制使CPU缓存失效，强制从内存读取变量。

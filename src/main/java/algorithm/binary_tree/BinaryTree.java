@@ -14,6 +14,8 @@ public class BinaryTree {
 
     BinaryTree right;
 
+    BinaryTree parent;
+
     static BinaryTree initial(int... values){
         if(values == null || values.length == 0){
             return null;

@@ -29,7 +29,7 @@ public class MyReference {
         ReferenceQueue<Object> refQueue = new ReferenceQueue<>();
         SoftReference<Object> softRef = new SoftReference<>(obj, refQueue);
         System.out.println("SoftReference:" + softRef.get()); // java.lang.Object@f9f9d8
-        System.out.println("SoftReference:" + refQueue.poll());// null
+        System.out.println("SoftReference:" + softRef.isEnqueued());
 
         // 清除强引用,触发GC
         obj = null;
@@ -38,7 +38,7 @@ public class MyReference {
         System.out.println("SoftReference:" + softRef.get());
 
         Thread.sleep(200);
-        System.out.println("SoftReference:" + refQueue.poll());
+        System.out.println("SoftReference:" + softRef.isEnqueued());
     }
 
     /**
@@ -53,13 +53,12 @@ public class MyReference {
         ReferenceQueue<Object> refQueue = new ReferenceQueue<>();
         WeakReference<Object> weakRef = new WeakReference<>(obj, refQueue);
         System.out.println("WeakReference:" + weakRef.get()); // java.lang.Object@f9f9d8
-        System.out.println("WeakReference:" + refQueue.poll());// null
-        System.out.println("WeakReference:" + weakRef);
+        System.out.println("WeakReference:" + weakRef.isEnqueued());
         // 清除强引用,触发GC
         obj = null;
         System.gc();
 
-        System.out.println("WeakReference:" + weakRef.get());
+        System.out.println("WeakReference:" + weakRef.isEnqueued());
 
         // 这里特别注意:poll是非阻塞的,remove是阻塞的.
         // JVM将弱引用放入引用队列需要一定的时间,所以这里先睡眠一会儿
