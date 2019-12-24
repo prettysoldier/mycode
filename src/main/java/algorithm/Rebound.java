@@ -1,9 +1,9 @@
-package algorithm.algori50;
+package algorithm;
 
 /**
  * @author Shuaijun He
  */
-public class Demo10 {
+public class Rebound {
     public static void main(String[] args) {
         double s = 0;
         double h = 100;
