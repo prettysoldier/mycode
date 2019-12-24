@@ -19,6 +19,8 @@ public class T {
 //        System.out.println(Arrays.toString(getNarcissisticNumbers(3).toArray()));
 //        reverseWords("  Life  doesn't  always    give     us  the       joys we want.");
         firstUniqChar("abaccdeff");
+
+
     }
     public static List<Integer> getNarcissisticNumbers(int n) {
         // write your code here

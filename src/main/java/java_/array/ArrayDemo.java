@@ -9,10 +9,11 @@ import java.util.Arrays;
  **/
 public class ArrayDemo {
     public static void main(String[] args) {
-        base();
+//        base();
 //        arrayMaxLengthTest();
 //        arraysTest();
-
+        arrayClone();
+        arrayDeepClone();
     }
 
     private static void arraysTest() {
@@ -27,7 +28,7 @@ public class ArrayDemo {
 
     private static void base() {
         // 简化形式
-        int[][] i = {{1},{3, 2}};
+        int[][] i = {{1}, {3, 2}};
         // 打印多维数组
         System.out.println(Arrays.deepToString(i));
         // 允许数组长度是0，与null不同
@@ -40,13 +41,11 @@ public class ArrayDemo {
         System.out.println(Arrays.toString(i4));
         System.out.println("i4.length " + i4.length);
 
-        int[][][] i5 = {{{}},{}};
+        int[][][] i5 = {{{}}, {}};
         System.out.println(Arrays.deepToString(i5));
-
 
 //        int[] i6 = new int[];
         int[][] i6 = new int[1][];
-
 
     }
 
@@ -69,5 +68,40 @@ public class ArrayDemo {
 
         // length是int类型，说明不能超过int的最大值。如果数组中每个元素占用1B，最大是2G。
 //        int length = new int[2].length;
+    }
+
+    /**
+     * 结论：
+     * 一维数组：深克隆；（重新分配空间，并将元素复制过去）
+     * 二维数组：浅克隆。（只传递引用）
+     */
+    private static void arrayClone() {
+        int[] a = {3, 1, 4, 2, 5};
+        int[] b = a.clone();
+        System.out.println(Arrays.toString(b));
+        b[0] = 10;
+        System.out.println(Arrays.toString(b));
+        System.out.println("---------");
+
+        int[][] a1 = {{3, 1, 4, 2, 5}, {4, 2}};
+        int[][] b1 = a1.clone();
+        System.out.println(Arrays.deepToString(b1));
+        b1[0][0] = 10;
+        System.out.println(b1[0][0] + "  " + a1[0][0]);
+        System.out.println(a1[0] == b1[0]);
+        System.out.println("---------");
+
+    }
+
+    private static void arrayDeepClone() {
+
+        int[][] a = {{3, 1, 4, 2, 5}, {4, 2}};
+        int[][] b = new int[a.length][];
+        for (int i = 0; i < a.length; i++) {
+            b[i] = a[i].clone();
+        }
+        b[0][0] = 10;
+        System.out.println(b[0][0] + "  " + a[0][0]);
+        System.out.println(b[0] == a[0]);
     }
 }

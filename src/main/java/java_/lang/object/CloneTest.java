@@ -8,28 +8,41 @@ import java.util.Date;
  */
 public class CloneTest {
 
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public static void main(String[] args)  {
 
-//        Object a = new Object();
+        Object a = new Object();
+//        clone方法是protected的
 //        Object se = a.clone();
 //        System.out.println(a + "|" + se);
 
         A aa = new A();
         // 如果A不实现Cloneable接口，会报错。
-        A aa2 = (A) aa.clone();
+        A aa2 = aa.clone();
         System.out.println(aa + "|" + aa2);
+
+        try{
+            CloneTest cloneTest = new CloneTest();
+            CloneTest cloneTest2 = (CloneTest)cloneTest.clone();
+            System.out.println(cloneTest);
+            System.out.println(cloneTest2);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
     static class A implements Cloneable {
-        /*
-         * (non-Javadoc)
-         * @see java.lang.Object#clone()
-         */
+
         @Override
-        protected Object clone() throws CloneNotSupportedException {
-            return super.clone();
+        protected A clone()  {
+            try {
+                return (A)super.clone();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return null;
         }
+
     }
 
     static class B{

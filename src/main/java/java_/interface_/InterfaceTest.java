@@ -1,8 +1,6 @@
 
 package java_.interface_;
 
-import java_.interface_.InterfaceTest.IHello;
-
 /**
  * 可见性与其他class相同
  * only public, protected, private, abstract & static are permitted
@@ -15,50 +13,27 @@ import java_.interface_.InterfaceTest.IHello;
  */
 public class InterfaceTest {
 
+    /**
+     * 默认是静态的！！
+     */
     interface IHello {
         int a = 2;
 
         void sayHello() throws Exception;
 
+        void sort(Comparable[] arr);
+
     }
 
     interface IHello2 extends IHello {
-
+        /**
+         *
+         */
         @Override
         void sayHello();
     }
 
-    class B implements IHello {
 
-        /*
-         * (non-Javadoc)
-         * @see test.interface_.InterfaceTest.IHello#sayHello()
-         */
-        @Override
-        public void sayHello() {
-            // TODO Auto-generated method stub
-            System.out.println(a);
-        }
-
-
-    }
-
-    abstract class C implements IHello {
-
-    }
 
 }
 
-class A implements IHello {
-
-    /*
-     * (non-Javadoc)
-     * @see test.interface_.InterfaceTest.IHello#sayHello()
-     */
-    @Override
-    public void sayHello() {
-        // TODO Auto-generated method stub
-
-    }
-
-}

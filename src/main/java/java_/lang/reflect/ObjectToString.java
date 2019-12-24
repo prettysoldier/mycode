@@ -14,12 +14,14 @@ import java.util.ArrayList;
 public class ObjectToString {
 
     public static void main(String[] args) {
+
         System.out.println(new ObjectToString().toString(new B()));
+
     }
     private ArrayList<Object> visited = new ArrayList<>();
 
     public String toString(Object obj){
-        if(obj == null){
+        if(obj == null) {
             return "null";
         }
         if(visited.contains(obj)){

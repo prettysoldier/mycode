@@ -18,6 +18,10 @@ public class ReflectDemo {
             field.setAccessible(true);
             Object fieldVal = field.get(obj);
             System.out.println(fieldVal);
+            field.set(obj, "111");
+            System.out.println(obj.s);
+
+            System.out.println(new A().s);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -25,5 +29,5 @@ public class ReflectDemo {
 }
 
 class A {
-    private String s = "asdf";
+    String s = "asdf";
 }
