@@ -16,6 +16,7 @@ package compiler.synthetic;
         SyntheticDemoAsNonstaticInnerClass.InnerClass innerObject = new SyntheticDemoAsNonstaticInnerClass().new InnerClass();
         System.out.println("inner: " + innerObject.inner);
         System.out.println("getOutter: " + innerObject.getOutter());
+
     }
 
     private class InnerClass{
@@ -23,7 +24,7 @@ package compiler.synthetic;
         private String inner = "我在内部";
 
         private String getOutter(){
-            return "getOutter : " + outter;
+            return "getOutter : " + SyntheticDemoAsNonstaticInnerClass.this.outter;
         }
 
     }

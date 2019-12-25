@@ -14,6 +14,8 @@ public  class SyntheticDemoAsAnonymousInnerClass {
             public void run() {
                 System.out.println(a);
             }
+            int b = 2;
+
         }).start();
     }
 

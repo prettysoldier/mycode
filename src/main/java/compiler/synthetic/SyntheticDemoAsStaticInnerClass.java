@@ -18,7 +18,6 @@ public  class SyntheticDemoAsStaticInnerClass {
         System.out.println("inner: " + innerObject.inner);
         System.out.println("inner: " + innerObject.getOutter());
 
-
     }
 
     private static class InnerClass{
