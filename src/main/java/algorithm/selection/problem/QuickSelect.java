@@ -25,10 +25,8 @@ public class QuickSelect extends MySelect {
             for (;;) {
                 while (a[++i].compareTo(pivot) < 0) {
                 }
-                ;
                 while (a[--j].compareTo(pivot) > 0) {
-                }
-                ;
+                }               ;
                 if (i < j) {
                     MyQuickSort.swap(a, i, j);
                 } else {

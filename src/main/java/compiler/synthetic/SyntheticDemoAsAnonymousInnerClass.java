@@ -1,4 +1,4 @@
-package compiler;
+package compiler.synthetic;
 
 /**
  * 匿名内部类与synthetic 无关
@@ -8,10 +8,11 @@ package compiler;
 public  class SyntheticDemoAsAnonymousInnerClass {
 
     public static void main(String[] args) {
+        int a = 1;
         new Thread(new Runnable() {
             @Override
             public void run() {
-
+                System.out.println(a);
             }
         }).start();
     }

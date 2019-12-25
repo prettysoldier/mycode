@@ -1,4 +1,4 @@
-package compiler;
+package compiler.synthetic;
 
 /**
  * lambda表达式与synthetic 无关
@@ -8,7 +8,10 @@ package compiler;
  class SyntheticDemoAsLambda {
 
     public static void main(String[] args) {
-        new Thread(()->{}).start();
+        int a = 3;
+        new Thread(()->{
+            System.out.println(a);
+        }).start();
     }
 
 }

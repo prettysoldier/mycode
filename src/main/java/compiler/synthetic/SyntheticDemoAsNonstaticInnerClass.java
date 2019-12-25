@@ -1,4 +1,4 @@
-package compiler;
+package compiler.synthetic;
 
 /**
  * 非静态内部类
@@ -23,7 +23,7 @@ package compiler;
         private String inner = "我在内部";
 
         private String getOutter(){
-            return this.inner + "getOutter : " + outter;
+            return "getOutter : " + outter;
         }
 
     }

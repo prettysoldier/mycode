@@ -74,7 +74,12 @@ class Tuple {
 
     @Override
     public boolean equals(Object o) {
-
+        if(o == null || !(o instanceof Tuple)){
+            return false;
+        }
+        if(this == o){
+            return true;
+        }
         Tuple tuple = (Tuple) o;
         return a == tuple.a &&
                 b == tuple.b && c == tuple.c;
