@@ -16,7 +16,7 @@ public class B {
             this.c.c();
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            System.out.println(e.getMessage());
+            System.out.println("--ExceptionUtils--");
             System.out.println(ExceptionUtils.getFullStackTrace(e));
         }
     }

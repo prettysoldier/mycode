@@ -6,11 +6,11 @@ package java_.class_;
  */
 public class ClassTest<T> {
 
-
+    T t;
 
     public T f() throws Exception {
 
-        throw new Exception();
+        return t;
     }
 
 }

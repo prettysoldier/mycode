@@ -1,6 +1,6 @@
 package java_.exception.stack_trace;
 
-import java.io.ByteArrayOutputStream;
+import java.io.*;
 import java.util.Map;
 
 /**
@@ -27,5 +27,22 @@ public class StackTraceUtils {
             sb.append(elements[i]).append("\n");
         }
         return sb.toString();
+    }
+
+    public  static  String getStackTrace3() {
+        Throwable t = new Throwable();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        // 下面两种方式都可以！
+//        PrintWriter writer = new PrintWriter(new OutputStreamWriter(out));
+        PrintStream writer = new PrintStream(out);
+        t.printStackTrace(writer);
+        // 两种flush方法都可以！
+//        writer.flush();
+        try {
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return out.toString();
     }
 }
