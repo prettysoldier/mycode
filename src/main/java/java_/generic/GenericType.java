@@ -20,20 +20,25 @@ public class GenericType {
         testGeneric2(aNum);
 //        testGeneric2(aInt);
 
+        testGeneric3(aNum);
+        testGeneric3(aInt);
+
         testAllGeneric(aNum);
+        testAllGeneric(aInt);
 
         genericMethod(GenericType.class);
 
         B<Integer> b = new B<>(1);
-        testGeneric(b);
+//        testGeneric(b);
         testGeneric1(b);
         testGeneric2(b);
 
+        // 数组不能用泛型！！
         List<?>[] ls = new ArrayList<?>[10];
         List<String>[] ls1 = new ArrayList[10];
 //        List<String>[] ls = new ArrayList<String>[10];// 这样不行
-
-//        whyArrayCannotUseGeneric();
+        A<String>[] arr = new A[10];
+        whyArrayCannotUseGeneric();
         fixWhyArrayCannotUseGeneric();
 
     }
@@ -41,16 +46,10 @@ public class GenericType {
     private static void testGeneric(A<Number> a){ }
     private static void testGeneric1(A<? extends Integer> a){ }
     private static void testGeneric2(A<? super Number> a){ }
+    private static void testGeneric3(A<? extends Number> a){ }
 
-    private static void testGeneric(B<Integer> a){ }
+    private static void testGeneric(B<Number> a){ }
     private static void testGeneric1(B<? extends Number> a){ }
-
-    /**
-     * 通过上面的两个例子可以看出：泛型的上下边界添加，必须与泛型的声明在一起 。
-     * @param b
-     * @param <T>
-     * @return
-     */
     private static <T extends Number> T testGeneric2(B<T> b){
         return b.getT();
     }
@@ -64,7 +63,10 @@ public class GenericType {
         return instance;
     }
 
-    // 为什么数组不能用泛型：这个方法会报运行时错误
+    /**
+     * 为什么数组不能用泛型：这个方法会报运行时错误
+     * 泛型会自动进行强转
+     */
     private static void whyArrayCannotUseGeneric(){
         List<String>[] lsa = new List[10]; // Not really allowed.
         Object o = lsa;
@@ -97,8 +99,14 @@ public class GenericType {
 class A<T>{
     private T t;
 
+    private T[] tarr;
+
     public A(T t) {
         this.t = t;
+    }
+
+    public T getT() {
+        return t;
     }
 }
 
