@@ -27,7 +27,7 @@ public class SelectByHeap extends MySelect {
         MyBinaryHeap<T> heap = new MyBinaryHeap<>(a);
         T minT = null;
         while (k-- > 0) {
-            minT = heap.deleteMin();
+            minT = heap.deleteTop();
         }
         return minT;
     }

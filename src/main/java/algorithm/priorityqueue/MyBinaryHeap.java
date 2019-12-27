@@ -15,23 +15,26 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
     public static void main(String[] args) {
         Integer[] arr = { 3, 7, 1, 5, 2, 4, 8 };
         // 通过数组，创建二进制堆
-        MyBinaryHeap<Integer> heap = new MyBinaryHeap<>(arr);
+        MyBinaryHeap<Integer> heap = new MyBinaryHeap<>(arr, false);
         int i = arr.length;
         while (i-- > 0) {
-            System.out.print(heap.deleteMin() + ", ");
+            System.out.print(heap.deleteTop() + ", ");
         }
     }
 
-    @SuppressWarnings("unused")
-    private static final int DEFAULT_CAPACITY = 10;
     private T[] array;
     private int currentSize;
-
+    private boolean bigTop;
 
     public MyBinaryHeap(T[] items) {
+        this(items, false);
+    }
+
+    public MyBinaryHeap(T[] items, boolean bigTop) {
         this.currentSize = items.length;
-        // TODO
-        this.array = (T[]) new Comparable[(this.currentSize + 2) * 11 / 10];
+        this.bigTop = bigTop;
+        this.array = (T[]) new Comparable[this.currentSize + 1];
+        // 注意这里是从1开始，为了便于后面的索引计算
         int i = 1;
         for (T item : items) {
             this.array[i++] = item;
@@ -41,7 +44,7 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
 
 
 
-    public T deleteMin() {
+    public T deleteTop() {
         if (this.isEmpty()) {
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -86,13 +89,15 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
              * 也就是找出子节点中较小的节点
              */
             if (child != this.currentSize
-                    && this.array[child + 1].compareTo(this.array[child]) < 0) {
+                    && (!bigTop && this.array[child + 1].compareTo(this.array[child]) < 0
+                    || bigTop && this.array[child + 1].compareTo(this.array[child]) > 0 )) {
                 child++;
             }
             /**
              * 如果子节点中较小的节点比父节点还小，就把子节点赋值给父节点
              */
-            if (this.array[child].compareTo(parent) < 0) {
+            if (!bigTop && this.array[child].compareTo(parent) < 0
+                    || bigTop && this.array[child].compareTo(parent) > 0 ) {
                 this.array[hole] = this.array[child];
                 /**
                  * hole指向较小的节点，继续向下判断，直至达到总大小
