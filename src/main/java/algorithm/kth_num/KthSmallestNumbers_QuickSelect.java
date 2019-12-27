@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.kth_num;
 
 /**
  * @author hsj

@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.kth_num;
 
 /**
  * 第K大的数

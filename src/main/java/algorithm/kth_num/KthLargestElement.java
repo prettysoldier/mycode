@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.kth_num;
 
 import algorithm.priorityqueue.MyBinaryHeap;
 import algorithm.priorityqueue.PriorityQueueDemo;

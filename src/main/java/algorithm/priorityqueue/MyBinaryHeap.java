@@ -23,7 +23,13 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
     }
 
     private T[] array;
-    private int currentSize;
+    /**
+     * 堆的大小
+     */
+    private int size;
+    /**
+     * 是否是大顶堆
+     */
     private boolean bigTop;
 
     public MyBinaryHeap(T[] items) {
@@ -31,14 +37,9 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
     }
 
     public MyBinaryHeap(T[] items, boolean bigTop) {
-        this.currentSize = items.length;
+        this.size = items.length;
         this.bigTop = bigTop;
-        this.array = (T[]) new Comparable[this.currentSize + 1];
-        // 注意这里是从1开始，为了便于后面的索引计算
-        int i = 1;
-        for (T item : items) {
-            this.array[i++] = item;
-        }
+        this.array = items;
         this.buildHeap();
     }
 
@@ -48,9 +49,11 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
         if (this.isEmpty()) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        T min = this.array[1];
-        this.array[1] = this.array[this.currentSize--];
-        this.percolateDown(1);
+        T min = this.array[0];
+        // 把最后的节点，放在第一个，然后下虑
+        this.array[0] = this.array[--this.size];
+        this.percolateDown(0);
+
         return min;
     }
 
@@ -62,10 +65,11 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
      */
     private void buildHeap() {
         /**
-         * this.currentSize / 2 :拥有子节点的最后一个父节点
+         * (this.size-2)/ 2 : 拥有子节点的最后一个父节点
          * 只有非叶子节点才需要移动调整
+         * 不断地下虑
          */
-        for (int i = this.currentSize / 2; i > 0; i--) {
+        for (int i = (this.size - 2 ) / 2; i >= 0; i--) {
             this.percolateDown(i);
         }
     }
@@ -77,18 +81,18 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
      * @param hole
      */
     private void percolateDown(int hole) {
-        int child;
         // 当前节点作为父节点
         T parent = this.array[hole];
 
-        for (; hole * 2 <= this.currentSize;) {
-            // hole * 2 是左子节点
-            child = hole * 2;
+        int child;
+        for (; hole * 2 <= this.size - 2;) {
+            // 左子节点
+            child = hole * 2 + 1;
             /**
              * 左子节点不是最后一个，且右子节点比左子节点小，就把child加1，变成右子节点的下标
              * 也就是找出子节点中较小的节点
              */
-            if (child != this.currentSize
+            if (child != this.size - 1
                     && (!bigTop && this.array[child + 1].compareTo(this.array[child]) < 0
                     || bigTop && this.array[child + 1].compareTo(this.array[child]) > 0 )) {
                 child++;
@@ -114,7 +118,7 @@ public class MyBinaryHeap<T extends Comparable<? super T>> {
     }
 
     private boolean isEmpty() {
-        return this.currentSize <= 0;
+        return this.size <= 0;
     }
 
 
