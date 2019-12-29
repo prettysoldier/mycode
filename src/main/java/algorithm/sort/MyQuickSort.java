@@ -90,6 +90,13 @@ public class MyQuickSort extends MySortBase {
         a[r] = tmp;
     }
 
+    /**
+     * 三分单向扫描: 对于大量元素等于pivot的序列，单轴快排并没有起到很好的划分作用。所以使用三分。
+     * @param items
+     * @param start
+     * @param end
+     * @param <T>
+     */
     private static <T extends Comparable<? super T>> void div3ScanSort(T[] items,
                                                                     int start, int end) {
         if (start < end) {
@@ -113,6 +120,16 @@ public class MyQuickSort extends MySortBase {
 
     }
 
+    /**
+     * 在上面的实现中，扫描到大于pivot的元素，将最后一个未扫描的元素(j所在的位置)与当前元素(k所在的位置)进行交换。
+     * 那如果这个未扫描的元素正好是比pivot大的元素呢，这无疑增加了交换的次数。
+     *
+     * 三分双向扫描
+     * @param items
+     * @param start
+     * @param end
+     * @param <T>
+     */
     private static <T extends Comparable<? super T>> void div3DualScanSort(T[] items, int start, int end) {
         if (start < end) {
             T pivot = items[start];
@@ -149,7 +166,13 @@ public class MyQuickSort extends MySortBase {
         }
     }
 
-
+    /**
+     * 双轴快排
+     * @param items
+     * @param start
+     * @param end
+     * @param <T>
+     */
     private static <T extends Comparable<? super T>> void dualPivotQuickSort(T[] items, int start, int end) {
         if (start < end) {
             if (items[start].compareTo(items[end]) > 0) {
@@ -164,7 +187,7 @@ public class MyQuickSort extends MySortBase {
             while (k <= j) {
                 if (items[k].compareTo(pivot1) < 0) {
                     swap(items, i++, k++);
-                } else if (items[k].compareTo(pivot2) <= 0) {
+                } else if (items[k].compareTo(pivot2) == 0) {
                     k++;
                 } else {
                     while (items[j].compareTo(pivot2) > 0) {
@@ -185,6 +208,7 @@ public class MyQuickSort extends MySortBase {
                     j--;
                 }
             }
+            // 防止死循环
             if(j - i < end - start){
 
                 dualPivotQuickSort(items, start, i - 1);
