@@ -1,7 +1,6 @@
 package algorithm.sort;
 
 import java.util.Arrays;
-import java.util.BitSet;
 
 /**
  * 自实现的位图
@@ -44,6 +43,8 @@ public class MyBitMap {
 
         MyBitMap myBitMap = new MyBitMap(100);
         myBitMap.set(99);
+        System.out.println(myBitMap.test(99));
+        myBitMap.clear(99);
         System.out.println(myBitMap.test(99));
 
         int a[] = {3, 1, 4, 2, 9, 8, 0, 6, 5};
