@@ -14,7 +14,7 @@ public class Child extends Parent {
         super();
     }
 
-    // 说明属性是可以重载的，但不建议使用
+    // 说明属性是可以覆写的，但不建议使用
 //    static int m = 2;
 
 

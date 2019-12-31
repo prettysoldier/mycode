@@ -1,4 +1,4 @@
-package java_.access.permission._protected.parent;
+package java_.access_permission._protected.parent;
 
 /**
  * @author hsj

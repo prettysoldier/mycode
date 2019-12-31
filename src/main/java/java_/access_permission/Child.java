@@ -1,4 +1,4 @@
-package java_.access.permission;
+package java_.access_permission;
 
 /**
  * @Desc protected 方法包内可见

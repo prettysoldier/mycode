@@ -1,5 +1,5 @@
 
-package java_.compress;
+package java_.util.zip.compress;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

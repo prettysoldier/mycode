@@ -10,13 +10,16 @@ import java.util.Arrays;
 public class ArrayDemo {
     public static void main(String[] args) {
 //        base();
-//        arrayMaxLengthTest();
+        arrayMaxLengthTest();
 //        arraysTest();
-        arrayClone();
-        arrayDeepClone();
+//        arrayClone();
+//        arrayDeepClone();
     }
 
-    private static void arraysTest() {
+    /**
+     * Arrays.BinarySearch的返回值问题
+     */
+    private static void returnValOfArraysBinarySearch() {
         int[] i = {1, 2, 4, 5};
         System.out.println(Arrays.binarySearch(i, 4) == 2);
         // 找不到返回r = -3。-r-1 = 2 就是新节点插入时的index。
@@ -31,11 +34,11 @@ public class ArrayDemo {
         int[][] i = {{1}, {3, 2}};
         // 打印多维数组
         System.out.println(Arrays.deepToString(i));
-        // 允许数组长度是0，与null不同
-        int i2[] = new int[0];
-
-        // 这种{}，说明数组长度为0
+        // 允许数组长度是0，是有意义的，与null不同
+        int[] i2 = new int[0];
         int[] i4 = {};
+
+        // Arrays.deepToString(Object[] a)
         // 此行编译报错，int[]等基本类型的数组 与Object[]类型不同
 //        System.out.println(Arrays.deepToString(i4));
         System.out.println(Arrays.toString(i4));
@@ -52,6 +55,16 @@ public class ArrayDemo {
     /**
      * 测试数组初始化时的最大长度
      * 测试结果：Integer.MAX_VALUE - 2
+     *
+     * 虚拟机对数组大小的限制与平台有关，通常都位于10到21亿元素之间
+     * 该错误是由JVM的本地代码抛出的. 它发生在为一个数组分配内存之前, 这时JVM会执行一个与平台有关的检查:
+     * 是否待分配的数据结构在这个平台是可寻址的.      *
+     * 你很少面对这个错误的原因是 Java 数组是由 int类型索引的. 在Java中最大的正整数是: 2^31 -1 = 2,147,483,647.
+     * 平台相关的限制确实相当接近这个数字 – 例如在MacBook Pro, Java 1.7 Integer.MAX_VALUE-2 元素.
+     * 但是这个限制有时也并不是那么高 – 在32-bit Linux, OpenJDK 6上, 你会在分配一个大约11亿元素的数组时候报错.
+     * 要知道你的特定环境的限制大小, 可以运行下面这个小的测试程序.
+     *
+     * 不推荐的方法：sun.misc.Unsafe 类使您可以像在 C 中一样直接分配内存。
      */
     private static void arrayMaxLengthTest() {
         // -1 编译不会报错，运行时报错：java.lang.NegativeArraySizeException
@@ -64,7 +77,8 @@ public class ArrayDemo {
 //        String[] arr2 = new String[Integer.MAX_VALUE - 1];
 
         // Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
-//        byte[] arr3 = new byte[Integer.MAX_VALUE - 2];
+        // 当把内存调得足够大（ -Xmx3550m -Xms3550m）时不报错，说明数组默认最大的数组长度是Integer.MAX_VALUE - 2
+        byte[] arr3 = new byte[Integer.MAX_VALUE - 2];
 
         // length是int类型，说明不能超过int的最大值。如果数组中每个元素占用1B，最大是2G。
 //        int length = new int[2].length;

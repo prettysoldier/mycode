@@ -1,4 +1,4 @@
-package java_.compare;
+package java_.lang.compare;
 
 import java.util.*;
 
@@ -9,42 +9,38 @@ import java.util.*;
  **/
 public class CompareTest {
     public static void main(String[] args) {
-        List<ComparatorA> list = new ArrayList<>(10);
+        List<A> list = new ArrayList<>(10);
         Random random = new Random();
         for(int i = 0; i < 10; i++){
-            list.add(new ComparatorA(random.nextInt(10)));
+            list.add(new A(random.nextInt(10)));
         }
         list.forEach(e->{
             System.out.print(e.getA() + ", ");
         });
         System.out.println();
-//        arraysSort(list);
-        arraysSort2(list);
+        arraysSort(list);
+//        arraysSort2(list);
     }
 
-    private static void arraysSort(List<ComparatorA> list) {
-        ComparatorA[] arr = new ComparatorA[list.size()];
+    private static void arraysSort(List<A> list) {
+        A[] arr = new A[list.size()];
         // Arrays的sort方法，的前提是 数组元素实现了Comparable接口
         Arrays.sort(list.toArray(arr));
-        Arrays.stream(arr).forEach(e->{
-            System.out.println(e.getA());
-        });
+        Arrays.stream(arr).forEach(e-> System.out.print(e.getA() + ", "));
     }
 
-    private static void arraysSort2(List<ComparatorA> list) {
-        ComparatorA[] arr = new ComparatorA[list.size()];
+    private static void arraysSort2(List<A> list) {
+        A[] arr = new A[list.size()];
         // Arrays的sort方法，的前提是 数组元素实现了Comparable接口
-        Arrays.sort(list.toArray(arr), new ComparatorB());
-        Arrays.stream(arr).forEach(e->{
-            System.out.println(e.getA());
-        });
+        Arrays.sort(list.toArray(arr), new MyComparator());
+        Arrays.stream(arr).forEach(e-> System.out.print(e.getA() + ", "));
     }
 }
 
-class ComparatorA implements Comparable<ComparatorA>{
+class A implements Comparable<A>{
     private int a;
 
-    public ComparatorA(int a) {
+    public A(int a) {
         this.a = a;
     }
 
@@ -53,17 +49,18 @@ class ComparatorA implements Comparable<ComparatorA>{
     }
 
     @Override
-    public int compareTo(ComparatorA o) {
+    public int compareTo(A o) {
         if(this.a != o.getA()){
+            // 逆序
             return this.a > o.getA() ? -1: 2;
         }
         return 0;
     }
 }
 
-class ComparatorB implements Comparator<ComparatorA>{
+class MyComparator implements Comparator<A>{
     @Override
-    public int compare(ComparatorA o1, ComparatorA o2) {
+    public int compare(A o1, A o2) {
         if(o1.getA() != o2.getA()){
             return o1.getA() > o2.getA() ? 1 : -1;
         }

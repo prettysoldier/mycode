@@ -5,7 +5,7 @@ import java_.throwab.A;
 import java.math.BigDecimal;
 
 /**
- *
+ * 基本类型不能强转为包装类型
  */
 public class CastTest {
 
@@ -20,7 +20,7 @@ public class CastTest {
         int a = 2;
         long b2 = 2;
         long b = a;
-//        Long b1 = a;// 编译失败
+//        Long b1 = (Long)a;// 编译失败
 
 
         System.out.println((A) null + "--");

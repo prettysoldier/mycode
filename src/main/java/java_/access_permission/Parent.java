@@ -1,4 +1,4 @@
-package java_.access.permission;
+package java_.access_permission;
 
 /**
  * @Desc

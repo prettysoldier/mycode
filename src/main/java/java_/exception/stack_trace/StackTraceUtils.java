@@ -4,6 +4,12 @@ import java.io.*;
 import java.util.Map;
 
 /**
+ * 打印堆栈信息的四种方法
+ * - new Throwable().getStackTrace()
+ * - new Throwable().printStackTrace(PrintStream)
+ * - Thread.getAllStackTraces().get(Thread.currentThread())
+ * - Thread.dumpStack()
+ *
  * @author hsj
  * @create 2019/12/26
  */

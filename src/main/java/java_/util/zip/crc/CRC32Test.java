@@ -1,4 +1,4 @@
-package java_.crc;
+package java_.util.zip.crc;
 
 import java.util.zip.CRC32;
 

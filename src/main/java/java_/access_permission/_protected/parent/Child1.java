@@ -1,6 +1,6 @@
-package java_.access.permission._protected.parent;
+package java_.access_permission._protected.parent;
 
-import java_.access.permission._protected.Child3;
+import java_.access_permission._protected.Child3;
 
 /**
  * @author hsj
