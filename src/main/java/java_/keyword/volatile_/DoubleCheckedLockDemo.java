@@ -1,4 +1,4 @@
-package java_.volatile_;
+package java_.keyword.volatile_;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

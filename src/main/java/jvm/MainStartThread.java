@@ -9,11 +9,13 @@ package jvm;
  * 4.Reference Handler Thread
  * 5.Signal Dispatcher
  *
+ * TODO 为何 FinalizerThread 和 Reference Handler Thread 都无法进入断点？？
  * @author hsj
  * @create 2019/12/17
  */
 public class MainStartThread {
-    public static void main(String[] args) {
-        System.out.println();
+    public static void main(String[] args) throws Exception {
+
+        Thread.sleep(3600_000);
     }
 }

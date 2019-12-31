@@ -1,5 +1,5 @@
 
-package java_.finalize;
+package java_.lang.finalize;
 
 public class TestNoFinalize {
 

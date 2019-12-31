@@ -1,4 +1,4 @@
-package java_.volatile_;
+package java_.keyword.volatile_;
 
 /**
  * @Desc

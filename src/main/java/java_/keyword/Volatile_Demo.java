@@ -8,12 +8,13 @@ import java.util.concurrent.CountDownLatch;
  *   1.防止重排序(有序性)
  *     先来了解一下Java中的happen-before规则：如果a happen-before b，则a所做的任何操作对b是可见的。
  *     （这一点大家务必记住，因为happen-before这个词容易被误解为是时间的前后）
- *     1）同一个线程中的，前面的操作 happen-before 后续的操作。（即单线程内按代码顺序执行。但是，在不影响在单线程环境执行结果的前提下，编译器和处理器可以进行重排序，这是合法的。换句话说，这一是规则无法保证编译重排和指令重排）。
- *     2）监视器上的解锁操作 happen-before 其后续的加锁操作。（Synchronized 规则）
- *     3）对volatile变量的写操作 happen-before 后续的读操作。（volatile 规则）
- *     4）线程的start() 方法 happen-before 该线程所有的后续操作。（线程启动规则）
+ *     1）同一个线程中的，前面的操作 happen-before 后续的操作。（即单线程内按代码顺序执行。但是，在不影响在单线程环境执行结果的前提下，
+ *          编译器和处理器可以进行重排序，这是合法的。换句话说，这一是规则无法保证编译重排和指令重排）。
+ *     2）Synchronized 规则：监视器上的解锁操作 happen-before 其后续的加锁操作。（Synchronized 规则）
+ *     3）volatile 规则：对volatile变量的写操作 happen-before 后续的读操作。（volatile 规则）
+ *     4）线程启动规则：线程的start() 方法 happen-before 该线程所有的后续操作。（线程启动规则）
  *     5）线程所有的操作 happen-before 其他线程在该线程上调用 join 返回成功后的操作。
- *     6）如果 a happen-before b，b happen-before c，则a happen-before c（传递性）。
+ *     6）传递性：如果 a happen-before b，b happen-before c，则a happen-before c（传递性）。
  *   2.实现可见性：
  *   3.保证原子性：volatile只能保证对单次读/写的原子性
  *               因为long和double两种数据类型的操作可分为高32位和低32位两部分，因此普通的long或double类型读/写可能不是原子的。
