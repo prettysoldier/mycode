@@ -1,6 +1,6 @@
 package algorithm.sort;
 
-import sun.jvm.hotspot.utilities.BitMap;
+//import sun.jvm.hotspot.utilities.BitMap;
 
 /**
  * TODO
@@ -14,10 +14,10 @@ public class MyBitMapSort {
      * @param max a中数字的最大值
      */
     public static int[] bitSort(int[] a, int max) {
-        BitMap map = new BitMap(max);
-        for (int i = 0; i < map.size(); i++) {
-            map.atPut(i, true);
-        }
+//        BitMap map = new BitMap(max);
+//        for (int i = 0; i < map.size(); i++) {
+//            map.atPut(i, true);
+//        }
         return a;
     }
 }
