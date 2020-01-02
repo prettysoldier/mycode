@@ -1,4 +1,4 @@
-package compiler.synthetic;
+package java_.compiler.synthetic;
 
 /**
  * 匿名内部类与synthetic 无关

@@ -1,4 +1,4 @@
-package compiler.synthetic;
+package java_.compiler.synthetic;
 
 /**
  * 非静态内部类

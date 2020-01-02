@@ -1,5 +1,7 @@
 package jvm;
 
+import java.util.Map;
+
 /**
  *
  * main方法启动，至少启动5个线程
@@ -16,6 +18,10 @@ package jvm;
 public class MainStartThread {
     public static void main(String[] args) throws Exception {
 
+        Map<Thread, StackTraceElement[]> map = Thread.getAllStackTraces();
+        map.forEach((k, v)->{
+            System.out.println(k.getName());
+        });
         Thread.sleep(3600_000);
     }
 }

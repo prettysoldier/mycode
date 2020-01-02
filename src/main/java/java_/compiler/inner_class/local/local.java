@@ -1,4 +1,4 @@
-package compiler.inner_class.local;
+package java_.compiler.inner_class.local;
 
 /**
  * @author hsj

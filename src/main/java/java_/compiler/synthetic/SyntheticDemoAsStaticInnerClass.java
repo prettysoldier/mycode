@@ -1,4 +1,4 @@
-package compiler.synthetic;
+package java_.compiler.synthetic;
 
 /**
  * 关于Synthetic的示例

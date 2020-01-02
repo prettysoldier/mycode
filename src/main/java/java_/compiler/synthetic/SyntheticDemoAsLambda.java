@@ -1,4 +1,4 @@
-package compiler.synthetic;
+package java_.compiler.synthetic;
 
 /**
  * lambda表达式与synthetic 无关

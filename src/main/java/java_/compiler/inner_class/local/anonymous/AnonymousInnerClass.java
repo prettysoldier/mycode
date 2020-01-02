@@ -1,4 +1,4 @@
-package compiler.inner_class.local.anonymous;
+package java_.compiler.inner_class.local.anonymous;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +22,17 @@ public class AnonymousInnerClass {
 
         }).start();
 
-        // 静态方法中如何获取class
-        new AnonymousInnerClass().f();
+        // 静态方法中如何获取静态方法所属的class
         System.out.println(new Object(){}.getClass().getEnclosingClass());
+        // 实例方法中会返回null
+        new AnonymousInnerClass().getEnclosingClass();
+
+        // 双括号匿名内部类：第一个括号代表内部类，第二个括号代表实例方法块。
+        new AnonymousInnerClass().g(new ArrayList<String>(){{add("one");add("two");}});
     }
 
-    public void f(){
+    public void getEnclosingClass(){
         System.out.println("getEnclosingClass : " + getClass().getEnclosingClass());
-        g(new ArrayList<String>(){{add("one");add("two");}});
     }
 
     private void g(List<String> list){
