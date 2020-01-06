@@ -56,7 +56,7 @@ public class ArrayDemo {
      * 测试数组初始化时的最大长度
      * 测试结果：Integer.MAX_VALUE - 2
      *
-     * 虚拟机对数组大小的限制与平台有关，通常都位于10到21亿元素之间
+     * 虚拟机对数组大小的限制与平台有关，通常都位于10亿到21亿元素之间
      * 该错误是由JVM的本地代码抛出的. 它发生在为一个数组分配内存之前, 这时JVM会执行一个与平台有关的检查:
      * 是否待分配的数据结构在这个平台是可寻址的.      *
      * 你很少面对这个错误的原因是 Java 数组是由 int类型索引的. 在Java中最大的正整数是: 2^31 -1 = 2,147,483,647.
@@ -82,6 +82,10 @@ public class ArrayDemo {
 
         // length是int类型，说明不能超过int的最大值。如果数组中每个元素占用1B，最大是2G。
 //        int length = new int[2].length;
+
+//        System.out.println(length);
+
+        System.out.println("正常");
     }
 
     /**

@@ -6,7 +6,7 @@ package java_.access_permission._protected.parent;
  */
 public class Parent {
 
-    protected int f;
+    protected int f = -1;
 
     protected void m(){
         System.out.println("MyProtected.f");

@@ -7,7 +7,7 @@ package demo;
 public class AutoCastDemo {
     public static void main(String[] args) {
         short s = 1;
-        byte b = 2;
+//        s = s + 1;
         s += 1;
     }
 }

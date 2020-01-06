@@ -9,6 +9,7 @@ import java_.access_permission._protected.parent.Parent;
  * @create 2019/12/24
  */
 public class Child3 extends Parent {
+
     void h(){
         m();
     }
@@ -16,12 +17,9 @@ public class Child3 extends Parent {
 
     public static void main(String[] args) {
 
-
         Child1 c1 = new Child1();
 //        c1.m();
 //        c1.f;
 
-        Child2 c2 = new Child2();
-//        c2.m();
     }
 }

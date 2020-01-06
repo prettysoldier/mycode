@@ -7,8 +7,11 @@ package java_.generic;
 public class GenericMethod {
 
     public static void main(String[] args) {
-        GenericMethod.genericMethod(1);
+
+        GenericMethod.<Integer>genericMethod(1);
+
         System.out.println(GenericMethod.<Integer>genericMethod2(2));
+
         GenericMethod.genericMethod3(3);
     }
 

@@ -17,10 +17,10 @@ public class Child1 extends Parent {
     public static void main(String[] args) {
         Child1 c = new Child1();
         c.m();
-        int i = c.f;
+        System.out.println(c.f);
 
         Child3 c3 = new Child3();
         c3.m();
-        System.out.println(c3.f);
+//        System.out.println(c3.f);
     }
 }
