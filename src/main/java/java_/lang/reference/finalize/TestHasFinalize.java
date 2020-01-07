@@ -1,5 +1,5 @@
 
-package java_.lang.finalize;
+package java_.lang.reference.finalize;
 
 /**
  * @author Shuaijun He

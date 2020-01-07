@@ -1,5 +1,5 @@
 
-package java_.lang.finalize;
+package java_.lang.reference.finalize;
 
 /**
  * https://blog.csdn.net/aitangyong/article/details/39450341
@@ -43,7 +43,7 @@ package java_.lang.finalize;
  * </ul>
  *
  * https://blog.csdn.net/zwjyyy1203/article/details/97397680
- * 最后总结一下finalizer的生存周期： *
+ * 最后总结一下finalizer的生存周期：
  * 在创建对象时，如果对象override了finalize()方法，jvm会同时创建一个Finalizer对象
  * 所有Finalizer对象组成了一个双向链表
  * 所有Finalizer对象都有一个名为queue的成员变量，指向的都是Finalizer类的静态Queue。

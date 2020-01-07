@@ -1,4 +1,4 @@
-package java_.lang.finalize;
+package java_.lang.reference.finalize;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

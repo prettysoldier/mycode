@@ -68,22 +68,29 @@ public class BooleanOccupyMemory_Demo {
  * -javaagent:D:\idea_workspace\mycode\out\artifacts\PreMainTraceAgent\PreMainTraceAgent.jar=asdf -XX:-UseCompressedOops
  *
  * 不添加boolean属性时，大小为16B（64位操作系统不压缩指令时，对象头是16B）
+ * 当定义<=4个属性时，大小为16B
  *
- * 当定义8个属性及以内时，大小为24B
- * 当定义9个属性时，大小为32B
+ * 当再加8个属性时，大小为24B
+ * 当再增加1个属性时，大小为32B
  *
- * 说明boolean类型实例变量，占用1B。
+ * 说明boolean类型实例变量，占用1字节。
  */
-class A{
-    private boolean b1 = true;
+class A {
+    boolean b1 = true;
     boolean b2 = true;
     boolean b3 = true;
     boolean b4 = false;
-    boolean b5;
+
+    boolean b5 = true;
     boolean b6 = true;
     boolean b7 = true;
     boolean b8 = true;
     boolean b9 = true;
+    boolean b10 = true;
+    boolean b11 = true;
+    boolean b12 = true;
+
+    boolean b13 = true;
     /**
      * reference类型在32位系统上每个占用4bytes, 在64位系统上每个占用8bytes。
      * 开启指针压缩后占用4个字节，默认是开启的
@@ -92,16 +99,27 @@ class A{
 }
 
 /**
+ *
+ * 不添加boolean属性时，大小为496B *
  * 不管加不加静态属性，B.class 的大小都是498B。
+ *
+ * 说明静态变量没放在 class 对象中
+ *
  */
 class B{
-    static boolean b1 = true;
-    static boolean b2 = true;
-    static boolean b3 = true;
-    static boolean b4 = false;
-    static boolean b5;
-    static boolean b6 = true;
-    static boolean b7 = true;
-    static boolean b8 = true;
-    static boolean b9 = true;
+
+    boolean b1 = true;
+    boolean b2 = true;
+    boolean b3 = true;
+    boolean b4 = false;
+    boolean b5 = true;
+    boolean b6 = true;
+    boolean b7 = true;
+    boolean b8 = true;
+    boolean b9 = true;
+    boolean b10 = true;
+    boolean b11 = true;
+    boolean b12 = true;
+
+    boolean b13 = true;
 }

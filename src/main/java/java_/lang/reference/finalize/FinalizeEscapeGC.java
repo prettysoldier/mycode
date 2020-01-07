@@ -1,4 +1,4 @@
-package java_.lang.finalize;
+package java_.lang.reference.finalize;
 
 /**
  * 深入理解jvm:对象的生存还是死亡

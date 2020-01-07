@@ -25,9 +25,9 @@ public class SystemOut_Demo {
             @Override
             public void println(String x) {
                 if(x.startsWith("a")){
-                    super.println(x + "a");
+                    super.println(x + "--a");
                 }else if(x.startsWith("b")){
-                    super.println(x + "b");
+                    super.println(x + "--b");
                 }
                 else{
                     super.println(x);
