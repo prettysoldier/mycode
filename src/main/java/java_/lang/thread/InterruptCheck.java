@@ -28,7 +28,7 @@ package java_.lang.thread;
  */
 public class InterruptCheck {
     public static void main(String[] args) {
-        Thread t=Thread.currentThread();
+        Thread t = Thread.currentThread();
         System.out.println("A: isInterrupted="+t.isInterrupted());
         t.interrupt();
         System.out.println("B: isInterrupted="+t.isInterrupted());

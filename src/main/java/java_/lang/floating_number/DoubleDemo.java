@@ -8,18 +8,14 @@ public class DoubleDemo {
 
     public static void main(String[] args) {
 
-        double d1 = equalSignTest();
+//        equalSignTest();
 
 //        equalTest();
 
-//        infinityTest();
-
-        // 答案：true。当一个数与本身不相等时，就是Nan。NaN 是唯一与自身不等的值
-        System.out.println(Double.isNaN(d1));
-
+        infinityTest();
     }
 
-    private static double equalSignTest() {
+    private static void equalSignTest() {
         double d1 = Double.NaN;
         double d3 = d1;
         System.out.println("d3 == d1 : " + (d3 == d1));
@@ -30,7 +26,15 @@ public class DoubleDemo {
         System.out.println(d1 == Double.NaN);
         System.out.println("Double.NaN == Double.NaN : " + (Double.NaN == Double.NaN));
         System.out.println("0.0/0 == 0.0/0 : " + (0.0/0 == 0.0/0));
-        return d1;
+        // 0.0/0 为 NaN
+        System.out.println(0.0/0);
+        // Infinity
+        System.out.println(1.0/0);
+        // -Infinity
+        System.out.println(-1.0/0);
+
+        // 当一个数与本身不相等时，就是Nan。NaN 是唯一与自身不等的值
+        System.out.println(Double.isNaN(Double.NaN));
     }
 
     /**
@@ -59,7 +63,7 @@ public class DoubleDemo {
     private static void equalTest() {
         Double d3 = Double.NaN;
         Double d4 = Double.NaN;
-        // Double 覆写了equals 方法
+        // Double 覆写了equals 方法 : true
         System.out.println(d3.equals(d4));
     }
 

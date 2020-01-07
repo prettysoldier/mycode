@@ -19,7 +19,7 @@ import java.security.ProtectionDomain;
  *      -javaagent:E:\data\idea_workspace\mycode\out\artifacts\PreMainTraceAgent\PreMainTraceAgent.jar=asdf
  *
  * 在执行以上步骤后，JVM 会先执行 premain 方法，大部分类加载都会通过该方法，注意：是大部分，不是所有。
- * 遗漏的主要是系统类，因为很多系统类先于 agent 执行，而用户类的加载肯定是会被拦截的。 *
+ * 遗漏的主要是系统类，因为很多系统类先于 agent 执行，而用户类的加载肯定是会被拦截的。
  * 也就是说，这个方法是在 main 方法启动前拦截大部分类的加载活动，注意：是类加载之前。也就是说，我们可以在这个缝隙中做很多文章，比如修改字节码。
  *
  *

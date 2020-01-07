@@ -30,7 +30,6 @@ public class InterruptCheck3 {
                 i++;
             }
             System.out.println("B: isInterrupted="+Thread.currentThread().isInterrupted());
-            System.out.println("C: isInterrupted="+Thread.currentThread().isInterrupted());
         });
         t.start();
 
@@ -41,6 +40,6 @@ public class InterruptCheck3 {
         }
         t.interrupt();
 
-        System.out.println("D: isInterrupted="+t.isInterrupted());
+        System.out.println("C: isInterrupted="+t.isInterrupted());
     }
 }

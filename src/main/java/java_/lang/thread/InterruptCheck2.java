@@ -38,6 +38,7 @@ public class InterruptCheck2 {
             System.out.println("C: isInterrupted="+Thread.currentThread().isInterrupted());
             Thread.currentThread().interrupt();
             System.out.println("E: isInterrupted="+Thread.currentThread().isInterrupted());
+            // 获取当前线程是否被中断，并清空中断状态
             System.out.println("F: Thread.interrupted()="+Thread.interrupted());
             System.out.println("G: isInterrupted="+Thread.currentThread().isInterrupted());
             try {

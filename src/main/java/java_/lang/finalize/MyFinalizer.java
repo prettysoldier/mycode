@@ -3,9 +3,11 @@ package java_.lang.finalize;
 
 /**
  * https://blog.csdn.net/aitangyong/article/details/39450341
+ *
  * 《Effective Java》中提到“使用finalizer会导致严重的性能损失。在我的机器上，创建和销毁一个简单对象的实践大约是5.6ns，
- * 增加finalizer后时间增加到2400ns。
+ * 增加finalizer后时间增加到2400ns。 *
  * 换言之，创建和销毁带有finalizer的对象会慢430倍”
+ *
  * C:\Documents and Settings\Administrator>jps
  * 4232 Jps
  * 3236 TestObjectHasFinalize
@@ -19,8 +21,8 @@ package java_.lang.finalize;
  * <li>
  * 没有提供finalize()方法的类，占用的堆内存更少，垃圾回收速度更快，而且JVM也不会创建那么多java.lang.ref.Finalizer对象。
  * <li>
- * 为什么有这么多TestObjectHasFinalize对象呢？很简单，垃圾回收的速度变慢了，对象的销毁速度小于对象的创建速度。
- * <li>为什么有这么多的java.lang.ref.Finalizer对象对象呢？这是JVM内部的机制，用来保证finalize只被调用一次。
+ * 为什么有这么多 TestObjectHasFinalize 对象呢？很简单，垃圾回收的速度变慢了，对象的销毁速度小于对象的创建速度。
+ * <li>为什么有这么多的java.lang.ref.Finalizer 对象对象呢？这是JVM内部的机制，用来保证finalize只被调用一次。
  * <li>JVM不确保finalize一定会被执行，而且执行finalize的时间也不确定。
  * 依靠finalizer来关闭文件就是一个严重错误，因为打开文件的描述符是一个有限资源。JVM会延迟执行finalizer，所以大量文件会被保持在打开状态，
  * 当一个程序不再能打开文件的时候，就会运行失败。
@@ -48,7 +50,6 @@ package java_.lang.finalize;
  * cms gc执行到mark阶段的最后时，会把需要gc的对象加入到Reference的pending list中。
  * 有一个专门的高级别线程Reference Handler处理pending list，把pending list中的对象取出来，放到这个对象所指的Reference Queue中，对于Finalizer对象来说，这个queue指向Finalizer类的静态Queue。
  * Finalizer类有一个专门的线程负责从queue中取对象，并且执行finalizer引用的对象的finalize函数。
- * jvm的代码还是非常复杂的，感觉这次看的还是太粗略，会有不少疏漏，过段时间得抽空完整的了解一下jvm源代码。
  *
  * @author Shuaijun He
  */

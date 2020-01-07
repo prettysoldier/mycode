@@ -13,7 +13,10 @@ public class TraceDemo {
 
 
     private static final ThreadLocal<FullLinkContext> FULL_LINK_THREADLOCAL = new ThreadLocal();
-    private static final ThreadLocalRandom RANDOM = ThreadLocalRandom.current();// 这样写有问题
+    /**
+     * 这样写有问题
+     */
+    private static final ThreadLocalRandom RANDOM = ThreadLocalRandom.current();
 
     public static FullLinkContext getContext(){
         FullLinkContext context = FULL_LINK_THREADLOCAL.get();
@@ -34,7 +37,6 @@ public class TraceDemo {
         public String getTraceId() {
             if(StringUtils.isEmpty(this.traceId)){
                 int i = ThreadLocalRandom.current().nextInt(1000);
-//                int i = RANDOM.nextInt(1000);
                 System.out.println(Thread.currentThread().getName() + ":" + i);
                 this.traceId = "init_traceid_" + i;
             }

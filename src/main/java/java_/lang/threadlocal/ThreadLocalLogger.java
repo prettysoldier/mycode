@@ -71,7 +71,7 @@ class ClientThread extends Thread {
     public void run() {
         System.out.println(getName() + " BEGIN");
         for (int i = 0; i < 10; i++) {
-            ThreadLocalLogger.println("i = " + i);
+            ThreadLocalLogger.println(getName() + " : i = " + i);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {

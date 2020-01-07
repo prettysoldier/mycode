@@ -43,9 +43,12 @@ public class IntegerDemo {
 
     }
 
-
-
-
+    /**
+     * 修改 IntegerCache
+     * @param a
+     * @param b
+     * @throws Exception
+     */
     private static void method2 (Integer a, Integer b) throws Exception {
         Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
         theUnsafe.setAccessible(true);
@@ -53,7 +56,7 @@ public class IntegerDemo {
         unsafe.getAndSetInt(a, unsafe.objectFieldOffset(Integer.class.getDeclaredField("value")), 100);
         unsafe.getAndSetInt(b, unsafe.objectFieldOffset(Integer.class.getDeclaredField("value")), 200);
         System.out.println("method2: a=" + a + ",b=" + b);
-        System.out.println("method2: Integer.valueOf(10)=" + Integer.valueOf(10) + ",Integer.valueOf(10)=" + Integer.valueOf(20));
+        System.out.println("method2: Integer.valueOf(10)=" + Integer.valueOf(10) + ",Integer.valueOf(20)=" + Integer.valueOf(20));
         /**
          * Integer.valueOf(10)=100 !! 已经改变了设计者的原意，所以Unsafe是很危险的操作，一定要慎用！！
          */

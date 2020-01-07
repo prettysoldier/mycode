@@ -23,6 +23,7 @@ public class MyInteger {
         // 报错：Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
 //        Object[] o = new Object[Integer.MAX_VALUE -2];
 
+        // 二进制数
         int a = 0b101;
         System.out.println(a);
         byte b = 0b101;
