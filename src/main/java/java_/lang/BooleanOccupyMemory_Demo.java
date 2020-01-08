@@ -77,20 +77,20 @@ public class BooleanOccupyMemory_Demo {
  */
 class A {
     boolean b1 = true;
-    boolean b2 = true;
-    boolean b3 = true;
-    boolean b4 = false;
-
-    boolean b5 = true;
-    boolean b6 = true;
-    boolean b7 = true;
-    boolean b8 = true;
-    boolean b9 = true;
-    boolean b10 = true;
-    boolean b11 = true;
-    boolean b12 = true;
-
-    boolean b13 = true;
+//    boolean b2 = true;
+//    boolean b3 = true;
+//    boolean b4 = false;
+//
+//    boolean b5 = true;
+//    boolean b6 = true;
+//    boolean b7 = true;
+//    boolean b8 = true;
+//    boolean b9 = true;
+//    boolean b10 = true;
+//    boolean b11 = true;
+//    boolean b12 = true;
+//
+//    boolean b13 = true;
     /**
      * reference类型在32位系统上每个占用4bytes, 在64位系统上每个占用8bytes。
      * 开启指针压缩后占用4个字节，默认是开启的

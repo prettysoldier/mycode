@@ -24,7 +24,7 @@ public class NpeDemo {
     }
 
     public static void main(String[] args) {
-//        a();
+        a();
         b();
     }
 }

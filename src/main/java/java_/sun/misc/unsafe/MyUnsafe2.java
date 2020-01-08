@@ -1,4 +1,4 @@
-package sun.misc.unsafe;
+package java_.sun.misc.unsafe;
 
 import sun.misc.Unsafe;
 
