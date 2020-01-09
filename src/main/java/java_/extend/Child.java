@@ -6,16 +6,23 @@ package java_.extend;
  */
 public class Child extends Parent {
 
+    // 说明属性是可以覆写的，但不建议使用
+    static int m = 10;
     static {
+        System.out.println("Child clinit");
+    }
+
+    int m1 = 20;
+    {
         System.out.println("Child init");
     }
 
+
     public Child () {
-        super();
+
     }
 
-    // 说明属性是可以覆写的，但不建议使用
-//    static int m = 2;
+
 
 
     /*
@@ -38,9 +45,9 @@ public class Child extends Parent {
     }
 
     public static void main(String[] args) {
-//        Parent p = new Child();
+        Parent p = new Child();
 //
 //        p.f();
-        System.out.println(m);
+//        System.out.println(m);
     }
 }

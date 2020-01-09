@@ -66,6 +66,7 @@ public class BooleanOccupyMemory_Demo {
 
 /**
  * -javaagent:D:\idea_workspace\mycode\out\artifacts\PreMainTraceAgent\PreMainTraceAgent.jar=asdf -XX:-UseCompressedOops
+ * -javaagent:E:\data\idea_workspace\mycode\out\artifacts\PreMainTraceAgent\PreMainTraceAgent.jar=asdf -XX:-UseCompressedOops
  *
  * 不添加boolean属性时，大小为16B（64位操作系统不压缩指令时，对象头是16B）
  * 当定义<=4个属性时，大小为16B
@@ -76,7 +77,7 @@ public class BooleanOccupyMemory_Demo {
  * 说明boolean类型实例变量，占用1字节。
  */
 class A {
-    boolean b1 = true;
+//    boolean b1 = true;
 //    boolean b2 = true;
 //    boolean b3 = true;
 //    boolean b4 = false;
