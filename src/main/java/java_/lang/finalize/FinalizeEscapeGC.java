@@ -30,7 +30,7 @@ public class FinalizeEscapeGC {
         super.finalize();
         System.out.println("执行finalize方法");
         //自救
-        FinalizeEscapeGC.SAVE_HOOK = this;
+        SAVE_HOOK = this;
     }
 
     public static void main(String[] args) throws InterruptedException {
