@@ -6,6 +6,8 @@ package jvm;
  */
 public class Test {
 
+
+
     public int inc(){
         int x;
         try{

@@ -9,6 +9,7 @@ import java.util.Map;
  * - new Throwable().printStackTrace(PrintStream)
  * - Thread.getAllStackTraces().get(Thread.currentThread())
  * - Thread.dumpStack()
+ * - ExceptionUtils.getFullStackTrace(e)
  *
  * @author hsj
  * @create 2019/12/26

@@ -90,7 +90,7 @@ public class JVMStackTest {
      * Thread.stackSize = 4k 时 stack height:7837
      * Thread.stackSize = 2k 时 stack height:7838
      * Thread.stackSize = 1k 时 stack height:7831
-     * Thread.stackSize = 1 时 stack height:7836  （设置 -Xss512k， stack height= 7834）
+     * Thread.stackSize = 1 时 stack height:7836  （设置 -Xss512k， Sstack height= 7834）
      *
      * Thread.stackSize = 0 时 stack height:7839  （设置 -Xss512k， stack height= 3737）
      * Thread.stackSize = -1 时 stack height:7835 （设置 -Xss512k， stack height= 3737）
