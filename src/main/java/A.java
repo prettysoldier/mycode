@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class A {
 
-    public static final int i = 2;
+    public static final Object i = new Object();
     public static void main (String[] args) {
         new CharForSwitch();
 //        ArrayList<String>[] l = new ArrayList<String>()[1];
