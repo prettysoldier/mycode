@@ -1,5 +1,6 @@
 package java_.lang.invoke;
 
+import java.io.PrintStream;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
@@ -11,6 +12,7 @@ import java.lang.invoke.MethodType;
 public class MethodHandleTest {
 
     static class A{
+
         public void println(String s){
             System.out.println(s);
         }
