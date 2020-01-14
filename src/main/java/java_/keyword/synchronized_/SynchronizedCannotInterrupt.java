@@ -12,9 +12,12 @@ public class SynchronizedCannotInterrupt {
     private static void f1(){
         synchronized (lock){
 
-            while(true){
-                System.out.println(1);
 
+            System.out.println(1);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -23,6 +26,11 @@ public class SynchronizedCannotInterrupt {
 
             while(true){
                 System.out.println(2);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
