@@ -30,7 +30,7 @@ public class ClassLock {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         final ClassLock myt2 = new ClassLock();
         Thread test1 = new Thread(new Runnable() {
             @Override
@@ -49,6 +49,7 @@ public class ClassLock {
 //        TestRunnable tr = new TestRunnable();
 //        Thread test3 = new Thread(tr);
 //        test3.start();
+        new Object().notify();
     }
 
 }
