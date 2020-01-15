@@ -1,4 +1,4 @@
-package java_.lock.synchronize;
+package java_.keyword.synchronized_;
 
 /**
  * @Desc 1 验证哪些类型的方法不在字节码中，private方法不在：不是不在，而是没有显示，使用javap -p 即可！！

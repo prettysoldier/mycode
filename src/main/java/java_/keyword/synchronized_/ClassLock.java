@@ -1,12 +1,12 @@
 
-package java_.lock.synchronize;
+package java_.keyword.synchronized_;
 
 /**
  * @author Shuaijun He
  */
-public class ObjectLock {
+public class ClassLock {
     public void test1() {
-        synchronized (this) {
+        synchronized (ClassLock.class) {
             int i = 5;
             while (i-- > 0) {
                 System.out
@@ -19,7 +19,7 @@ public class ObjectLock {
         }
     }
 
-    public synchronized void test2() {
+    public static synchronized void test2() {
         int i = 5;
         while (i-- > 0) {
             System.out.println(Thread.currentThread().getName() + " : " + i);
@@ -31,7 +31,7 @@ public class ObjectLock {
     }
 
     public static void main(String[] args) {
-        final ObjectLock myt2 = new ObjectLock();
+        final ClassLock myt2 = new ClassLock();
         Thread test1 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -41,23 +41,14 @@ public class ObjectLock {
         Thread test2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                myt2.test2();
+                ClassLock.test2();
             }
         }, "test2");
-        // 如果对象不同，对象锁之间互不干扰
-        final ObjectLock objectLock2 = new ObjectLock();
-        Thread test3 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                objectLock2.test1();
-            }
-        }, "test3");
         test1.start();
         test2.start();
-        test3.start();
-//             TestRunnable tr=new TestRunnable();
-//             Thread test3=new Thread(tr);
-//             test3.start();
+//        TestRunnable tr = new TestRunnable();
+//        Thread test3 = new Thread(tr);
+//        test3.start();
     }
 
 }
