@@ -1,5 +1,5 @@
 
-package java_.lock;
+package java_.lock.synchronize;
 
 /**
  * @author Shuaijun He
