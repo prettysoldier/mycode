@@ -1,4 +1,4 @@
-import java_.syntax.CharForSwitch;
+import source_code_java.java_.syntax.CharForSwitch;
 
 /**
  * @author heshuaijun
