@@ -1,8 +1,4 @@
-import java_.CharForSwitch;
-import java_.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import java_.syntax.CharForSwitch;
 
 /**
  * @author heshuaijun
