@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Premain-Class: source_code_java.java_.lang.instrument.PreMainTraceAgent
+
