@@ -1,19 +1,26 @@
 package source_code_java.java_.syntax.generic;
 
+import java.lang.reflect.TypeVariable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author heshuaijun
  * @date 2020/1/12 22:58
  */
-public class GenericAndReflect<T> {
+public class GenericAndReflect<K, V> {
 
     void test(){
-        Object type = new GenericAndReflect<Integer>().getClass().getGenericInterfaces();
-        System.out.println(type);
-//        Number number = (Number)type;
-//        clazz=(Class)numbergetActualTypeArguments()[0];//得到实际的参数泛型类型 Person
+        TypeVariable[] type = GenericAndReflect.class.getTypeParameters();
+        System.out.println(Arrays.toString(type));
+
+        List<String> list = new ArrayList<>();
+        TypeVariable t = list.getClass().getTypeParameters()[0];
+        System.out.println(t.getTypeName());
     }
     public static void main (String[] args) {
 
-        new GenericAndReflect<Integer>().test();
+        new GenericAndReflect<Integer, String>().test();
     }
 }
