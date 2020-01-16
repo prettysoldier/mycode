@@ -49,7 +49,8 @@ public class ConcurrentHashMap_Demo {
 
 
     public static void main(String[] args) {
-        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap(9, 0.75f);
+        ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap();
+        concurrentHashMap.put("a", 1);
 
     }
 }

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class HashMapTest {
     public static void main(String[] args) {
-        Map<String, String> map = new HashMap<>(1, 1);
+        Map<String, String> map = new HashMap<>(8);
         System.out.println(map);
         map.put("k", "v");
         map.put(null, null);

@@ -28,5 +28,9 @@ public class MyUnsafe2 {
         UNSAFE.putByte(data, byteArrayBaseOffset, (byte) 1);
         UNSAFE.putByte(data, byteArrayBaseOffset + 5, (byte) 5);
         System.out.println(Arrays.toString(data));
+
+        // arrayIndexScale 获取数组中一个元素的大小
+        int scale = UNSAFE.arrayIndexScale(long[].class);
+        System.out.println("scale: " + scale);
     }
 }
