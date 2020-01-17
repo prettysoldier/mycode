@@ -17,10 +17,10 @@ public class CharDemo {
 //        baseTest();
 //        charLength();
 //        codePointTest();
-        System.out.println(Arrays.toString(stringToUnicode("a𤋮a𤋮a𤋮")));
-        System.out.println(Arrays.toString(stringToUnicode2("a𤋮a𤋮a𤋮")));
-        System.out.println(Arrays.toString(stringToUnicode3("a𤋮a𤋮a𤋮")));
-        System.out.println(unicodeArrayToString(stringToUnicode("a𤋮a𤋮a𤋮")));
+//        System.out.println(Arrays.toString(stringToUnicode("a𤋮a𤋮a𤋮")));
+//        System.out.println(Arrays.toString(stringToUnicode2("a𤋮a𤋮a𤋮")));
+//        System.out.println(Arrays.toString(stringToUnicode3("a𤋮a𤋮a𤋮")));
+//        System.out.println(unicodeArrayToString(stringToUnicode("a𤋮a𤋮a𤋮")));
     }
 
     private static void baseTest () {
