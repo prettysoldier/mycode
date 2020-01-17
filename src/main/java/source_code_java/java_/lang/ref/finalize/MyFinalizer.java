@@ -1,5 +1,5 @@
 
-package source_code_java.java_.lang.finalize;
+package source_code_java.java_.lang.ref.finalize;
 
 /**
  * https://blog.csdn.net/aitangyong/article/details/39450341
@@ -47,9 +47,21 @@ package source_code_java.java_.lang.finalize;
  * 在创建对象时，如果对象override了finalize()方法，jvm会同时创建一个Finalizer对象
  * 所有Finalizer对象组成了一个双向链表
  * 所有Finalizer对象都有一个名为queue的成员变量，指向的都是Finalizer类的静态Queue。
- * cms gc执行到mark阶段的最后时，会把需要gc的对象加入到Reference的pending list中。
+ * cms gc执行到mark阶段的最后时，会把需要gc的对象加入到Reference的 pending list 中。
  * 有一个专门的高级别线程Reference Handler处理pending list，把pending list中的对象取出来，放到这个对象所指的Reference Queue中，对于Finalizer对象来说，这个queue指向Finalizer类的静态Queue。
  * Finalizer类有一个专门的线程负责从queue中取对象，并且执行finalizer引用的对象的finalize函数。
+ *
+ * https://blog.csdn.net/zqz_zqz/article/details/79474314
+ * 引用实例有4种状态：
+ * 1.       Active:活动状态,对象存在强引用状态,还没有被回收;
+ *
+ * 2.       Pending:垃圾回收器将没有强引用的Reference对象放入到pending队列中，等待Reference Hander线程处理
+ *              （前提是这个Reference对象创建的时候传入了 ReferenceQueue，否则的话对象会直接进入Inactive状态）；
+ *
+ * 3.       Enqueued:ReferenceHander线程将pending队列中的对象取出来放到 Reference Queue 队列里；
+ *
+ * 4.       Inactive:处于此状态的Reference对象可以被回收,并且其内部封装的对象也可以被回收掉了，有两个路径可以进入此状态，
+
  *
  * @author Shuaijun He
  */

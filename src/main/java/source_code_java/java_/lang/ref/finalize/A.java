@@ -1,4 +1,4 @@
-package source_code_java.java_.lang.finalize;
+package source_code_java.java_.lang.ref.finalize;
 
 /**
  * @author hsj

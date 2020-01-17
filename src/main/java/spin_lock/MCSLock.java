@@ -19,13 +19,8 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class MCSLock {
 
-    private AtomicReference<QNode> tail;
-    private ThreadLocal<QNode> myNode;
-
-    public MCSLock() {
-        tail = new AtomicReference<>(null);
-        myNode = ThreadLocal.withInitial(QNode::new);
-    }
+    private AtomicReference<QNode> tail = new AtomicReference<>(null);
+    private ThreadLocal<QNode> myNode = ThreadLocal.withInitial(QNode::new);
 
     public void lock() {
         QNode qnode = myNode.get();
