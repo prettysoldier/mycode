@@ -5,7 +5,7 @@ package pattern.state;
  * @Author shuaijunhe
  * @CreateTime 2018/11/14 20:05
  **/
-public abstract class AbstractLiftState {
+public abstract class State {
 
     protected LiftContext lift;
 
@@ -29,11 +29,11 @@ public abstract class AbstractLiftState {
 /**
  * 具体状态(ConcreteState)角色：每一个具体状态类都实现了环境（Context）的一个状态所对应的行为。
  */
-class StopState extends AbstractLiftState {
+class StopState extends State {
 
     @Override
     public void open() {
-        this.getLift().setLiftState(LiftContext.openState);
+        this.getLift().setCurState(LiftContext.openState);
         LiftContext.openState.open();
     }
 
@@ -45,7 +45,7 @@ class StopState extends AbstractLiftState {
     @Override
     public void run() {
 
-        this.getLift().setLiftState(LiftContext.runState);
+        this.getLift().setCurState(LiftContext.runState);
         LiftContext.runState.run();
     }
 
@@ -55,7 +55,7 @@ class StopState extends AbstractLiftState {
     }
 }
 
-class OpenState extends AbstractLiftState {
+class OpenState extends State {
 
 
     @Override
@@ -65,7 +65,7 @@ class OpenState extends AbstractLiftState {
 
     @Override
     public void close() {
-        this.getLift().setLiftState(LiftContext.closeState);
+        this.getLift().setCurState(LiftContext.closeState);
         LiftContext.closeState.close();
     }
 
@@ -80,7 +80,7 @@ class OpenState extends AbstractLiftState {
     }
 }
 
-class RunState extends AbstractLiftState {
+class RunState extends State {
 
 
     @Override
@@ -100,16 +100,16 @@ class RunState extends AbstractLiftState {
 
     @Override
     public void stop() {
-        this.getLift().setLiftState(LiftContext.stopState);
+        this.getLift().setCurState(LiftContext.stopState);
         LiftContext.stopState.stop();
     }
 }
 
-class CloseState extends AbstractLiftState {
+class CloseState extends State {
 
     @Override
     public void open() {
-        this.getLift().setLiftState(LiftContext.openState);
+        this.getLift().setCurState(LiftContext.openState);
         LiftContext.openState.open();
     }
 
@@ -120,7 +120,7 @@ class CloseState extends AbstractLiftState {
 
     @Override
     public void run() {
-        this.getLift().setLiftState(LiftContext.runState);
+        this.getLift().setCurState(LiftContext.runState);
         LiftContext.runState.run();
     }
 

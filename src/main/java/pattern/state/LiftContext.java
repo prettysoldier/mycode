@@ -9,11 +9,11 @@ package pattern.state;
  * @Author shuaijunhe
  * @CreateTime 2018/11/14 20:09
  **/
-public class LiftContext extends AbstractLiftState {
+public class LiftContext extends State {
 
     public static void main(String[] args) {
         LiftContext lift = new LiftContext();
-        lift.setLiftState(LiftContext.closeState);
+        lift.setCurState(LiftContext.closeState);
 
         lift.open();
         lift.run();
@@ -25,42 +25,36 @@ public class LiftContext extends AbstractLiftState {
         lift.close();
     }
 
-    private AbstractLiftState liftState = LiftContext.closeState;
+    static final CloseState closeState = new CloseState();
+    static final OpenState openState = new OpenState();
+    static final RunState runState = new RunState();
+    static final StopState stopState = new StopState();
 
-    static CloseState closeState = new CloseState();
-    static OpenState openState = new OpenState();
-    static RunState runState = new RunState();
-    static StopState stopState = new StopState();
+    private State curState = LiftContext.closeState;
 
-
-
-    public AbstractLiftState getLiftState() {
-        return liftState;
-    }
-
-    public void setLiftState(AbstractLiftState liftState) {
-        this.liftState = liftState;
+    public void setCurState (State curState) {
+        this.curState = curState;
         // 同时，把电梯上下文传给状态。
-        this.liftState.setLift(this);
+        this.curState.setLift(this);
     }
 
     @Override
     public void open() {
-        this.liftState.open();
+        this.curState.open();
     }
 
     @Override
     public void close() {
-        this.liftState.close();
+        this.curState.close();
     }
 
     @Override
     public void run() {
-        this.liftState.run();
+        this.curState.run();
     }
 
     @Override
     public void stop() {
-        this.liftState.stop();
+        this.curState.stop();
     }
 }
