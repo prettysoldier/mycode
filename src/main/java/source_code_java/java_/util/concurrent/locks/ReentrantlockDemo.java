@@ -67,7 +67,7 @@ public class ReentrantlockDemo {
                 lock.lock();
                 try
                 {
-                    while(flag != 1) {
+                    if(flag != 1) {
                         condition_A.await();
                     }
                     System.out.print("A");
@@ -94,7 +94,7 @@ public class ReentrantlockDemo {
                 lock.lock();
                 try
                 {
-                    while(flag != 2) {
+                    if(flag != 2) {
                         condition_B.await();
                     }
                     System.out.print("B");
@@ -118,7 +118,7 @@ public class ReentrantlockDemo {
                 lock.lock();
                 try
                 {
-                    while(flag != 3) {
+                    if(flag != 3) {
                         condition_C.await();
                     }
                     System.out.println("C");
