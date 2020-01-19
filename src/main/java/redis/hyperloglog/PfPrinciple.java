@@ -3,7 +3,12 @@ package redis.hyperloglog;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * N=2^K（N:集合元素总数，K:集合中末尾为0的最大位数）
+ * 随机数的数量与这组随机数的末尾连续0的位数最大值存在关系：
+ * N 约等于 2^K（N:集合元素总数，K:集合中末尾为0的最大位数）
+ *
+ * 问题：如果 N 介于 2^K 和 2^(K+1) 之间，用这种方式估计的值都等于 2^K，这明显是不合
+ * 理的。这里可以采用多个 BitKeeper，然后进行加权估计，就可以得到一个比较准确的值。见
+ *
  * @author shuaijunhe
  * @create 2019/3/29
  * @description
@@ -50,7 +55,8 @@ public class PfPrinciple {
             }
         }
         public void debug() {
-            System.out.printf("%d %.2f %d\n", this.n, Math.log(this.n) / Math.log(2), this.keeper.maxbits);
+            System.out.printf("重试次数：%d  log2(n):%.2f 末尾的连续0的位数的最大值：%d\n", this.n, Math.log(this.n) / Math.log(2),
+                    this.keeper.maxbits);
         }
     }
 
