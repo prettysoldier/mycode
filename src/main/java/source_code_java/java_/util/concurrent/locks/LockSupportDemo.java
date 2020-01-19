@@ -5,6 +5,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.locks.LockSupport;
 
 /**
+ * LockSupport 与 wait notify 的区别：
+ * 1. park方法是会响应中断的，但是不会抛出异常。(也就是说如果当前调用线程被中断，则会立即返回但不会抛出中断异常)
+ * 2. LockSupport unpark park 谁先谁后都可以；wait notify 必须先wait 再 notify，否则不能唤醒。
  * @author shuaijunhe
  * @create 2019/10/14
  * @description
