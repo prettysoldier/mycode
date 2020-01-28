@@ -11,13 +11,13 @@ public class SynchronizedCannotInterrupt {
     private static Object lock = new Object();
     private static void f1(){
         synchronized (lock){
-
-
-            System.out.println(1);
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            while(true) {
+                System.out.println(1);
+//                try {
+//                    Thread.sleep(3000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
             }
         }
     }
@@ -41,13 +41,10 @@ public class SynchronizedCannotInterrupt {
         t1.start();
 
         Thread.sleep(1000);
+        t1.interrupt();
 
         Thread t2 = new Thread(()->f2());
         t2.start();
-
-        Thread.sleep(1000);
-
-        t1.interrupt();
     }
 
 }
