@@ -17,6 +17,10 @@ public class Parent {
         System.out.println("parent init");
     }
 
+    public Parent (int m1) {
+        this.m1 = m1;
+    }
+
     public void name() throws ArithmeticException {
         System.out.println("parent");
     }

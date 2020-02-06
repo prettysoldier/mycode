@@ -1,4 +1,4 @@
-package source_code_java.java_.syntax.switch_;
+package source_code_java.java_.syntax.keyword.switch_;
 
 import source_code_java.java_.syntax.enum_.MyEnum;
 
@@ -9,7 +9,9 @@ import source_code_java.java_.syntax.enum_.MyEnum;
 public class MySwitch {
 
     public static void main (String[] args) {
-
+        /**
+         * java7中字符串可以用于switch
+         */
         String s = "asd";
         switch (s){
             case "qqq" :

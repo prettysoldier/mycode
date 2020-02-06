@@ -105,8 +105,8 @@ public class GeoHash {
     }
 
     //将经纬度合并后的二进制进行指定的32位编码
-    private String base32(long i) {
-        char[] buf = new char[65];
+        private String base32(long i) {
+            char[] buf = new char[65];
         int charPos = 64;
         boolean negative = (i < 0);
         if (!negative){
