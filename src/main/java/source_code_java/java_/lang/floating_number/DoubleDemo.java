@@ -15,6 +15,12 @@ public class DoubleDemo {
         infinityTest();
     }
 
+
+    private static void equalSignTest1() {
+        double d1 = Double.NaN;
+        double d3 = d1;
+        System.out.println(d3 == d1);
+    }
     private static void equalSignTest() {
         double d1 = Double.NaN;
         double d3 = d1;

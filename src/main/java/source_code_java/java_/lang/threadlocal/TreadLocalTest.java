@@ -49,7 +49,7 @@ public class TreadLocalTest {
     }
 
     /**
-     * Main
+     * MaxSubString
      * 
      * @param args
      */
