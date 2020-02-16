@@ -7,34 +7,31 @@ package algorithm.string.max_not_repeatable_sub_string;
 public class Main {
 
     public static void main (String[] args) {
-        System.out.println(getSub("Hello Wrold"));
+        System.out.println(maxSub("Hello Wroldadqefsdrrggffrrhyyjyukfvcvny"));
     }
 
-    private static String getSub(String str){
-        if(str == null || str.length() == 0){
-            return "";
-        }
-        if(str.length() == 1){
+    private static String maxSub(String str){
+        if(str == null || str.length() <= 1){
             return str;
         }
-        int[] map = new int[256];
-        for(int i = 0; i < map.length; i++){
-            map[i] = -1;
+        // 动态规划:dp[i]存最后一次出现第i个字符的位置
+        int[] dp = new int[256];
+        for(int i = 0; i < dp.length; i++){
+            dp[i] = -1;
         }
-        int pre = -1;
-        int len = 0;
+
         char[] chars = str.toCharArray();
-        int cur = 0;
-        int start = 0;
+        int maxStart = 0;
+        int maxEnd = 0;
+        int start = -1;
         for(int i = 0; i < chars.length; i++){
-            pre = Math.max(pre, map[chars[i]]);
-            cur = i - pre;
-            if(cur > len){
-                start = pre + 1;
-                len = cur;
+            start = Math.max(start, dp[chars[i]]);
+            if(i - start> maxEnd - maxStart){
+                maxStart = start + 1;
+                maxEnd = i + 1;
             }
-            map[chars[i]] = i;
+            dp[chars[i]] = i;
         }
-        return str.substring(start, start + len);
+        return str.substring(maxStart, maxEnd);
     }
 }
