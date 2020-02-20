@@ -13,5 +13,6 @@ public class B implements A {
     public void a() {
         this.f();
         List<int[]> list = new ArrayList<>();
+
     }
 }
