@@ -15,7 +15,7 @@ public class Writer {
 
     public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub
-        RandomAccessFile memoryMappedFile = new RandomAccessFile("E:\\largeFile.txt", "rw");
+        RandomAccessFile memoryMappedFile = new RandomAccessFile("largeFile.txt", "rw");
 
         // Mapping a file into memory
         MappedByteBuffer out = memoryMappedFile.getChannel().map(

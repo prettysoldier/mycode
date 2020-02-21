@@ -15,7 +15,7 @@ public class Reader {
 
     public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub
-        RandomAccessFile memoryMappedFile = new RandomAccessFile("E:\\largeFile.txt", "rw");
+        RandomAccessFile memoryMappedFile = new RandomAccessFile("largeFile.txt", "rw");
 
         // Mapping a file into memory
         MappedByteBuffer out = memoryMappedFile.getChannel().map(
@@ -23,7 +23,7 @@ public class Reader {
 
         // reading from memory file in Java
         for (int i = 0; i < count; i++) {
-            System.out.println(out.get(i));
+            System.out.println("i = " + i + ", " + out.get(i));
         }
         System.out.println("Reading from Memory Mapped File is completed");
         TimeUnit.HOURS.sleep(1);
