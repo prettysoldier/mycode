@@ -1,7 +1,7 @@
 /**
  * 
  */
-package source_code_java.java_.nio.io;
+package source_code_java.java_.nio.util;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
