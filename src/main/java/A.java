@@ -11,5 +11,8 @@ public final class A {
         new CharForSwitch();
 //        ArrayList<String>[] l = new ArrayList<String>()[1];
         System.out.println(Math. round(1.5));
+
+
+        System.out.println("asf sdf".replaceAll(" ", ""));
     }
 }
